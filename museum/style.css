@@ -116,8 +116,8 @@ h6 {
   height: 50px;
   background-color: #ffffff;
 
-  -webkit-mask-image: url(./assets/svg/Logo.svg);
-  -webkit-mask-size: cover;
+  /* -webkit-mask-image: url(./assets/svg/Logo.svg); */
+  /* -webkit-mask-size: cover; */
   transition: 0.3s;
   cursor: pointer;
 }
@@ -169,7 +169,8 @@ li {
 .welcome {
   height: 950px;
   padding-top: 314px;
-  background: #030303 url("./assets/img/Louvre.png");
+  /* background: #030303 url("./assets/img/Louvre.png"); */
+  background: #030303;
   background-repeat: no-repeat;
   background-position: calc((100% + 705px) / 2) 200px;
 }
@@ -177,6 +178,11 @@ li {
 .welcome__item {
   width: 598px;
   height: 390px;
+}
+
+.section {
+  padding-bottom: 75px;
+  padding-top: 75px;
 }
 
 .section__title {
@@ -218,26 +224,43 @@ li {
 
 /* Visting============*/
 
-.visting__items {
+.visiting__items {
   max-width: 1440px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.visting__item {
+.visiting__item {
   display: block;
   width: 440px;
-  margin-bottom: 74px;
+  /* margin-bottom: 74px; */
+  padding-top: 75px;
   text-decoration: none;
 }
 
-.visting__img {
+.visiting__item::before {
+  position: absolute;
+  display: block;
+  content: "";
+  margin-top: 355px;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 2px;
+  background: #710707;
+}
+
+.visiting__item:hover::before {
+  width: 600px;
+  transition-duration: 0.7s;
+}
+
+.visiting__img {
   align-items: center;
 }
 
 .section__title__white {
-  margin-top: 75px;
+  /* margin-top: 75px; */
   color: #9d8665;
 }
 
@@ -246,12 +269,13 @@ li {
   content: "";
   height: 3px;
   margin-top: 25px;
-  margin-bottom: 75px;
+  /* margin-bottom: 75px; */
   background: #710707;
 }
 
 .section__title__item {
   margin-top: 25px;
+  padding-bottom: 22px;
   font-family: Forum;
   font-style: normal;
   font-weight: normal;
@@ -261,21 +285,6 @@ li {
   text-transform: uppercase;
 
   color: #000000;
-}
-
-.section__title__item::after {
-  display: block;
-  content: "";
-  margin-top: 9px;
-  margin-bottom: 10px;
-  width: 300px;
-  height: 2px;
-  background: #710707;
-}
-
-.section__title__item:hover::after {
-  width: 600px;
-  transition-duration: 0.7s;
 }
 
 .section__subtitle__item {
@@ -303,7 +312,7 @@ li {
 }
 
 .explore__title {
-  margin: 75px 0 50px;
+  margin-bottom: 75px;
   letter-spacing: 5px;
   padding-bottom: 25px;
   border-bottom: 3px solid #710707;
@@ -324,7 +333,8 @@ p span {
 }
 
 .explore__img {
-  margin-top: 90px;
+  padding-top: 25px;
+  /* margin-top: 90px; */
 }
 
 /* video==========*/
@@ -332,13 +342,13 @@ p span {
 .video__inner {
   display: flex;
   flex-direction: column;
-  height: 1009px;
+  /* height: 1009px; */
 }
 
 .video__player {
   display: flex;
   flex-direction: column;
-  margin-top: 90px;
+  /* margin-top: 90px; */
   position: relative;
 }
 
@@ -411,12 +421,12 @@ p span {
 .video__text {
   display: flex;
   justify-content: space-between;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   padding-bottom: 75px;
 }
 
 .video__item {
-  margin-top: 40px;
+  /* margin-top: 40px; */
   width: 50%;
 }
 
@@ -430,7 +440,7 @@ p span {
 /* Tickets========*/
 
 .tickets {
-  height: 893px;
+  min-height: 893px;
   background: #030303;
 }
 
@@ -440,7 +450,7 @@ p span {
 }
 
 .tickets__title {
-  margin: 75px 0;
+  margin-bottom: 75px;
   letter-spacing: 5px;
   padding-bottom: 25px;
 }
@@ -605,6 +615,7 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-top: 75px;
 }
 
 .contacts__btitle__item {
