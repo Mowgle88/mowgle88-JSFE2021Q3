@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="assets/favicon.ico">
+    <link type="image/x-icon" rel="shortcut icon" href="./assets/favicon.ico">
     <title>museum</title>
 </head>
 <body>
@@ -226,7 +226,11 @@
                     </div> 
 
                     <div class="explore__img">
-                        <img src="./assets/img/Explore_img.jpg" alt="Explore">
+                        <div class="back-img" style="width:440px">
+                            <img class="img-before" src="./assets/img/explore-slider/before.jpg" alt="img-before">
+                        </div>
+                        <img class="img-after" src="./assets/img/explore-slider/after.jpg" alt="img-after">
+                        <button class="img-slider"><img src="./assets/img/explore-slider/explore-slider.png" alt="explore-slider"></button>
                     </div>
 
                 </div>
@@ -245,7 +249,6 @@
                     </div>
 
                     <div class="video__player">
-                        <!-- <video src="" poster="./assets/img/poster.jpg" class="player" controls></video> -->
 
                         <img src="./assets/img/poster.jpg" alt="player">
 
@@ -266,53 +269,33 @@
 
                             <button class="screen video__button"><img src="./assets/svg/Screen.svg" alt="screen" class="video__svg"></button>
                         </div>
-
                     </div>
 
             <!-- =========================         -->
 
-                    <div class="slideshow">
+				    <div class="video-slider-wrapper">
+					    <!-- <iframe class="video-main" src="https://www.youtube.com/embed/zp1BXPX8jcU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+					    <div class="video-slider">
+						    <div class="video-slider-set">
+							    <iframe class="video-slider-item" src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							    <iframe class="video-slider-item" src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							    <iframe class="video-slider-item" src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						    </div>
+						    <div class="video-slider-dots">
+							    <button class="video-btn-left"></button>
+							    <div class="video-slider-dots-items">
+								    <div class="video-dot video-dot-unvisited"></div>
+								    <div class="video-dot"></div>
+								    <div class="video-dot"></div>
+								    <div class="video-dot"></div>
+								    <div class="video-dot"></div>
+							    </div>
+							    <button class="video-btn-right"></button>
+						    </div>
+					    </div>
+				    </div>
 
-                        <div class="mySlides fade">
-                          <img src="./assets/video/poster0.jpg" style="width: 100%;" alt="1">
-                        </div>
-                    
-                        <div class="mySlides fade">
-                          <img src="./assets/video/poster1.jpg" style="width: 100%;" alt="2">
-                        </div>
-                    
-                        <div class="mySlides fade">
-                          <img src="./assets/video/poster2.jpg" style="width: 100%;" alt="3">
-                        </div>
-                    
-                        <div class="mySlides fade">
-                          <img src="./assets/video/poster3.jpg" style="width: 100%;" alt="4">
-                        </div>
-                    
-                        <div class="mySlides fade">
-                          <img src="./assets/video/poster4.jpg" style="width: 100%;" alt="5">
-                        </div>
-                    
-                        <a id="prev" onclick="plusSlides(-1)">&#10094</a>
-                        <a id="next" onclick="plusSlides(1)">&#10095</a>
-                    
-                      </div>
-                    
-                      <br>
-                       
-                      <div style="text-align: center;">
-                    
-                        <span class="dot" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                        <span class="dot" onclick="currentSlide(4)"></span>
-                        <span class="dot" onclick="currentSlide(5)"></span>
-                    
-                      </div>
-                    
                     <!-- =============================== -->
-
-
 
                 </div>
             </div>
@@ -326,36 +309,7 @@
                 <div class="picture-container">
                     <div class="picture-inner-container">
                         
-                        <img class="galery_img" src="./assets/img/galery/galery1.jpg" alt="galery1">
-
-                        <img class="galery_img" src="./assets/img/galery/galery2.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery3.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery4.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery5.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery6.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery7.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery8.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery9.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery10.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery11.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery12.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery13.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery14.jpg" alt="galery2">
-
-                        <img class="galery_img" src="./assets/img/galery/galery15.jpg" alt="galery2">
-
+                        
                     </div>
                 </div>
             </div>
@@ -431,8 +385,8 @@
                         <div class="contacts__text">
                             <h4 class="contacts__btitle__item ">Palais Royal <br> Musee du Louvre</h4>
                             <p class="section__subtitle__item contacts__subtitle__item">address:75001 Paris, France</p>
-                            <p class="section__subtitle__item contacts__subtitle__item">phone:+33(0) 1 40 20 50 50</p>
-                            <p class="section__subtitle__item contacts__subtitle__item">mail:info@louvre.fr</p>
+                            <p class="section__subtitle__item contacts__subtitle__item"><a href="tel:+33(0)140205050">phone:+33(0) 1 40 20 50 50</a></p>
+                            <p class="section__subtitle__item contacts__subtitle__item"><a href="mailto:info@louvre.fr"> mail:info@louvre.fr</a></p>
                         </div>
 
                         <img src="./assets/img/Map.png" alt="Map">
@@ -507,7 +461,7 @@
 
             <div class="footer__inner-bottom">
 
-                <img src="./assets/svg/© 2021.svg" target="_blank" alt="RSschool">
+                <p class="footer-year">© 2021</p>
                 <a class="nav__link__footer" href="https://rs.school/js/">The Rolling Scopes School</a>
                 <a class="nav__link__footer" href="https://github.com/Mowgle88?tab=repositories">mowgle88</a>
 
@@ -517,7 +471,7 @@
     </footer>
 
     <script src="./js/main.js"></script>
-    <!-- <script src="./js/gallery.js"></script> -->
+    <script src="./js/gallery.js"></script>
     
 </body>
 </html>
