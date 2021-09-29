@@ -59,8 +59,9 @@ body {
   border: 0;
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 22px;
+  line-height: 26px;
   background-color: #ffffff;
   color: #ffffff;
 }
@@ -248,10 +249,9 @@ li {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 40px;
-  letter-spacing: 4px;
-
+  letter-spacing: 2px;
   text-transform: uppercase;
   z-index: 3;
 }
@@ -342,13 +342,14 @@ li {
 .btn__discover {
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
   width: 360px;
   height: 75px;
-  margin-top: 67px;
+  margin-top: 80px;
   border-radius: 10px;
   background-color: #710707;
-
+  letter-spacing: 2px;
   font-weight: 200;
   color: #ffffff;
   text-decoration: none;
@@ -390,7 +391,7 @@ li {
 }
 
 .visiting__item:hover::before {
-  width: 600px;
+  width: 440px;
   transition-duration: 0.7s;
 }
 
@@ -413,11 +414,12 @@ li {
 }
 
 .section__title__item {
-  margin-top: 25px;
+  margin-top: 19px;
   padding-bottom: 22px;
   font-family: Forum;
   font-style: normal;
   font-weight: normal;
+
   font-size: 32px;
   line-height: 35px;
   letter-spacing: 5px;
@@ -436,6 +438,7 @@ li {
 .small__subtitle {
   margin-top: 10px;
   font-size: 18px;
+  line-height: 21px;
 }
 
 /* explore====================*/
@@ -459,7 +462,7 @@ li {
 
 .explore__subtitle {
   padding-right: 5px;
-  line-height: 38px;
+  line-height: 40px;
   opacity: 0.5;
 }
 
@@ -472,6 +475,7 @@ p span {
 }
 
 .explore__img {
+  max-height: 700px;
   position: relative;
   display: inline-block;
   margin-top: 15px;
@@ -594,7 +598,7 @@ p span {
 .video__subtitle {
   display: flex;
   align-items: center;
-  line-height: 38px;
+  line-height: 40px;
   opacity: 1;
 }
 
@@ -746,9 +750,8 @@ p span {
 }
 
 .tickets__title {
-  margin-bottom: 75px;
+  margin-bottom: 77px;
   letter-spacing: 5px;
-  padding-bottom: 25px;
 }
 
 .tickets__title::after {
@@ -770,13 +773,13 @@ p span {
 }
 
 .ticket__heading {
-  margin-bottom: 50px;
+  margin-bottom: 51px;
 }
 
 .input__wrapper {
   display: block;
-  margin: 25px 0;
-  padding-left: 35px;
+  margin: 26px 0;
+  padding-left: 40px;
   position: relative;
   cursor: pointer;
 }
@@ -842,13 +845,14 @@ h4 {
 }
 
 .button__wrap {
+  padding-top: 16px;
   width: 150px;
   margin-left: calc(100% - 150px);
 }
 
 .p-amount {
-  margin-bottom: 14px;
-  margin-top: 11px;
+  margin-bottom: 15px;
+  margin-top: 10px;
   text-align: left;
 }
 
@@ -857,7 +861,6 @@ h4 {
   text-align: center;
   padding: 0;
   margin: 0;
-  margin-bottom: 24px;
   width: 150px;
   height: 50px;
 
@@ -882,20 +885,24 @@ h4 {
 }
 
 .total {
-  margin-top: 32px;
+  margin-top: 50px;
   text-align: left;
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 1.65px;
 }
 
 .buy__now {
   width: 175px;
   height: 50px;
-  margin-top: 50px;
+  margin-top: 60px;
   font-size: 22px;
   line-height: 26px;
   background: #030303;
   border-radius: 2px;
   color: #ffffff;
   cursor: pointer;
+  letter-spacing: 2px;
 }
 
 .buy__now:hover {
@@ -930,7 +937,7 @@ h4 {
 }
 
 .contacts__btitle__item {
-  margin-bottom: 16px;
+  margin-bottom: 50px;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -941,7 +948,7 @@ h4 {
 }
 
 .contacts__subtitle__item {
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 a {
@@ -1018,6 +1025,10 @@ a {
   color: #ffffff;
 
   transition: color 0.1s linear;
+}
+
+.nav__item__footer {
+  letter-spacing: 2px;
 }
 
 .nav__link__footer:hover {
