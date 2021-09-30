@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/adaptive.css">
+    <link rel="stylesheet" href="./css/slider-welcome.css">
     <link type="image/x-icon" rel="shortcut icon" href="./assets/favicon.ico">
     <title>museum</title>
 </head>
@@ -59,14 +62,41 @@
                             <a href="#explore" class="nav__link">Explore</a></li>
                         <li class="nav__item">
                             <a href="#video" class="nav__link">Video</a></li>
-                            <li class="nav__item">
-                                <a href="#gallery" class="nav__link">Gallery</a></li>
+                        <li class="nav__item">
+                            <a href="#gallery" class="nav__link">Gallery</a></li>
                         <li class="nav__item">
                             <a href="#tickets" class="nav__link">Tickets</a></li>
                         <li class="nav__item">
                             <a href="#contacts" class="nav__link">Contacts</a></li>
                     </ul>
                 </nav>
+
+                <div class="burger">
+                    <input type="checkbox" id="menu">
+                    <label class="menu" for="menu">menu</label>
+                    <div class="line first"></div>
+                    <div class="line second"></div>
+                    <div class="line third"></div>
+                    <div class="line fourth"></div>
+    
+                    <nav class="burger__nav">
+                        <ul class="nav__list">
+                            <li class="burger__item">
+                                <a href="#visiting" class="nav__link">Visiting</a></li>
+                            <li class="burger__item">
+                                <a href="#explore" class="nav__link">Explore</a></li>
+                            <li class="burger__item">
+                                <a href="#video" class="nav__link">Video</a></li>
+                            <li class="burger__item">
+                                <a href="#gallery" class="nav__link">Gallery</a></li>
+                            <li class="burger__item">
+                                <a href="#tickets" class="nav__link">Tickets</a></li>
+                            <li class="burger__item">
+                                <a href="#contacts" class="nav__link">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
             </div>
         </div>
     </header>
@@ -77,12 +107,11 @@
             <div class="container">
                 <div class="welcome__inner">
                     <div class="welcome__item">
-                        <h1 class="section__title">Welcome</h1>
-                        <h2 class="section__title">to the Louvre</h2>
+                        <h1 class="section-welcome">Welcome</h1>
+                        <h2 class="section-welcome">to the Louvre</h2>
                         <p class="section__subtitle">From the castle to the museum</p>
                         <a href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736" target="_blank" class="btn__discover">Discover the Louvre</a>
                     </div>
-
 
 
                     <div class="slider-wrapper">
@@ -90,32 +119,32 @@
                         <div class="slider-shadow"></div>
 
                         <div class="active slide">
-                            
-                            <div class="numbertext">01 | 05</div>
-                            <div class="slide-img">
-                                <img class = "img" src="./assets/img/welcome-slider/1.jpg" alt="1">
-                            </div>
-                          
+                            <img class = "img" src="./assets/img/welcome-slider/1.jpg" alt="1">
                         </div>
+
                         <div class="slide">
-                          <div class="numbertext">02 | 05</div>
                           <img class = "img" src="./assets/img/welcome-slider/2.jpg" alt="2">
                         </div>
+
                         <div class="slide">
-                          <div class="numbertext">03 | 05</div>
                           <img class = "img" src="./assets/img/welcome-slider/3.jpg" alt="3">
                         </div>
                         <div class="slide">
-                          <div class="numbertext">04 | 05</div>
                           <img class = "img" src="./assets/img/welcome-slider/4.jpg" alt="4">
                         </div>
                         <div class="slide">
-                          <div class="numbertext">05 | 05</div>
                           <img class = "img" src="./assets/img/welcome-slider/5.jpg" alt="5">
                         </div>
     
                         <div class="slider-bar">
-                            <div class="slide-num"></div>
+                            <div class="slide-num">
+                                <div class="active numbertext">01 | 05</div>
+                                <div class="numbertext">02 | 05</div>
+                                <div class="numbertext">03 | 05</div>
+                                <div class="numbertext">04 | 05</div>
+                                <div class="numbertext">05 | 05</div>
+
+                            </div>
                        
                             <div class="dots-wrapper">
     
@@ -219,7 +248,8 @@
             <div class="container">
                 <div class="explore__inner">
                     <div class="explore__text">
-                        <h2 class="section__title explore__title">Picture explore</h2>
+                        <h2 class="section__title explore__title explore__title-1024">Picture explore</h2>
+                        
                         <p class="explore__subtitle">Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
                         <p class="explore__subtitle">It was cleaned in 1984 to remove a <span>"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.</p>
                         <p class="explore__subtitle">The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p>
@@ -250,7 +280,7 @@
 
                     <div class="video__player">
 
-                        <img height="650" src="./assets/img/poster.jpg" alt="player">
+                        <img src="./assets/img/poster.jpg" alt="player">
 
                         <button class="video__play video__button"><img src="./assets/svg/Play.svg" alt="play" class="video__svg"></button>
                         
@@ -325,7 +355,9 @@
 
                     <div class="tickets__item">
 
-                        <img src="./assets/img/Tickets.jpg" alt="Tickets">
+                        <img class="ticket-img" src="./assets/img/Tickets.jpg" alt="Tickets">
+
+                        <img class="ticket-img-1024" src="./assets/img/Tickets-1024.jpg" alt="Tickets">
 
                         <div class="ticket__types">
                             <h4 class="ticket__heading">Ticket Type</h4>
@@ -389,7 +421,10 @@
                             <p class="section__subtitle__item contacts__subtitle__item"><a href="mailto:info@louvre.fr"> mail:info@louvre.fr</a></p>
                         </div>
 
-                        <img src="./assets/img/Map.png" alt="Map">
+                        <div class="contact-img">
+                            <img class="map" src="./assets/img/Map.png" alt="Map">
+
+                        </div>   
 
                     </div>
                 </div>
@@ -407,7 +442,7 @@
                             
                         </div>
         
-                        <nav class="nav">
+                        <nav class="nav-footer">
                             <ul class="nav__list__footer">
                                 
                                 <li class="nav__item__footer"><a href="#visting" class="nav__link__footer">Visiting</a></li>
@@ -457,7 +492,7 @@
 
             </div>
 
-            <div class="line"></div>
+            <div class="line-footer"></div>
 
             <div class="footer__inner-bottom">
 

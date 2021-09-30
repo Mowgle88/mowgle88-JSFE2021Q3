@@ -2,6 +2,8 @@ const prev = document.getElementById('btn-prev');
 const next = document.getElementById('btn-next');
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
+const nums = document.querySelectorAll('.numbertext');
+
 
 let index = 0;
 
@@ -19,9 +21,17 @@ const activeDot = n => {
   dots[n].classList.add('active');
 }
 
+const activeNum = n => {
+  for(num of nums) {
+    num.classList.remove('active');
+  }
+  nums[n].classList.add('active');
+}
+
 const CurrentSlide = i => {
   activeSlide(i);
   activeDot(i);
+  activeNum(i);
 }
 
 const nextSlide = () => {
