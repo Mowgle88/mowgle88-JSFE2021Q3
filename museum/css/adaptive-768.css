@@ -1,0 +1,278 @@
+@media (max-width: 950px) {
+  .container {
+    max-width: 728px;
+  }
+
+  .header__inner {
+    height: 110px;
+    background-position: 0 30px;
+  }
+
+  .welcome {
+    max-height: 971px;
+    height: 971px;
+  }
+
+  .welcome__inner {
+    flex-direction: column;
+  }
+
+  .welcome__item {
+    min-height: 215px;
+    height: 325px;
+    width: 100%;
+    padding-top: 110px;
+    text-align: center;
+  }
+
+  .section {
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+
+  .section-welcome {
+    font-size: 40px;
+    line-height: 60px;
+  }
+
+  .section__subtitle {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .btn__discover {
+    display: none;
+  }
+
+  .section__title {
+    font-size: 40px;
+    line-height: 60px;
+  }
+
+  .visiting__items {
+    column-gap: 56px;
+  }
+
+  .visiting__item {
+    width: 280px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .section__title__item {
+    /* margin-top: 19px; */
+    /* padding-bottom: 22px; */
+    font-size: 22px;
+    line-height: 24px;
+    /* letter-spacing: 3px; */
+  }
+
+  .visiting__item::before {
+    margin-top: 239px;
+    /* margin-bottom: 10px;
+   width: 150px; */
+  }
+
+  .visiting__item:hover::before {
+    width: 280px;
+  }
+
+  .section__subtitle__item {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .small__subtitle {
+    /* font-size: 16px; */
+    /* line-height: 19px; */
+    letter-spacing: 0.5;
+  }
+
+  .explore__title {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+  }
+
+  .explore__subtitle {
+    display: none;
+  }
+
+  .explore__img {
+    margin-top: 0;
+  }
+
+  .video__text {
+    padding-bottom: 20px;
+  }
+
+  .video__play {
+    width: 80px;
+  }
+
+  .panel {
+    height: 53px;
+  }
+
+  .video-slider {
+    height: 230px;
+    margin-top: 21px;
+  }
+
+  .video-slider-set {
+    height: 199px;
+  }
+
+  .video-slider-item {
+    width: auto;
+    height: 100%;
+  }
+
+  /* .video-slider-item {
+   width: 100%;
+   height: auto;
+ } */
+
+  .video-slider-dots {
+    width: 200px;
+    height: 10px;
+    margin-top: 21px;
+    margin-bottom: 40px;
+  }
+
+  /* .gallery {
+    height: 1220px;
+  } */
+
+  .section.gallery {
+    padding-bottom: 0;
+  }
+
+  .gallery__title {
+    margin-bottom: 40px;
+  }
+
+  .picture-container {
+    height: 1080px;
+  }
+
+  .picture-inner-container {
+    height: 2330px;
+    column-gap: 24px;
+  }
+
+  .galery-img {
+    width: 352px;
+  }
+
+  .tickets__title {
+    margin-bottom: 40px;
+  }
+
+  .tickets__title::after {
+    margin-top: 20px;
+  }
+
+  .tickets__item {
+    justify-content: unset;
+    column-gap: 60px;
+  }
+
+  .ticket-img-1024 {
+    width: 444px;
+    height: 340px;
+  }
+
+  .button__wrap {
+    padding-top: 14px;
+  }
+
+  .p-amount {
+    margin-top: 25px;
+  }
+
+  .total {
+    margin-top: 39px;
+  }
+
+  .buy__now {
+    margin-top: 40px;
+  }
+
+  .parallax {
+    height: 300px;
+  }
+
+  .contacts__item {
+    flex-direction: column;
+    padding-top: 40px;
+  }
+
+  .contacts__text {
+    width: 100%;
+  }
+
+  .contacts__btitle__item {
+    margin-bottom: 40px;
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .contacts__subtitle__item {
+    margin: 15px 0;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .contact-img {
+    margin-top: 40px;
+    max-width: 728px;
+  }
+
+  .footer {
+    height: 411px;
+    padding-top: 40px;
+  }
+
+  .footer__inner-top {
+    height: 268px;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+    /* flex-direction: column; */
+  }
+
+  .nav-footer {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .social {
+    padding-left: 273px;
+  }
+
+  .social__item {
+    margin-top: 0;
+    margin-left: 25px;
+  }
+
+  .nav-footer {
+    padding-left: 99px;
+  }
+
+  .nav__list__footer {
+    padding-left: 0;
+    padding-right: 184px;
+  }
+
+  .nav__list__footer:last-child {
+    padding-right: 0;
+  }
+
+  .nav__list__footer:first-child {
+    padding-left: 0;
+  }
+
+  .footer__inner-bottom {
+    height: 102px;
+  }
+}

@@ -1,20 +1,11 @@
-@media (max-width: 1100px) {
+@media (max-width: 1350px) {
   .container {
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
+    max-width: 984px;
   }
 
   .header__inner {
-    padding: 0 20px 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 130px;
-    background: #030303;
-    background-image: url(../assets/svg/Logo.svg);
-    background-repeat: no-repeat;
-    background-position: 20px 40px;
+    background-position: 0 40px;
   }
 
   .nav {
@@ -27,18 +18,16 @@
 
   .welcome {
     max-height: 715px;
-    padding: 0 20px 0 20px;
     position: relative;
   }
 
   .welcome__item {
     min-height: 960px;
     padding-top: 180px;
-    padding-left: 20px;
   }
 
   .section {
-    /* padding-bottom: 75px; */
+    padding-bottom: 60px;
     padding-top: 60px;
   }
 
@@ -63,7 +52,6 @@
   .section__title {
     font-size: 50px;
     line-height: 75px;
-    padding-left: 20px;
   }
 
   .underline::after {
@@ -71,8 +59,6 @@
   }
 
   .visiting__items {
-    padding-left: 20px;
-    padding-right: 20px;
     justify-content: center;
     column-gap: 108px;
   }
@@ -98,7 +84,6 @@
 
   .visiting__item:hover::before {
     width: 330px;
-    transition-duration: 0.7s;
   }
 
   .section__subtitle__item {
@@ -128,7 +113,6 @@
 
   .explore__text {
     width: 100%;
-    padding: 0 20px 0 20px;
   }
 
   .explore__subtitle {
@@ -155,10 +139,6 @@
     display: none;
   }
 
-  .video__player {
-    padding: 0 20px 0 20px;
-  }
-
   .video__play {
     top: 50%;
     left: 50%;
@@ -173,12 +153,15 @@
     width: 420px;
   }
 
+  .section.gallery {
+    padding-bottom: 0;
+  }
+
   .gallery__title {
     margin-bottom: 60px;
   }
 
   .picture-container {
-    padding: 0 20px 0 20px;
     height: 1265px;
   }
 
@@ -195,7 +178,6 @@
   }
 
   .tickets__item {
-    padding: 0 20px 0 20px;
     justify-content: center;
     column-gap: 80px;
   }
@@ -239,8 +221,11 @@
 
   .contacts__item {
     padding-top: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+  }
+
+  .footer {
+    /* height: 392px; */
+    padding-top: 62px;
   }
 
   .footer__item {
@@ -250,13 +235,7 @@
 
   .contact-img {
     max-width: 694px;
-  }
-
-  .footer__inner-top,
-  .footer__inner-bottom {
-    margin-left: 20px;
-    margin-right: 20px;
-    /* padding: 0 20px 0 20px; */
+    width: 100%;
   }
 
   .nav__list__footer {
