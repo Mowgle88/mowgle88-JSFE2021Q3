@@ -55,7 +55,7 @@ h6 {
   align-items: center;
   height: 150px;
   background: #030303;
-  background-image: url(../assets/svg/Logo.svg);
+  /* background-image: url(../assets/svg/Logo.svg); */
   background-repeat: no-repeat;
   background-position: 0 50px;
 }
@@ -63,6 +63,8 @@ h6 {
 .mask {
   width: 195px;
   height: 49px;
+  align-items: center;
+
   background-color: #ffffff;
 
   mask-image: url(../assets/svg/Logo.svg);
@@ -116,7 +118,7 @@ li {
 /* burger====================== */
 .burger {
   display: none;
-  width: 100%;
+  width: 65%;
   height: 18px;
   margin-left: auto;
   padding: 5px;
@@ -577,31 +579,29 @@ p span {
   background: #333333;
 }
 
-.video-btn-left {
-  width: 10px;
+.video-slider-left,
+.video-slider-right {
   height: 12px;
-  transition: 0.5s;
-  border: 0;
-  background: url(../assets/svg/video-slider-left.svg);
+  width: 12px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  fill: #999999;
+  transition: opacity 0.7s ease-in-out;
+  user-select: none;
   cursor: pointer;
 }
 
-.video-btn-right {
-  width: 10px;
-  height: 12px;
-  transition: 0.5s;
-  border: 0;
-  background: url(../assets/svg/video-slider-right.svg);
-  cursor: pointer;
+.video-slider-left-420,
+.video-slider-right-420 {
+  display: none;
 }
 
-.video-btn-left:hover {
-  background: url(../assets/svg/video-slider-left-hover.svg);
-  transition: 0.5s;
-}
-.video-btn-right:hover {
-  background: url(../assets/svg/video-slider-right-hover.svg);
-  transition: 0.5s;
+.video-slider-left:hover,
+.video-slider-left-420:hover,
+.video-slider-right:hover,
+.video-slider-right-420:hover {
+  fill: #333333;
 }
 
 /* gallery============================== */
@@ -914,7 +914,7 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: row;
-  background-image: url(../assets/svg/Logo.svg);
+  /* background-image: url(../assets/svg/Logo.svg); */
   background-repeat: no-repeat;
 }
 
@@ -951,6 +951,10 @@ a {
 .nav-footer {
   display: flex;
   justify-content: space-between;
+}
+
+.nav-footer-420 {
+  display: none;
 }
 
 .nav__list__footer {
