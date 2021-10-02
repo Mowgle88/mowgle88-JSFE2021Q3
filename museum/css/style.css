@@ -689,6 +689,10 @@ p span {
   display: none;
 }
 
+.ticket-img-420 {
+  display: none;
+}
+
 .ticket__types {
   width: 25%;
   padding-left: 60px;

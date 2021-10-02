@@ -83,11 +83,16 @@
   height: 16px;
   background-color: #ffffff;
   cursor: pointer;
+  user-select: none;
 }
 
 .dot.active {
   background-color: #9d8665;
   cursor: pointer;
+}
+
+.arrow-420 {
+  display: none;
 }
 
 .arrow {
@@ -98,9 +103,11 @@
   padding: 0;
   fill: #ffffff;
   transition: opacity 0.7s ease-in-out;
+  user-select: none;
 }
 
-.arrow:hover {
+.arrow:hover,
+.arrow-420:hover {
   fill: #9d8665;
 }
 
@@ -193,5 +200,64 @@
 
   .btns {
     margin-right: 167px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slider-wrapper {
+    width: 380px;
+    height: 285px;
+  }
+
+  .slider-shadow {
+    width: 380px;
+    height: 285px;
+    bottom: -80px;
+  }
+
+  .slider-bar {
+    width: 100%;
+    bottom: -80px;
+
+    height: 80px;
+  }
+
+  .slide-num {
+    margin-left: 75px;
+    width: 65px;
+  }
+
+  .numbertext.active {
+    font-size: 16px;
+  }
+
+  .dots-wrapper {
+    width: 75px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .btns {
+    margin-right: 75px;
+    width: 55px;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .arrow-420 {
+    display: block;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    fill: #ffffff;
+    transition: opacity 0.7s ease-in-out;
+    user-select: none;
   }
 }

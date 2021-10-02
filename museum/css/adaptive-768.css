@@ -44,19 +44,19 @@
     display: none;
   }
 
-  .section__title {
+  /* .section__title {
     font-size: 40px;
     line-height: 60px;
-  }
+  } */
 
   .visiting__items {
     column-gap: 56px;
+    padding-bottom: 40px;
   }
 
   .visiting__item {
     width: 280px;
     padding-top: 40px;
-    padding-bottom: 40px;
   }
 
   .section__title__item {
@@ -156,12 +156,16 @@
   }
 
   .picture-inner-container {
-    height: 2330px;
+    height: 3700px;
     column-gap: 24px;
   }
 
   .galery-img {
     width: 352px;
+  }
+
+  .galery-img:nth-child(11n) {
+    margin-top: 0;
   }
 
   .tickets__title {

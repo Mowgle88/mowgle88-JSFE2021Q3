@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/adaptive-1024.css">
     <link rel="stylesheet" href="./css/adaptive-768.css">
+    <link rel="stylesheet" href="./css/adaptive-420.css">
     <link rel="stylesheet" href="./css/slider-welcome.css">
     <link type="image/x-icon" rel="shortcut icon" href="./assets/favicon.ico">
     <title>museum</title>
@@ -42,7 +43,15 @@
             <path d="M24.2775 1.97284e-06C26.0983 1.68661 28.0058 2.91738 30 3.69231L30 4.30769C28.0058 5.10541 26.0983 6.33618 24.2775 8L22.7601 8C23.6272 6.5641 24.4653 5.47009 25.2746 4.71795L3.48964e-07 4.71795L5.01636e-07 3.28205L25.2746 3.28205C24.4653 2.52992 23.6272 1.4359 22.7601 1.86378e-06L24.2775 1.97284e-06Z"/>
         </symbol>
 
+        <symbol id="right-420" width="20" height="8" viewBox="0 0 30 8">
+            <path d="M24.2775 1.97284e-06C26.0983 1.68661 28.0058 2.91738 30 3.69231L30 4.30769C28.0058 5.10541 26.0983 6.33618 24.2775 8L22.7601 8C23.6272 6.5641 24.4653 5.47009 25.2746 4.71795L3.48964e-07 4.71795L5.01636e-07 3.28205L25.2746 3.28205C24.4653 2.52992 23.6272 1.4359 22.7601 1.86378e-06L24.2775 1.97284e-06Z"/>
+        </symbol>
+
         <symbol id="left" width="30" height="8" viewBox="0 0 30 8">
+            <path d="M5.72254 8C3.90173 6.31339 1.99422 5.08262 0 4.30769V3.69231C1.99422 2.89459 3.90173 1.66382 5.72254 0H7.23988C6.37283 1.4359 5.53468 2.52991 4.72543 3.28205H30V4.71795H4.72543C5.53468 5.47009 6.37283 6.5641 7.23988 8H5.72254Z"/>
+        </symbol>
+
+        <symbol id="left-420" width="20" height="8" viewBox="0 0 30 8">
             <path d="M5.72254 8C3.90173 6.31339 1.99422 5.08262 0 4.30769V3.69231C1.99422 2.89459 3.90173 1.66382 5.72254 0H7.23988C6.37283 1.4359 5.53468 2.52991 4.72543 3.28205H30V4.71795H4.72543C5.53468 5.47009 6.37283 6.5641 7.23988 8H5.72254Z"/>
         </symbol>
 
@@ -160,11 +169,19 @@
                                     <svg class="arrow">
                                         <use xlink:href="#left"></use>
                                     </svg>
+
+                                    <svg class="arrow-420">
+                                        <use xlink:href="#left-420"></use>
+                                    </svg>
                                 </div>
 
                                 <div id="btn-next">
                                     <svg class="arrow">
                                         <use xlink:href="#right"></use>
+                                    </svg>
+
+                                    <svg class="arrow-420">
+                                        <use xlink:href="#right-420"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -358,6 +375,8 @@
 
                         <img class="ticket-img-1024" src="./assets/img/Tickets-1024.jpg" alt="Tickets">
 
+                        <img class="ticket-img-420" src="./assets/img/Tickets-420.jpg" alt="Tickets">
+
                         <div class="ticket__types">
                             <h4 class="ticket__heading">Ticket Type</h4>
                             <label class="input__wrapper">Permanent exhibition
@@ -444,7 +463,7 @@
                         <nav class="nav-footer">
                             <ul class="nav__list__footer">
                                 
-                                <li class="nav__item__footer"><a href="#visting" class="nav__link__footer">Visiting</a></li>
+                                <li class="nav__item__footer"><a href="#visiting" class="nav__link__footer">Visiting</a></li>
                                 <li class="nav__item__footer"><a href="#explore" class="nav__link__footer">Explore</a></li>
                                 <li class="nav__item__footer"><a href="#video" class="nav__link__footer">Video</a></li>
                             </ul>
@@ -496,7 +515,7 @@
             <div class="footer__inner-bottom">
 
                 <p class="footer-year">© 2021</p>
-                <a class="nav__link__footer" href="https://rs.school/js/">The Rolling Scopes School</a>
+                <a class="nav__link__footer rs" href="https://rs.school/js/">The Rolling Scopes School</a>
                 <a class="nav__link__footer" href="https://github.com/Mowgle88?tab=repositories">mowgle88</a>
 
             </div>
