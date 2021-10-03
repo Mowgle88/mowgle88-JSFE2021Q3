@@ -1,0 +1,247 @@
+@media (max-width: 1350px) {
+  .container {
+    max-width: 984px;
+  }
+
+  .header__inner {
+    height: 130px;
+    background-position: 0 40px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .welcome {
+    max-height: 715px;
+    position: relative;
+  }
+
+  .welcome__item {
+    min-height: 960px;
+    padding-top: 180px;
+  }
+
+  .section {
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+
+  .section-welcome {
+    font-size: 50px;
+  }
+
+  .section__subtitle {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 2px;
+  }
+
+  .btn__discover {
+    width: 300px;
+    height: 60px;
+    font-size: 20px;
+    line-height: 23px;
+    margin-top: 50px;
+  }
+
+  .section__title {
+    font-size: 50px;
+    line-height: 75px;
+  }
+
+  .underline::after {
+    margin-top: 20px;
+  }
+
+  .visiting__items {
+    justify-content: center;
+    column-gap: 108px;
+  }
+
+  .visiting__item {
+    width: 330px;
+    padding-top: 60px;
+  }
+
+  .section__title__item {
+    /* margin-top: 19px; */
+    /* padding-bottom: 22px; */
+    font-size: 28px;
+    line-height: 31px;
+    letter-spacing: 3px;
+  }
+
+  .visiting__item::before {
+    margin-top: 281px;
+    margin-bottom: 10px;
+    width: 150px;
+  }
+
+  .visiting__item:hover::before {
+    width: 330px;
+  }
+
+  .section__subtitle__item {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .small__subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .explore__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .explore__title {
+    margin-bottom: 60px;
+    /* padding-bottom: 20px; */
+    /* border-bottom: 3px solid #710707; */
+  }
+
+  .explore__title-1024 {
+    padding-left: 0;
+  }
+
+  .explore__text {
+    width: 100%;
+  }
+
+  .explore__subtitle {
+    /* padding-right: 5px; */
+    margin: 0;
+    font-size: 20px;
+    line-height: 38px;
+    opacity: 0.5;
+  }
+
+  .explore__subtitle:last-child {
+    display: none;
+  }
+
+  .explore__img {
+    margin: 62px auto 0;
+  }
+
+  .video__text {
+    padding-bottom: 40px;
+  }
+
+  .video__subtitle {
+    display: none;
+  }
+
+  .video__play {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0);
+  }
+
+  .panel {
+    height: 60px;
+  }
+  .range__rewind {
+    width: 420px;
+  }
+
+  .section.gallery {
+    padding-bottom: 0;
+  }
+
+  .gallery__title {
+    margin-bottom: 60px;
+  }
+
+  .picture-container {
+    height: 1265px;
+  }
+
+  .picture-inner-container {
+    height: 2100px;
+  }
+
+  .galery-img {
+    width: 304px;
+  }
+
+  .tickets__title {
+    margin-bottom: 60px;
+  }
+
+  .tickets__item {
+    justify-content: center;
+    column-gap: 80px;
+  }
+
+  .ticket__types {
+    display: none;
+  }
+
+  .ticket-img {
+    display: none;
+  }
+
+  .ticket-img-1024 {
+    display: block;
+  }
+
+  .amount {
+    text-align: left;
+  }
+
+  .button__wrap {
+    margin-left: 0;
+  }
+
+  .amount-button {
+    width: 175px;
+  }
+
+  .p-amount {
+    margin-bottom: 10px;
+    margin-top: 29px;
+  }
+
+  .total {
+    margin-top: 25px;
+  }
+
+  .buy__now {
+    margin-top: 69px;
+  }
+
+  .contacts__item {
+    padding-top: 60px;
+  }
+
+  .footer {
+    /* height: 392px; */
+    padding-top: 62px;
+  }
+
+  .footer__item {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .contact-img {
+    max-width: 694px;
+    width: 100%;
+  }
+
+  .nav__list__footer {
+    padding-left: 100px;
+  }
+  .nav__list__footer:first-child {
+    padding-left: 45px;
+  }
+}
