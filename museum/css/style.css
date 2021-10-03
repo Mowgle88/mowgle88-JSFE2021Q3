@@ -118,11 +118,10 @@ li {
 /* burger====================== */
 .burger {
   display: none;
-  width: 65%;
-  height: 18px;
+  width: 36px;
+  height: 130px;
   margin-left: auto;
-  padding: 5px;
-  text-align: center;
+  /* text-align: center; */
   position: relative;
 }
 
@@ -133,10 +132,10 @@ li {
 .menu {
   display: block;
   position: absolute;
-  top: 10px;
-  left: -20px;
-  width: 100%;
-  height: 100%;
+  top: 51px;
+  left: 0;
+  width: 35px;
+  height: 35px;
   font-size: 1.5rem;
   color: #ffffff;
   cursor: pointer;
@@ -145,8 +144,8 @@ li {
 
 .line {
   position: absolute;
-  top: 8px;
-  right: 20px;
+  top: 57px;
+  right: 0;
   width: 35px;
   height: 2px;
   background-color: #ffffff;
@@ -154,33 +153,56 @@ li {
 
 .second,
 .third {
-  top: 18px;
+  top: 65px;
 }
 
 .fourth {
-  top: 28px;
+  top: 73px;
 }
 
 .burger__nav {
   display: block;
   position: absolute;
-  width: 130px;
-  bottom: 53px;
-  left: 0;
+  width: 297px;
+  max-width: 0;
+
+  height: 585px;
+  bottom: 0;
+  left: calc(100% - 985px);
   transform: translateY(100%);
-  max-height: 0;
+  background: #030303;
+  /* max-height: 0; */
   font-size: 0;
   overflow: hidden;
   transition: 0.5s all;
 }
 
+.burger__list {
+  padding: 0;
+  width: 122px;
+  height: 283px;
+  margin: 35px;
+}
+
+.burger-imgs {
+  display: none;
+}
+
+.burger-social {
+  display: none;
+}
+
 .burger__item {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #menu:checked ~ .burger__nav {
-  max-height: 600px;
+  max-width: 297px;
+  /* max-height: 600px; */
   font-size: 1rem;
+  /* font-size: 20px; */
 }
 
 #menu:checked ~ .first {
@@ -198,6 +220,12 @@ li {
 #menu:checked ~ .fourth {
   display: none;
 }
+
+#menu:checked ~ .section-welcome {
+  /* display: none; */
+  z-index: 0;
+}
+
 /* main======== */
 
 /* welcome=============*/
