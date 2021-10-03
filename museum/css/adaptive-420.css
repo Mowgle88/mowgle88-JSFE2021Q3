@@ -4,9 +4,6 @@
   }
 
   .mask {
-    /* width: 195px;v */
-    /* height: 49px; */
-
     mask-image: url(../assets/svg/Logo-420.svg);
     mask-size: cover;
     -webkit-mask-image: url(../assets/svg/Logo-420.svg);
@@ -20,6 +17,46 @@
     background-position: 0 30px;
   }
 
+  .burger__nav {
+    display: block;
+    position: absolute;
+    width: 380px;
+    max-width: 0;
+
+    height: 544px;
+    bottom: 40px;
+    left: calc(100% - 380px);
+    
+  }
+
+  #menu:checked ~ .burger__nav {
+    max-width: 380px;
+    /* max-height: 861px; */
+    font-size: 1rem;
+  }
+
+  .burger-imgs {
+    display: none;
+  }
+
+  .burger-imgs-420 {
+    margin: 0 auto;
+    max-width: 311px;
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 13px;
+    row-gap: 13px;
+  }
+
+  .burger-social {
+    height: 96px;
+    margin-top: 20px;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
   .welcome {
     height: 634px;
   }
@@ -31,11 +68,6 @@
     padding-top: 95px;
     text-align: center;
   }
-
-  /* .section {
-   padding-bottom: 40px;
-   padding-top: 40px;
- } */
 
   .section-welcome {
     font-size: 28px;
@@ -83,12 +115,8 @@
   .explore__img {
     max-width: 380px;
     max-height: 368px;
-    /* height: auto; */
-    /* position: relative;
-    display: inline-block;
-    margin-top: 15px;
-    overflow: hidden;
-    user-select: none; */
+    width: 100%;
+    position: relative;
   }
 
   .img-after {
@@ -97,13 +125,17 @@
   }
 
   .back-img {
-    width: 230px !important;
-    /* max-height: 368px; */
-    /* width: 100%; */
+    display: none;
   }
 
-  div.style {
-    width: 230px;
+  .back-img-420 {
+    display: block;
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+    /* max-height: 368px; */
+    /* width: 100%; */
   }
 
   .img-before {
@@ -112,7 +144,7 @@
 
   .img-slider {
     padding: 0;
-    left: 210px;
+    left: 220px;
     max-height: 368px;
     width: auto;
   }
@@ -142,12 +174,15 @@
   }
 
   .video-slider-set {
-    height: 101px;
+    width: 100%;
+    height: 100%;
+    /* row-gap: 20px; */
   }
 
   .video-slider-item {
-    height: 101px;
-    width: 180px;
+    max-height: 101px;
+    width: calc(50% - 10px);
+
   }
 
   .video-slider-dots {
@@ -197,7 +232,8 @@
   }
 
   .galery-img {
-    width: 178px;
+    /* max-width: 178px; */
+    width: calc(50% - 12px);
   }
 
   .tickets__item {

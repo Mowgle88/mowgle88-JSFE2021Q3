@@ -188,6 +188,10 @@ li {
   display: none;
 }
 
+.burger-imgs-420 {
+  display: none;
+}
+
 .burger-social {
   display: none;
 }
@@ -431,6 +435,10 @@ p span {
   height: 100%;
   overflow: hidden;
   user-select: none;
+}
+
+.back-img-420 {
+  display: none;
 }
 
 .img-before {
@@ -875,10 +883,6 @@ h4 {
 
 /* contact=======================*/
 
-/* .contacts {
-  height: 963px;
-} */
-
 .contacts__inner {
   display: flex;
   flex-direction: column;
@@ -1039,3 +1043,4 @@ a {
   fill: #9d8665;
   border: 1px solid #9d8665;
 }
+
