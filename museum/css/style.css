@@ -473,81 +473,69 @@ p span {
   height: auto;
 }
 
+.panel {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  height: 85px;
+  background-color: #030303;
+  padding: 0 20px 0 20px;
+}
+
 .video__button {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border: 0;
   padding: 0;
   cursor: pointer;
 }
 
 .video__play {
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0);
 }
 
-.panel {
-  margin: 0;
-  height: 85px;
-  position: relative;
-  background-color: #030303;
-}
 
 .previous {
-  left: 41px;
   background: #030303;
 }
 
 .play_panel {
-  left: 109px;
   background: #030303;
 }
 
 .next {
-  left: 173px;
   background: #030303;
 }
 
 .range__rewind {
-  width: 820px;
-  position: absolute;
-  top: calc((100% - 16px) / 2);
-  left: 241px;
+  width: 55%;
+  max-width: 820px;
   cursor: pointer;
 }
 
 .mute {
-  top: 28px;
-  left: 1102px;
   background: #030303;
 }
 
 .range__volume {
-  width: 155px;
-  position: absolute;
-  top: 34px;
-  left: 1160px;
+  max-width: 155px;
+  width: 10%;
   cursor: pointer;
 }
 
 .screen {
-  top: 25px;
-  left: 1363px;
   background: #030303;
 }
 
 .video__text {
   display: flex;
   justify-content: space-between;
-  /* padding-top: 40px; */
   padding-bottom: 75px;
 }
 
 .video__item {
-  /* margin-top: 40px; */
   width: 50%;
 }
 
