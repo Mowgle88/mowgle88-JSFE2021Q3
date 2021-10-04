@@ -149,12 +149,23 @@
     margin-top: 0;
   }
 
+  .img-after {
+    max-width: 726px;
+    width: 100%;
+  }
+
+
   .video__text {
     padding-bottom: 20px;
   }
 
   .video__play {
     width: 80px;
+  }
+
+  .previous,
+  .next {
+    display: none;
   }
 
   .panel {
@@ -171,8 +182,8 @@
   }
 
   .video-slider-item {
-    width: auto;
-    height: 100%;
+    max-height: 199px;
+    width: calc(50% - 10px);
   }
 
   .video-slider-item:last-child {
@@ -234,6 +245,10 @@
     padding-top: 14px;
   }
 
+  .amount-button {
+    max-width: 175px;
+}
+
   .p-amount {
     margin-top: 25px;
   }
@@ -243,6 +258,7 @@
   }
 
   .buy__now {
+    max-width: 175px;
     margin-top: 40px;
   }
 
