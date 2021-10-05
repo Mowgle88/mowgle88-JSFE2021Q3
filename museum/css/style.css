@@ -496,7 +496,6 @@ p span {
   background: rgba(0, 0, 0, 0);
 }
 
-
 .previous {
   background: #030303;
 }
@@ -866,6 +865,7 @@ h4 {
   height: 400px;
   background: url("../assets/img/parallax.jpg");
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
 }
 
@@ -1031,4 +1031,3 @@ a {
   fill: #9d8665;
   border: 1px solid #9d8665;
 }
-
