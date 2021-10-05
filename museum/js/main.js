@@ -67,38 +67,56 @@ prev.addEventListener('click', prevSlide);
 
 // setInterval(nextSlide, 2500)
 
+console.log(`Не выполненные/не засчитанные пункты:
 
+Форма покупки билетов
+Форма покупки билетов
+Форма покупки билетов
+кастомного видеоплеера в секции Video
+при клике по ссылке в адаптивном меню, или при клике по любому месту сайта, кроме самого адаптивного меню, меню закрывается
+Результат проверки скорости сайта для мобильных устройств: 0 to 49 (red): Poor - не выполнено 0 ,баллов; 50 to 89 (orange): Needs Improvement - частично выполнено - 4 баллов; 90 to 100 (green): Good - выполнено полностью - 8 баллов
 
-// let slides = document.getElementsByClassName("mySlides");
-// let dots = document.getElementsByClassName("dot");
+Частично выполненные пункты:
 
+Секция Video
+Секция Video
+Секция Video
 
-// let slideIndex = 1;
+Выполненные пункты:
 
-// showSlides(slideIndex);
+Блок header
+Секция Welcome
+Секция Visiting
+Секция Explore
+Секция Gallery
+Секция Tickets
+Секция Contacts
+Блок footer
+Блок header
+Секция Welcome
+Секция Visiting
+Секция Explore
+Секция Gallery
+Секция Tickets
+Секция Contacts
+Блок footer
+Блок header
+Секция Welcome
+Секция Visiting
+Секция Explore
+Секция Gallery
+Секция Tickets
+Секция Contacts
+Блок footer
+Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки, элементы не должны скрываться, обрезаться, наезжать друг на друга, если это не предусмотрено макетом.
+слайдера в секции Welcome
+слайдера сравнения изображений в секции Explore
+слайдера в секции Video
+YouTube-видео в плейлисте в секции Video, маленькие видео выровнены по краям большого
+галереи изображений и изображений в ней
+карты
+при нажатии на бургер-иконку меню появляется, плавно выдвигаясь слева, бургер-иконка изменяется на крестик. При нажатии на крестик меню исчезает, плавно возвращаясь назад, иконка крестика превращается в бургер-иконку
+ссылки в меню работают, обеспечивая плавную прокрутку по якорям
+вёрстка меню соответствует макету на всех проверяемых разрешениях
 
-// function plusSlides(n) {
-//   showSlides(slideIndex += n);
-// }
-
-// function currentSlide(n) {
-//   showSlides(slideIndex = n);
-// }
-
-// function showSlides(n) {
-
-//   if(n > slides.length) {
-//     slideIndex = 1;
-//   }
-//   if(n < 1) {
-//     slideIndex = slides.length;
-//   }
-//   for(let i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";
-//   }
-//   for(let i = 0; i < dots.length; i++) {
-//     dots[i].className = dots[i].className.replace("active", "");
-//   }
-//   slides[slideIndex-1].style.display = "block";
-//   dots[slideIndex-1].className += " active";
-// }
+Итого 130 балла`)
