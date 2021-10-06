@@ -337,4 +337,67 @@
     font-size: 16px;
     line-height: 22px;
   }
+
+  /* +++++++++++++++++++++++++++++ */
+
+  .booking-tickets {
+    max-width: 420px;
+  }
+  .booking-title {
+    font-size: 32px;
+    line-height: 35px;
+  }
+  .date,
+  .time {
+    width: 100%;
+    margin-left: 0;
+  }
+  .outcome-text > span {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .outcome {
+    width: 330px;
+    background-size: 35%;
+  }
+  .credit-card {
+    display: flex;
+    flex-wrap: wrap;
+    width: 330px;
+    height: 443px;
+    margin-bottom: 40px;
+  }
+  .card-before {
+    margin-bottom: 25px;
+    width: 330px;
+    height: 209px;
+    position: relative;
+  }
+  .card-after {
+    position: relative;
+    width: 330px;
+    height: 209px;
+  }
+  #cardholder-name {
+    width: 290px;
+  }
+  .overview {
+    width: 360px;
+    height: 885px;
+  }
+  .card-after > p:first-child {
+    margin-left: 244px;
+  }
+  
+  #cvc {
+    margin-left: 235px;
+  }
+  
+  .card-after > p:last-child {
+    margin-left: 249px;
+  }
+
+  .type-tickets {
+    background-position-x: 14px, 335px;
+  }
 }
