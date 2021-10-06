@@ -347,6 +347,12 @@
     font-size: 32px;
     line-height: 35px;
   }
+
+  .tickets-form {
+    max-width: 380px;
+    width: 100%;
+    
+}
   .date,
   .time {
     width: 100%;
@@ -368,12 +374,14 @@
     margin-bottom: 40px;
   }
   .card-before {
+    background-image: url(../assets/img/two-cards.jpg);
     margin-bottom: 25px;
     width: 330px;
-    height: 209px;
+    height: 100%;
     position: relative;
   }
   .card-after {
+    display: none;
     position: relative;
     width: 330px;
     height: 209px;
@@ -382,7 +390,8 @@
     width: 290px;
   }
   .overview {
-    width: 360px;
+    max-width: 360px;
+    width: 100%;
     height: 885px;
   }
   .card-after > p:first-child {
@@ -400,4 +409,8 @@
   .type-tickets {
     background-position-x: 14px, 335px;
   }
+
+  /* .total-price {
+    margin-left: 195px;
+  } */
 }

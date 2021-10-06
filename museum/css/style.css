@@ -945,7 +945,8 @@ h4 {
 }
 
 .tickets-logo {
-  width: 400px;
+  width: 100%;
+  /* width: 400px; */
   height: 41px;
   background-image: url('../assets/svg/booking-tickets/bookLogo.svg');
   background-repeat: no-repeat;
@@ -1249,7 +1250,10 @@ h4 {
   background-color: #030303;
 }
 
-.overview-total-p {
+.overview-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 21px;
   margin-bottom: 10px;
   font-style: normal;
@@ -1258,13 +1262,13 @@ h4 {
   line-height: 37px;
 }
 
-.total-price {
+/* .total-price {
   margin-left: 327px;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
   line-height: 37px;
-}
+} */
 
 .credit-card {
   position: relative;
@@ -1282,7 +1286,8 @@ h4 {
   left: 0; 
   width: 360px;
   height: 211px;
-  padding: 15px 20px;
+  /* padding: 15px 20px; */
+  padding: 34px 20px 0;
   background-image: url('../assets/img/Card-before.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -1298,7 +1303,7 @@ h4 {
 }
 
 #card-number {
-  margin-bottom: 10px;
+  margin-bottom: 29px;
   width: 215px;
   height: 35px;
   border: none;
@@ -1307,7 +1312,8 @@ h4 {
 
 #month,
 #year {
-  margin-bottom: 10px;
+  margin-bottom: 28px;
+  /* margin-bottom: 10px; */
   padding: 10px;
   width: 100px;
   height: 35px;
@@ -1352,6 +1358,7 @@ h4 {
 }
 
 #cvc {
+  margin-top: 105px;
   margin-left: 265px;
   margin-bottom: 6px;
   width: 75px;
