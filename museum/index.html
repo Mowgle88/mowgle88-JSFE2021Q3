@@ -322,7 +322,7 @@
                         <h2 class="section__title explore__title explore__title-1024">Picture explore</h2>
                         
                         <p class="explore__subtitle">Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
-                        <p class="explore__subtitle">It was cleaned in 1984 to remove a <span>"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.</p>
+                        <p class="explore__subtitle">It was cleaned in 1984 to remove a <span class="span">"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.</p>
                         <p class="explore__subtitle">The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p>
                     </div> 
 
@@ -434,6 +434,9 @@
         </section>
 
         <section class="section tickets" id="tickets">
+
+            <div class="overlay-close-anchor" id="overlay-close-anchor"></div>
+
             <div class="container">
                 <div class="tickets__inner">
 
@@ -485,11 +488,109 @@
 
                             </div>
 
-                            <button class="buy__now">Buy Now</button>
+                            <a href="#overlay" class="buy-btn"><button class="buy__now">Buy Now</button></a>
+
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            <div class="overlay" id="overlay">
+                <a href="#close-anchor" class="overclose"></a>
+                <div class="booking-tickets">
+                  <a href="#close-anchor" class="close"></a>
+                  <form action="#" class="tickets-form">
+                    <div class="input-data">
+                      <div class="tickets-logo"></div>
+                      <h4 class="booking-title">Booking tickets</h4>
+                      <p class="tour">Tour to Louvre</p>
+                      <input type="date" name="date" id="date" class="date" value="2022-08-19">
+                      <input type="time" name="time" id="time" class="time" value="16:30">
+                      <input type="text" name="name" id="name" class="name" placeholder="Name">
+                      <input type="email" name="e-mail" id="mail" class="mail" placeholder="E-mail">
+                      <input type="tel" name="phone" id="phone" class="phone" placeholder="Phone">
+                      <select name="type-tickets" id="type-tickets" class="type-tickets">
+                        <option value="1">Ticket Type</option>
+                      </select>
+                      <div class="count-tickets">
+                        <h5 class="count-tickets-title">Entry ticket</h5>
+                        <div class="count-tickets-wrap">
+                          <div class="basic">
+                            <p class="p-basic">Basic 18+ (20 €)</p>
+                            <div class="count-tickets-basic">
+                              <button type="button" onclick="this.nextElementSibling.stepDown()" class="count">&ndash;</button>
+                              <input type="number" min="0" max="20" value="2" readonly class="count-tickets-number">
+                              <button type="button" onclick="this.previousElementSibling.stepUp()" class="count">+</button>
+                            </div>
+                          </div>
+                          <div class="senior">
+                            <p class="p-basic">Senior 65+ (10 €)</p>
+                            <div class="count-tickets-basic">
+                              <button type="button" onclick="this.nextElementSibling.stepDown()" class="count">&ndash;</button>
+                              <input type="number" min="0" max="20" value="2" readonly class="count-tickets-number">
+                              <button type="button" onclick="this.previousElementSibling.stepUp()" class="count">+</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="overview">
+                      <div class="outcome">
+                        <p class="outcome-title">Overview</p>
+                        <p class="outcome-tour">Tour to Louvre</p>
+                        <p class="outcome-text">
+                          <span class="date-icon"></span><span class="choised-date">Friday, August 19</span>
+                        </p>
+                        <p class="outcome-text">
+                          <span class="time-icon"></span><span class="choised-time">16 : 30</span>
+                        </p>
+                        <p class="outcome-text">
+                          <span class="exhibition-icon"></span><span class="choised-exhibition">Temporary exhibition</span>
+                        </p>
+                      </div>
+                      <div class="overview-count">
+                          <div class="overview-count-basic">
+                            <p class="overview-count-p">
+                              <span class="overview-count-icon">2</span>Basic (20 €)
+                            </p>
+                            <p class="overview-price"><span class="basic-price">40</span>€</p>
+                          </div>
+                          <div class="overview-count-senior">
+                            <p class="overview-count-p">
+                              <span class="overview-count-icon">2</span>Senior (10 €)
+                            </p>
+                            <p class="overview-price"><span class="senior-price">20</span>€</p>
+                          </div>
+                      </div>
+                      <div class="overview-total">
+                        <p class="overview-total-p">Total:<span class="total-price">60</span>€</p>
+                      </div>
+                      <div class="credit-card">
+                        <div class="card-before">
+                          <p>Card number</p>
+                          <input type="text" name="card-number" id="card-number">
+                          <p>Expiration date</p>
+                          <input type="number" name="month" id="month" value="03">
+                          <input type="number" name="year" id="year" value="2024">
+                          <p>Cardholder name</p>
+                          <input type="text" name="cardholder-name" id="cardholder-name">
+                        </div>
+                        <div class="card-after">
+                          <p>CVC/CVV</p>
+                          <input type="password" name="cvc" id="cvc">
+                          <p>The last 
+                            3 or 4 digits
+                            on back
+                            of the card</p>
+                        </div>
+                      </div>
+                      <button type="submit" class="book-btn">Book</button>
+                    </div>
+                  </form>
+                </div>
+            </div>
+
         </section>
 
         <div class="parallax">

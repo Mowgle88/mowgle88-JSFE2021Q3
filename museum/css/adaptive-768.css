@@ -342,4 +342,51 @@
   .footer__inner-bottom {
     height: 102px;
   }
+/* ++++++++++++++++++++++++++++++++++ */
+  .overlay {
+    overflow: auto;
+  }
+  .booking-tickets {
+    width: 590px;
+    max-height: 100vh;
+    height: 100%;
+    padding: 80px 30px 40px 30px;
+    overflow-y: scroll;
+  }
+  .tickets-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tour {
+    margin-bottom: 53px;
+  }
+  .input-data {
+    width: 100%;
+  }
+  .date,
+  .time {
+    width: 251px;
+    height: 45px;
+  }
+  .time {
+    margin-left: 22px;
+  }
+  .name,
+  .mail,
+  .phone,
+  .type-tickets {
+    height: 45px;
+    width: 100%;
+  }
+  .count-tickets {
+    width: 100%;
+  }
+  .overview {
+    margin-top: 12px;
+    padding: 25px 15px;
+  }
+
+  .type-tickets {
+    background-position-x: 14px, 500px;
+  }
 }

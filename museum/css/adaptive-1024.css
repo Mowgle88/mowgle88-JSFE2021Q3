@@ -238,4 +238,17 @@
   .nav__list__footer:first-child {
     padding-left: 45px;
   }
+/* +++++++++++++++++++++++ */
+ 
+  .overlay {
+    overflow: auto;
+  }
+  
+  .booking-tickets {
+    width: 1024px;
+    max-height: 768px;
+    height: 100%;
+    padding: 75px 27px 30px 27px;
+    overflow-y: scroll;
+  }
 }
