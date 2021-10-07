@@ -429,13 +429,50 @@ h2.section-welcome {
 }
 
 .explore__img {
-  max-height: 700px;
+  /* max-height: 700px; */
+  height: 700px;
+  width: 720px;
   position: relative;
   display: inline-block;
   margin-top: 15px;
   overflow: hidden;
   user-select: none;
 }
+
+.img-comp img {
+  display: block;
+  vertical-align: middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index: 9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+
+  width: 39px;
+  height: 100%;
+  background-image: url(../assets/img/explore-slider/explore-slider.png)
+
+}
+
+.img-comp {
+  position: absolute;
+  /* position: relative; */
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+/* .img-comp-before {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+
+} */
+
+
 
 .back-img {
   position: absolute;
