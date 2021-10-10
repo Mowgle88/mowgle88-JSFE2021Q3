@@ -363,6 +363,7 @@
     line-height: 21px;
   }
   .outcome {
+    background-position: right 15% top;
     width: 330px;
     background-size: 35%;
   }
