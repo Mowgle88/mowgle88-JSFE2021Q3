@@ -567,6 +567,12 @@ h2.section-welcome {
   background: rgba(0, 0, 0, 0);
   border: 0;
   z-index: 10;
+  width: 220px;
+  height: 220px;
+}
+
+.video__play img {
+  width: 100%;
 }
 
 .previous {
@@ -654,6 +660,11 @@ h2.section-welcome {
   flex-direction: row;
   justify-content: space-between;
 }
+
+.video-slider-dots-420 {
+  display: none;
+}
+
 .video-slider-dots-items {
   display: flex;
   flex-direction: row;

@@ -161,11 +161,29 @@
 
   .video__play {
     width: 80px;
+    height: 80px;
   }
 
   .previous,
   .next {
     display: none;
+  }
+
+  .range__rewind {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -12px;
+  }
+
+.range__volume {
+  max-width: 486px;
+  width: 71%;
+  cursor: pointer;
+  }
+
+  .video__svg {
+    width: 60%;
   }
 
   .panel {
@@ -183,12 +201,25 @@
 
   .video-slider-item {
     max-height: 199px;
-    width: calc(50% - 10px);
+    /* width: calc(50% - 10px); */
+  }
+
+  .big-slide {
+    height: 392px;
+  }
+
+  .small-slide {
+    height: 199px;
   }
 
   .video-slider-item:last-child {
    display: none;
  }
+
+ .video-dot {
+    width: 10px;
+    height: 10px;
+  }
 
   .video-slider-dots {
     width: 200px;
@@ -389,4 +420,6 @@
   .type-tickets {
     background-position-x: 14px, 500px;
   }
+
+  
 }
