@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet"/>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+
     <link rel="stylesheet" href="./css/style-videoslider.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/adaptive-1024.css">
@@ -693,7 +696,9 @@
                         </div>
 
                         <div class="contact-img">
-                            <img class="map" src="./assets/img/Map.png" alt="Map">
+
+                            <div id="map"></div>
+                            <!-- <img class="map" src="./assets/img/Map.png" alt="Map"> -->
 
                         </div>   
 
@@ -701,6 +706,10 @@
                 </div>
             </div>
         </section>
+
+        <div class="button-to-top-container">
+            <div class="button-above"></div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -794,14 +803,14 @@
     </footer>
 
 
-
-    
     <script src="./js/main.js"></script>
+    <script src="./js/welcome-slider.js"></script>
     <script src="./js/gallery.js"></script>
     <script src="./js/gallery-slide.js"></script>
     <script src="./js/explorer.js"></script>
     <script src="./js/slide-video.js"></script>
-    
+    <script src="./js/map.js"></script>
+    <script src="./js/button.js"></script>
     
 </body>
 </html>

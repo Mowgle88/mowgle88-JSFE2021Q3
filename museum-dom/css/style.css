@@ -1484,11 +1484,6 @@ h4 {
   padding-top: 75px;
 }
 
-.contact-img {
-  max-width: 960px;
-  height: auto;
-}
-
 .contacts__text {
   /* width: 274px; */
   width: 400px;
@@ -1496,8 +1491,15 @@ h4 {
   padding-right: 16px;
 }
 
-.map {
+.contact-img {
+  max-width: 960px;
   width: 100%;
+  height: 600px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
 }
 
 .contacts__btitle__item {
@@ -1630,4 +1632,34 @@ a {
 .social__item:hover .social__icon {
   fill: #9d8665;
   border: 1px solid #9d8665;
+}
+
+.button-above {
+  width: 10%;
+  height: 10%;
+  bottom: 5%;
+  right: 5%;
+  position: fixed;
+  display: none;
+  background-image: url(../assets/svg/above.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 10;
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(59%) sepia(20%) saturate(549%)
+      hue-rotate(356deg) brightness(100%) contrast(92%) drop-shadow( -3px 3px 3px rgba(0, 0, 0, .7));
+  user-select: none;
+}
+
+.button-above:hover {
+  transform: scale(0.9);
+}
+
+.button-above:active {
+  transform: scale(0.8);
+}
+
+.button-above.but-active {
+  display: block;
 }
