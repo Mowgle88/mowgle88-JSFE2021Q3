@@ -24,3 +24,5 @@ i.map(el => `<img class="galery-img" src="assets/img/galery/galery${el}.jpg" alt
 for (let j = 0; j < i.length; j++) {
 	addPuzzle(i[j]);
 }
+
+

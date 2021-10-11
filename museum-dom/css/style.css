@@ -429,20 +429,75 @@ h2.section-welcome {
 }
 
 .explore__img {
-  max-height: 700px;
+  margin-top: 15px;
+
+  /* max-height: 700px; */
+  height: 700px;
+  width: 720px;
+  /* height: 100%; */
+  align-self: center;
   position: relative;
   display: inline-block;
-  margin-top: 15px;
   overflow: hidden;
   user-select: none;
 }
 
-.back-img {
+.img-comp img {
+  /* display: block; */
+  vertical-align: middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index: 9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+
+  width: 39px;
+  height: 100%;
+  background-image: url(../assets/img/explore-slider/explore-slider.png)
+
+}
+
+.img-comp {
+  position: absolute;
+  /* position: relative; */
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  
+    /* left: 0;
+    top: 0;
+    right: 50%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.35s; */
+}
+
+.img-comp {
+  position: absolute;
+  /* position: relative; */
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+/* .img-comp-before {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+
+} */
+
+
+
+/* .back-img {
   position: absolute;
   height: 100%;
   overflow: hidden;
   user-select: none;
-}
+} */
 
 .back-img-420 {
   display: none;
@@ -468,11 +523,16 @@ h2.section-welcome {
   /* height: 1009px; */
 }
 
+.swiper-video {
+  position: relative;
+}
+
 .video__player {
   display: flex;
   flex-direction: column;
   /* margin-top: 90px; */
   position: relative;
+  bottom: 0;
 }
 
 .video__svg {
@@ -481,12 +541,16 @@ h2.section-welcome {
 }
 
 .panel {
+  position: absolute;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
   margin: 0;
   height: 85px;
   background-color: #030303;
   padding: 0 20px 0 20px;
+  z-index: 10;
+  width: 100%;
 }
 
 .video__button {
@@ -501,6 +565,14 @@ h2.section-welcome {
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0);
+  border: 0;
+  z-index: 10;
+  width: 220px;
+  height: 220px;
+}
+
+.video__play img {
+  width: 100%;
 }
 
 .previous {
@@ -559,11 +631,7 @@ h2.section-welcome {
   /* height: 1080px; */
 }
 
-/* .video-main {
-  margin-top: 75px;
-  height: 735px;
-  width: 100%;
-} */
+
 .video-slider {
   height: 305px;
   width: 100%;
@@ -579,34 +647,29 @@ h2.section-welcome {
   width: 100%;
 }
 .video-slider-item {
-  height: 254px;
-  width: 452px;
+  position:relative;
+  height:0;
+  overflow:hidden;
 }
+
 .video-slider-dots {
   width: 200px;
   height: 12px;
-  margin-top: 40px;
+  margin: 40px auto 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
+.video-slider-dots-420 {
+  display: none;
+}
+
 .video-slider-dots-items {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 140px;
-}
-.video-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #999999;
-  transition: 0.5s;
-  cursor: pointer;
-}
-
-.video-dot-unvisited {
-  background: #333333;
 }
 
 .video-slider-left,
@@ -664,6 +727,9 @@ h2.section-welcome {
 
 .galery-img {
   width: 456px;
+  opacity: 0;
+  transform: translateY(30%) scale(0.95);
+  transition: all 0.5s;
 }
 
 .galery-img:first-child {
@@ -672,6 +738,11 @@ h2.section-welcome {
 
 .galery-img:nth-child(11n) {
   margin-top: 50px;
+}
+
+.galery-img.galery-active {
+  opacity: 1;
+  transform: translateY(0%) scale(1);
 }
 
 .shadow {
@@ -1413,11 +1484,6 @@ h4 {
   padding-top: 75px;
 }
 
-.contact-img {
-  max-width: 960px;
-  height: auto;
-}
-
 .contacts__text {
   /* width: 274px; */
   width: 400px;
@@ -1425,8 +1491,15 @@ h4 {
   padding-right: 16px;
 }
 
-.map {
+.contact-img {
+  max-width: 960px;
   width: 100%;
+  height: 600px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
 }
 
 .contacts__btitle__item {
@@ -1559,4 +1632,34 @@ a {
 .social__item:hover .social__icon {
   fill: #9d8665;
   border: 1px solid #9d8665;
+}
+
+.button-above {
+  width: 10%;
+  height: 10%;
+  bottom: 5%;
+  right: 5%;
+  position: fixed;
+  display: none;
+  background-image: url(../assets/svg/above.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 10;
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(59%) sepia(20%) saturate(549%)
+      hue-rotate(356deg) brightness(100%) contrast(92%) drop-shadow( -3px 3px 3px rgba(0, 0, 0, .7));
+  user-select: none;
+}
+
+.button-above:hover {
+  transform: scale(0.9);
+}
+
+.button-above:active {
+  transform: scale(0.8);
+}
+
+.button-above.but-active {
+  display: block;
 }
