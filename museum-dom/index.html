@@ -12,8 +12,8 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet"/>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
 
-    <link rel="stylesheet" href="./css/style-videoslider.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style-videoslider.css">
     <link rel="stylesheet" href="./css/adaptive-1024.css">
     <link rel="stylesheet" href="./css/adaptive-768.css">
     <link rel="stylesheet" href="./css/adaptive-420.css">
@@ -365,7 +365,7 @@
             </div>
         </section>
 
-        <section class="section video" id="video">
+        <section class="section section-video" id="video">
             <div class="container">
                 <div class="video__inner">
 
@@ -375,80 +375,125 @@
                         <p class="section__subtitle__item video__item video__subtitle">Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
 
                     </div>
-                
-                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper-video swiper mySwiper">
 
-                            <button class="video__play"><img src="./assets/svg/Play.svg" alt="play"></button>
+                    <div>
+
+                        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="video__container swiper-video swiper mySwiper">
+
+                            <button class="video__play active"></button>
+
                             
                             <div class="panel">
-                                <button class="previous video__button"><img src="./assets/svg/previous.svg" alt="previous" class="video__svg"></button>
+                                <button class="previous video__button"></button>
+
+                                <button class="small-play video__button"></button>
                                 
-                                <button class="play_panel video__button"><img src="./assets/svg/Play_panel.svg" alt="Play_panel" class="video__svg"></button>
+                                <button class="next video__button"></button>
                                 
-                                <button class="next video__button"><img src="./assets/svg/next.svg" alt="next" class="video__svg"></button>
-                                
-                                <input type="range" class="range__rewind">
+                                <input type="range" class="range-rewind"
+                                type="range" id="progress" name="progress"min="0" max="100" value="0" step="0.5">
     
-                                <button class="mute video__button"><img src="./assets/svg/Mute.svg" alt="Mute" class="video__svg"></button>
+                                <button class="volume-btn"></button>
                                 
-                                <input type="range" class="range__volume">
+                                <input type="range" class="range-volume"
+                                ype="range" id="volume" name="volume" min="0" max="100" value="100" step="0.5">
     
-                                <button class="screen video__button"><img src="./assets/svg/Screen.svg" alt="screen" class="video__svg"></button>
+                                <button class="fullscreen-btn"></button>
+
                             </div>
 
-                        <div class="swiper-wrapper">
+                        
+                            <div class="swiper-slide video-container">
 
-                            <div class="swiper-slide">                           
-                                <iframe class="big-slide" width="1440" height="735" src="https://www.youtube.com/embed/zp1BXPX8jcU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="video-speed-plate">1x</div>
+                                
+                                <video preload="none" class="video-vid" width="1440" height="735" src="./assets/video/video0.mp4" poster="./assets/video/poster0.jpg"></video>
+                                
                             </div>
-
-                            <div class="swiper-slide">
-                                <iframe class="big-slide" width="1440" height="735" src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <iframe class="big-slide" width="1440" height="735" src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <iframe class="big-slide" width="1440" height="735" src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
- 
-                            <div class="swiper-slide">
-                                <iframe class="big-slide" width="1440" height="735" src="https://www.youtube.com/embed/2OR0OCr6uRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-
+                        
                     </div>
                   
                     <div thumbsSlider="" class="swiper mySwiper2">
 
                         <div class="video-slider-set swiper-wrapper">
-                            <div class="video-slider-item swiper-slide">
-                                <iframe class="small-slide" width="452" height="254" src="https://www.youtube.com/embed/zp1BXPX8jcU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                            <div class="video-slider-item swiper-slide video">
+
+                                <a class="video__link" href="https://www.youtube.com/watch?v=zp1BXPX8jcU"
+                                target="_blank">
+                                    <picture>
+                                        <source srcset="https://i.ytimg.com/vi_webp/zp1BXPX8jcU/hqdefault.webp" type="image/webp">
+                                        <img class="video__media small-slide" src="https://i.ytimg.com/vi/zp1BXPX8jcU/maxresdefault.jpg" alt="Video1">
+                                    </picture>
+                                </a>
+                                <button class="video-button" aria-label="Запустить видео">
+                                    <svg width="68" height="48" viewBox="0 0 68 48"><path class="video__button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video__button-icon" d="M 45,24 27,14 27,34"></path></svg>
+                                </button>
                             </div>
 
-                            <div class="video-slider-item swiper-slide">
-                                <iframe class="small-slide" width="452" height="254" src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="video-slider-item swiper-slide video">
+
+                                <a class="video__link" href="https://www.youtube.com/watch?v=Vi5D6FKhRmo" target="_blank">
+                                    <picture>
+                                        <source srcset="https://i.ytimg.com/vi_webp/Vi5D6FKhRmo/hqdefault.webp" type="image/webp">
+                                        <img class="video__media small-slide" src="https://i.ytimg.com/vi/Vi5D6FKhRmo/maxresdefault.jpg" alt="Video2">
+                                    </picture>
+                                </a>
+                                <button class="video-button" aria-label="Запустить видео">
+                                    <svg width="68" height="48" viewBox="0 0 68 48"><path class="video__button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video__button-icon" d="M 45,24 27,14 27,34"></path></svg>
+                                </button>
                             </div>
 
-                            <div class="video-slider-item swiper-slide">
-                                <iframe class="small-slide" width="452" height="254" src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="video-slider-item swiper-slide video">
+
+                                <a class="video__link" href="https://www.youtube.com/watch?v=NOhDysLnTvY" target="_blank">
+                                    <picture>
+                                        <source srcset="https://i.ytimg.com/vi_webp/NOhDysLnTvY/hqdefault.webp" type="image/webp">
+                                        <img class="video__media small-slide" src="https://i.ytimg.com/vi/NOhDysLnTvY/maxresdefault.jpg" alt="Video1">
+                                    </picture>
+                                </a>
+                                <button class="video-button" aria-label="Запустить видео">
+                                    <svg width="68" height="48" viewBox="0 0 68 48"><path class="video__button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video__button-icon" d="M 45,24 27,14 27,34"></path></svg>
+                                </button>
+
                             </div>
 
-                            <div class="video-slider-item swiper-slide">
-                                <iframe class="small-slide" width="452" height="254" src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="video-slider-item swiper-slide video">
+
+                                <a class="video__link" href="https://www.youtube.com/watch?v=aWmJ5DgyWPI" target="_blank">
+                                    <picture>
+                                        <source srcset="https://i.ytimg.com/vi_webp/aWmJ5DgyWPI/hqdefault.webp" type="image/webp">
+                                        <img class="video__media small-slide" src="https://i.ytimg.com/vi/aWmJ5DgyWPI/maxresdefault.jpg" alt="Video4">
+                                    </picture>
+                                </a>
+                                <button class="video-button" aria-label="Запустить видео">
+                                    <svg width="68" height="48" viewBox="0 0 68 48"><path class="video__button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video__button-icon" d="M 45,24 27,14 27,34"></path></svg>
+                                </button>
                             </div>
 
-                            <div class="video-slider-item swiper-slide">
-                                <iframe class="small-slide" width="452" height="254" src="https://www.youtube.com/embed/2OR0OCr6uRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="video-slider-item swiper-slide video">
+
+                                <a class="video__link" href="https://www.youtube.com/watch?v=2OR0OCr6uRE" target="_blank">
+                                    <picture>
+                                        <source srcset="https://i.ytimg.com/vi_webp/2OR0OCr6uRE/hqdefault.webp" type="image/webp">
+                                        <img class="video__media small-slide" src="https://i.ytimg.com/vi/2OR0OCr6uRE/maxresdefault.jpg" alt="Video5">
+                                    </picture>
+                                </a>
+                                <button class="video-button" aria-label="Запустить видео">
+                                    <svg width="68" height="48" viewBox="0 0 68 48"><path class="video__button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video__button-icon" d="M 45,24 27,14 27,34"></path></svg>
+                                </button>
+
                             </div>
                         </div>
 
                         <div class="video-slider-dots">
-                            <svg class="video-slider-left">
-                                <use xlink:href="#video-slider-left"></use>
-                            </svg>
+                            <div class="bullet-left">
+                                <svg class="video-slider-left">
+                                    <use xlink:href="#video-slider-left"></use>
+                                </svg>
+
+                            </div> 
+                            
                
                             <div class="video-slider-dots-items">
                                 <div class="video-dot video-dot-unvisited"></div>
@@ -458,12 +503,15 @@
                                 <div class="video-dot"></div>
                             </div>
                             
-                            <svg class="video-slider-right">
-                                <use xlink:href="#video-slider-right"></use>
-                            </svg>
+                            <div class="bullet-right">
+                                <svg class="video-slider-right">
+                                    <use xlink:href="#video-slider-right"></use>
+                                </svg>
+                            </div>
+                            
                         </div>
 
-
+                        
                         <div class="video-slider-dots-420">
                             
                             <svg class="video-slider-left video-slider-left-420">
@@ -483,7 +531,10 @@
                             </svg>
                         </div>
 
+
                     </div>
+                
+                    
 
                     <!-- =============================== -->
 
@@ -809,6 +860,7 @@
     <script src="./js/gallery-slide.js"></script>
     <script src="./js/explorer.js"></script>
     <script src="./js/slide-video.js"></script>
+    <script src="./js/videoplayer.js"></script>
     <script src="./js/map.js"></script>
     <script src="./js/button.js"></script>
     
