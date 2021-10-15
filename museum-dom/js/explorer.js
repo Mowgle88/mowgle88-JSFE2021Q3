@@ -24,7 +24,9 @@ function initComparisons() {
     slider.addEventListener("mousedown", slideReady);
     window.addEventListener("mouseup", slideFinish);
     slider.addEventListener("touchstart", slideReady);
-    window.addEventListener("touchstop", slideFinish);
+    // window.addEventListener("touchstop", slideFinish);
+    window.addEventListener("touchend", slideFinish);
+
 
     function slideReady(e) {
      

@@ -11,6 +11,8 @@ const video = document.querySelector(".video-vid");
 
 const leftArrow = document.querySelector(".bullet-left");
 const rightArrow = document.querySelector(".bullet-right");
+const bullets = document.querySelectorAll(".video-slider-dots-items");
+
 
 let currentVideo = 0;
 let isEnabledVideo = true;
@@ -125,8 +127,16 @@ function videoSrcChangeDown() {
   currentVideo = currentVideo - 1;
   video.src = `./assets/video/video${currentVideo}.mp4`;
   video.poster = `./assets/video/poster${currentVideo}.jpg`;
+  progressBar.value = 0;
+
 }
 
+function bulletColorChange(n) {
+  bullets.forEach((b) => {
+      b.classList.remove("bullet-active");
+  });
+  bullets[n].classList.add("bullet-active");
+}
 
 // ==========================================================
 
@@ -152,16 +162,22 @@ volumeBar.addEventListener("input", volumeBarController);
 video.addEventListener("timeupdate", progressBarColorizer);
 video.addEventListener("ended", stopVideo);
 
-video.addEventListener("play", function () {
-  volumeBar.style.background = `linear-gradient(to right, #710707 0%, #710707 ${volumeBar.value}%, #C4C4C4 ${volumeBar.value}%, #C4C4C4 100%)`;
-});
+// video.addEventListener("play", function () {
+//   volumeBar.style.background = `linear-gradient(to right, #710707 0%, #710707 ${volumeBar.value}%, #C4C4C4 ${volumeBar.value}%, #C4C4C4 100%)`;
+// });
+
 volumeButton.addEventListener("click", volumeSwitch);
 volumeBar.addEventListener("input", volumeMuteCheck);
 fullScreenButton.addEventListener("click", fullscreenInteractor);
 leftArrow.addEventListener("click", videoSrcChangeDown);
 rightArrow.addEventListener("click", videoSrcChangeUp);
 
-
+bullets.forEach((b, index) => {
+  b.addEventListener("click", function () {
+      currentVideo = index + 1;
+      videoSrcChangeDown();
+  });
+});
 
 
 
