@@ -9,16 +9,11 @@ const slidePrev = document.querySelector(".slide-prev");
 const slideNext = document.querySelector(".slide-next");
 let randomNum;
 
-const NMDE = ['Night', 'Morning', 'Day', 'Evening'];
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
 
-// Вывод текстовых данных на страницу
-// time.textContent = "Time"; 
-
-// получаем только время
-// let date = new Date();
-// let currentTime = date.toLocaleTimeString();
-// console.log(currentTime);
-
+const NMDE = ['night', 'morning', 'day', 'evening'];
 
 // Показ времени
 function showTime () {
@@ -34,55 +29,37 @@ showTime ();
 // Показ даты, дня недели
 function showDate () {
   const date = new Date();
-  // const options = {weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC'};
-  // const currentDate = date.toLocaleDateString('ru-Ru', options);
+  const options = {weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC'};
+  const currentDate = date.toLocaleDateString('en-US', options);
+  days.textContent = currentDate;
 
-  // days.textContent = currentDate;
+  // const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  // let month = MONTHS[date.getMonth()];
 
-  const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  let month = MONTHS[date.getMonth()];
-
-  let week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  let dayOfWeek = week[date.getDay()];
+  // let week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  // let dayOfWeek = week[date.getDay()];
   
-  days.textContent = dayOfWeek + ", " + date.getDate() + " " + month;
+  // days.textContent = dayOfWeek + ", " + date.getDate() + " " + month;
 };
 
 // Приветствие
 
-// const date = new Date();
-// const hours = date.getHours();
-// console.log(hours);
-
 function showGreeting() {
   const timeOfDay = getTimeOfDay();
-  const greetingText = timeOfDay;
+//   const greetingText = `Good ${timeOfDay},`;
+  const greetingText = "Good " + timeOfDay[0].toUpperCase() + timeOfDay.slice(1) + ",";
   greet.textContent = greetingText;
-
-  // const date = new Date();
-  // const hours = date.getHours();
-  // let greetings = ['Доброй ночи, ', 'Доброе утро, ', 'Добрый день, ', 'Добрый вечер, '];
-  // с 0 до 6 часов — ночь с 6 до 12 часов — утро с 12 до 18 часов — день с 18 до 24 часов — вечер   
-  // greet.textContent = greetings[Math.floor(hours/6)];
 };
 
 // Функция getTimeOfDay(), возвращающая время суток (morning, day, evening, night) в зависимости от текущего времени в часах
 
-
 function getTimeOfDay() {
   const date = new Date();
   const hours = date.getHours();
-  if(hours >= 0 && hours < 6) {
-      return `Good${NMDE[0]}, `;
-  } else if(hours >= 6 && hours < 12) {
-      return `Good ${NMDE[1]}, `;
-  } else if(hours >= 12 && hours < 18) {
-      return `Good ${NMDE[2]}, `;
-  } else(hours >= 18 && hours < 0) 
-      return `Good ${NMDE[3]}, `
+  return NMDE[Math.floor(hours/6)]
 }
 
-// Введите имя
+// Пользователь может ввести своё имя
 const yorName = document.querySelector(".name"); 
 
 function setLocalStorage() {
@@ -116,57 +93,56 @@ function getRandomNum(min, max) {
   return Math.floor(rand);
 }
 
-// let r = String(getRandomNum(1, 20));
-// console.log(r.padStart(2, '0'));
-// console.log(getRandomNum(1, 20));
-
+randomNum = getRandomNum(1, 20);
 
 function setBg(){
-  let timeOfDay = getTimeOfDay();
-  let bgNum = " ";
-  if(timeOfDay == 'Доброй ночи, ') {
-      bgNum = String(getRandomNum(1, 5)).padStart(2, '0')
-  } else if(timeOfDay == 'Доброе утро, ') {
-      bgNum = String(getRandomNum(6, 10)).padStart(2, '0')
-  } else if(timeOfDay == 'Добрый день, ') {
-      bgNum = String(getRandomNum(11, 15)).padStart(2, '0')
-  } else(timeOfDay == 'Добрый вечер, ') 
-      bgNum = String(getRandomNum(16, 20)).padStart(2, '0')
-
-  document.body.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/evening/${bgNum}.jpg')`;  
+  const timeOfDay = getTimeOfDay();
+  const bgNum = String(randomNum).padStart(2, '0');;
+  // console.log(bgNum);
+  const img = new Image();
+  img.src = `https://raw.githubusercontent.com/Mowgle88/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.webp`; 
+  img.onload = () => {      
+    document.body.style.backgroundImage = `url('${img.src}')`; 
+  };  
 }
+
 setBg()
 
 // Изображения можно перелистывать кликами по стрелкам, расположенным по бокам экрана
-// const slidePrev
-// const slideNext
-
-
-randomNum = getRandomNum(1, 20);
 
 function getSlideNext() {
-  
   if(randomNum >= 20) {
        randomNum = 1
   } else {
        randomNum++
   }
-  document.body.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/evening/${String(randomNum).padStart(2, '0')}.jpg')`; 
-  
+  setBg()
 }
 
-
 function getSlidePrev() {
-  
   if(randomNum <= 1) {
       randomNum = 20
   } else {
       randomNum--
   }
-  document.body.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/evening/${String(randomNum).padStart(2, '0')}.jpg')`; 
+  setBg()
 }
 
-
 slidePrev.addEventListener("click", getSlidePrev)
-
 slideNext.addEventListener("click", getSlideNext)
+
+
+// Виджет погоды
+
+async function getWeather() {  
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&appid=2e066ca90a499f3ebb56a7f480af0155
+  &units=metric`;
+  const res = await fetch(url);
+  const data = await res.json(); 
+  console.log(data.weather[0].id, data.weather[0].description, data.main.temp);
+
+  // weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+  // temperature.textContent = `${data.main.temp}°C`;
+  // weatherDescription.textContent = data.weather[0].description;
+}
+getWeather()
