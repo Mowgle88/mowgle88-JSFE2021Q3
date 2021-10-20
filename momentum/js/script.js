@@ -4,11 +4,15 @@ const time = document.querySelector('.time');
 const days = document.querySelector('.date');
 // находим эл-т с классом greeting и записываем его в переменную greet
 const greet = document.querySelector(".greeting"); 
+const NMDE = ['night', 'morning', 'day', 'evening'];
 // Находим кнопки для слайдера
 const slidePrev = document.querySelector(".slide-prev");
 const slideNext = document.querySelector(".slide-next");
+
+// Переменные
 let randomNum;
 let randomQuotes;
+let isPlay = false;
 
 // Погода
 const weatherIcon = document.querySelector('.weather-icon');
@@ -16,22 +20,23 @@ const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
 const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
+const city = document.querySelector(".city"); 
 
 // цитаты
 const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 
+// аудиоплеер
+const play = document.querySelector('.play');
+const playPrev = document.querySelector('.play-prev');
+const playNext = document.querySelector('.play-next');
 
 
 
 
-const city = document.querySelector(".city"); 
 
-
-const NMDE = ['night', 'morning', 'day', 'evening'];
-
-// Показ времени
+// Показ времени=========================================
 function showTime () {
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
@@ -42,7 +47,7 @@ function showTime () {
 };
 showTime ();
 
-// Показ даты, дня недели
+// Показ даты, дня недели==================================
 function showDate () {
   const date = new Date();
   const options = {weekday: 'long', month: 'long', day: 'numeric'};
@@ -58,7 +63,7 @@ function showDate () {
   // days.textContent = dayOfWeek + ", " + date.getDate() + " " + month;
 };
 
-// Приветствие
+// Приветствие===============================================
 
 function showGreeting() {
   const timeOfDay = getTimeOfDay();
@@ -67,7 +72,6 @@ function showGreeting() {
   greet.textContent = greetingText;
 };
 
-// Функция getTimeOfDay(), возвращающая время суток (morning, day, evening, night) в зависимости от текущего времени в часах
 
 function getTimeOfDay() {
   const date = new Date();
@@ -75,7 +79,7 @@ function getTimeOfDay() {
   return NMDE[Math.floor(hours/6)]
 }
 
-// Пользователь может ввести своё имя
+// Пользователь может ввести своё имя===========================
 const yorName = document.querySelector(".name"); 
 
 function setLocalStorage() {
@@ -96,17 +100,8 @@ function getLocalStorage() {
 }
 window.addEventListener('load', getLocalStorage)
 
-// Пояснения к коду:
-// window - объект окна браузера, с ним связана загрузка и перезагрузка страницы
 
-// addEventListener - метод, который отлавливает событие элемента и выполняет переданную функцию
-
-// localStorage.setItem - метод сохраняющий данные в localStorage. Два параметра метода: имя значения, которое сохраняется и само значение, которое сохраняется
-
-// localStorage.getItem - метод получающий данные из localStorage. Параметр метода - имя, под которым сохраняется значение.
-
-
-// Слайдер изображений
+// Слайдер изображений========================================
 
 // Рондомное число от min до max
 function getRandomNum(min, max) {
@@ -128,8 +123,6 @@ function setBg(){
 }
 
 setBg()
-
-// Изображения можно перелистывать кликами по стрелкам, расположенным по бокам экрана
 
 function getSlideNext() {
   if(randomNum >= 20) {
@@ -153,7 +146,7 @@ slidePrev.addEventListener("click", getSlidePrev)
 slideNext.addEventListener("click", getSlideNext)
 
 
-// Виджет погоды
+// Виджет погоды============================================
 
 async function getWeather() {
   city.value = city.value || "Mogilev";
@@ -173,15 +166,15 @@ getWeather()
 city.addEventListener("change", getWeather)
 
 
-// Цитата дня
+// Цитата дня================================================
 
 
-async function getQuotes() {  
-  randomQuotes = getRandomNum(0, 100);
-  // const quotes = 'data.json';
-  const quotes = 'https://type.fit/api/quotes';
+async function getQuotes() {
+  // const quotes = 'https://type.fit/api/quotes';
+  const quotes = 'data.json';
   const res = await fetch(quotes);
   const data = await res.json();
+  randomQuotes = getRandomNum(0, data.length-1);
   console.log(randomQuotes);
   console.log(data[randomQuotes]);
   author.textContent = data[randomQuotes].author;
@@ -192,5 +185,17 @@ getQuotes();
 
 changeQuote.addEventListener("click", getQuotes)
 
-// Аудиоплеер
+// Аудиоплеер================================================
+
+const audio = new Audio();
+
+function playAudio() {
+  if(!isPlay) {
+    play.play();
+    isPlay = true;
+  } else {
+    play.pause();
+    isPlay = false;
+  }
+}
 
