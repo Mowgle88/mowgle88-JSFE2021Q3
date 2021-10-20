@@ -8,10 +8,26 @@ const greet = document.querySelector(".greeting");
 const slidePrev = document.querySelector(".slide-prev");
 const slideNext = document.querySelector(".slide-next");
 let randomNum;
+let randomQuotes;
 
+// Погода
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
+const wind = document.querySelector('.wind');
+const humidity = document.querySelector('.humidity');
+
+// цитаты
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const changeQuote = document.querySelector('.change-quote');
+
+
+
+
+
+const city = document.querySelector(".city"); 
+
 
 const NMDE = ['night', 'morning', 'day', 'evening'];
 
@@ -29,7 +45,7 @@ showTime ();
 // Показ даты, дня недели
 function showDate () {
   const date = new Date();
-  const options = {weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC'};
+  const options = {weekday: 'long', month: 'long', day: 'numeric'};
   const currentDate = date.toLocaleDateString('en-US', options);
   days.textContent = currentDate;
 
@@ -64,6 +80,7 @@ const yorName = document.querySelector(".name");
 
 function setLocalStorage() {
     localStorage.setItem('name', yorName.value);
+    localStorage.setItem('city', city.value);
     }
 window.addEventListener('beforeunload', setLocalStorage)
 
@@ -72,6 +89,10 @@ function getLocalStorage() {
     if(localStorage.getItem('name')) {
         yorName.value = localStorage.getItem('name');
     }
+    if(localStorage.getItem('city')) {
+      city.value = localStorage.getItem('city');
+  }
+
 }
 window.addEventListener('load', getLocalStorage)
 
@@ -134,15 +155,42 @@ slideNext.addEventListener("click", getSlideNext)
 
 // Виджет погоды
 
-async function getWeather() {  
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&appid=2e066ca90a499f3ebb56a7f480af0155
-  &units=metric`;
+async function getWeather() {
+  city.value = city.value || "Mogilev";
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=3c15876c9f36799411c8ddd57f155ca9&units=metric`;
   const res = await fetch(url);
   const data = await res.json(); 
-  console.log(data.weather[0].id, data.weather[0].description, data.main.temp);
-
-  // weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-  // temperature.textContent = `${data.main.temp}°C`;
-  // weatherDescription.textContent = data.weather[0].description;
+  weatherIcon.className = 'weather-icon owf';
+  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+  temperature.textContent = `${Math.round(data.main.temp)}°C`;
+  weatherDescription.textContent = data.weather[0].description;
+  wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`
+  humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`
 }
+
 getWeather()
+
+city.addEventListener("change", getWeather)
+
+
+// Цитата дня
+
+
+async function getQuotes() {  
+  randomQuotes = getRandomNum(0, 100);
+  // const quotes = 'data.json';
+  const quotes = 'https://type.fit/api/quotes';
+  const res = await fetch(quotes);
+  const data = await res.json();
+  console.log(randomQuotes);
+  console.log(data[randomQuotes]);
+  author.textContent = data[randomQuotes].author;
+  quote.textContent = data[randomQuotes].text;
+}
+
+getQuotes();
+
+changeQuote.addEventListener("click", getQuotes)
+
+// Аудиоплеер
+
