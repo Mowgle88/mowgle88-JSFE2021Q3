@@ -1,3 +1,6 @@
+import playList from './playList.js';
+console.log(playList);
+
 // находим эл-т с классом time и записываем его в переменную time
 const time = document.querySelector('.time'); 
 // находим эл-т с классом date и записываем его в переменную days
@@ -13,6 +16,7 @@ const slideNext = document.querySelector(".slide-next");
 let randomNum;
 let randomQuotes;
 let isPlay = false;
+let playNum = 0;
 
 // Погода
 const weatherIcon = document.querySelector('.weather-icon');
@@ -21,6 +25,7 @@ const weatherDescription = document.querySelector('.weather-description');
 const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
 const city = document.querySelector(".city"); 
+const weatherError = document.querySelector('.weather-error');
 
 // цитаты
 const quote = document.querySelector('.quote');
@@ -31,6 +36,9 @@ const changeQuote = document.querySelector('.change-quote');
 const play = document.querySelector('.play');
 const playPrev = document.querySelector('.play-prev');
 const playNext = document.querySelector('.play-next');
+const playListContainer = document.querySelector('.play-list');
+
+
 
 
 
@@ -149,16 +157,28 @@ slideNext.addEventListener("click", getSlideNext)
 // Виджет погоды============================================
 
 async function getWeather() {
-  city.value = city.value || "Mogilev";
+  city.value = city.value || "Minsk";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=3c15876c9f36799411c8ddd57f155ca9&units=metric`;
   const res = await fetch(url);
   const data = await res.json(); 
-  weatherIcon.className = 'weather-icon owf';
-  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-  temperature.textContent = `${Math.round(data.main.temp)}°C`;
-  weatherDescription.textContent = data.weather[0].description;
-  wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`
-  humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`
+  
+  if(data.cod === "404") {
+    weatherError.textContent = "Error. City not found";
+    weatherIcon.style.display = "none"
+    temperature.textContent = "";
+    weatherDescription.textContent = "";
+    wind.textContent = "";
+    humidity.textContent = "";
+  } else {
+    weatherIcon.style.display = "block";
+    weatherError.textContent = "";
+    weatherIcon.className = 'weather-icon owf';
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    temperature.textContent = `${Math.round(data.main.temp)}°C`;
+    weatherDescription.textContent = data.weather[0].description;
+    wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
+    humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`;
+  }
 }
 
 getWeather()
@@ -191,11 +211,64 @@ const audio = new Audio();
 
 function playAudio() {
   if(!isPlay) {
-    play.play();
+    audio.src = playList[playNum].src;
+    audio.currentTime = 0;
+    audio.play();
     isPlay = true;
+    toggleBtn();
   } else {
-    play.pause();
+    audio.pause();
     isPlay = false;
+    toggleBtn();
   }
 }
+
+function toggleBtn() {
+  play.classList.toggle('pause');
+}
+
+function getAudioNext() {
+  if(playNum >= 3) {
+    playNum = 0
+  } else {
+       playNum++
+  }
+  audio.src = playList[playNum].src;
+  audio.currentTime = 0;
+  audio.play();
+}
+
+function getAudioPrev() {
+  if(playNum <= 0) {
+    playNum = 3
+  } else {
+    playNum--
+  }
+  audio.src = playList[playNum].src;
+  audio.currentTime = 0;
+  audio.play();
+}
+
+play.addEventListener('click', playAudio);
+
+playPrev.addEventListener("click", getAudioPrev)
+playNext.addEventListener("click", getAudioNext)
+
+// playList
+
+function createPlayList(i) {
+  const li = document.createElement('li');
+  li.classList.add('play-item');
+  li.textContent = playList[i].title;
+  playListContainer.append(li)
+}
+
+// for(let i = 0; i < playList.length; i++) {
+//   createPlayList(i)
+// }
+
+playList.forEach((el,i) => {
+  createPlayList(i)
+})
+
 
