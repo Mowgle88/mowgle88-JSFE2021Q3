@@ -210,16 +210,21 @@ changeQuote.addEventListener("click", getQuotes)
 const audio = new Audio();
 
 function playAudio() {
+
   if(!isPlay) {
+    playListContainer.childNodes[playNum].style.color = '#C5B358';
     audio.src = playList[playNum].src;
     audio.currentTime = 0;
     audio.play();
     isPlay = true;
     toggleBtn();
+    // changeColor()
   } else {
+    playListContainer.childNodes[playNum].style.color = '#fff';
     audio.pause();
     isPlay = false;
     toggleBtn();
+    // changeColor()
   }
 }
 
@@ -227,26 +232,49 @@ function toggleBtn() {
   play.classList.toggle('pause');
 }
 
+// function changeColor() {
+//   let li = document.querySelector('.play-item');
+//   li.classList.toggle('play-item-active');
+// }
+
 function getAudioNext() {
-  if(playNum >= 3) {
-    playNum = 0
-  } else {
-       playNum++
+  let n = playList.length - 1;
+  if(isPlay) {
+    if(playNum >= n) {
+      playNum = 0
+    } else {
+         playNum++
+    }
+    audio.src = playList[playNum].src;
+    audio.currentTime = 0;
+    audio.play();
+    if(playNum === 0) {
+      playListContainer.childNodes[n].style.color = '#fff';
+    } else {
+      playListContainer.childNodes[playNum-1].style.color = '#fff';
+    }
+    playListContainer.childNodes[playNum].style.color = '#C5B358';
   }
-  audio.src = playList[playNum].src;
-  audio.currentTime = 0;
-  audio.play();
 }
 
 function getAudioPrev() {
-  if(playNum <= 0) {
-    playNum = 3
-  } else {
-    playNum--
+  let n = playList.length - 1;
+  if(isPlay) {
+    if(playNum <= 0) {
+      playNum = n;
+    } else {
+      playNum--
+    }
+    audio.src = playList[playNum].src;
+    audio.currentTime = 0;
+    audio.play();
+    if(playNum === n) {
+      playListContainer.childNodes[0].style.color = '#fff';
+    } else {
+      playListContainer.childNodes[playNum+1].style.color = '#fff';
+    }
+    playListContainer.childNodes[playNum].style.color = '#C5B358';
   }
-  audio.src = playList[playNum].src;
-  audio.currentTime = 0;
-  audio.play();
 }
 
 play.addEventListener('click', playAudio);
@@ -270,5 +298,9 @@ function createPlayList(i) {
 playList.forEach((el,i) => {
   createPlayList(i)
 })
+
+console.log(playListContainer.childNodes)
+console.log(playList)
+
 
 

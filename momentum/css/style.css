@@ -51,6 +51,11 @@ body {
   opacity: .8;
   cursor: pointer;
   transition: .3s;
+  user-select: none;
+}
+
+.play-item-active {
+  color:#C5B358;
 }
 
 .play-item:hover {
@@ -58,12 +63,15 @@ body {
 }
 
 .play-item::before {
-  content: "\2713";  
+  content:  url("../assets/svg/play-small.svg");
+  height: 20px;   
   position: absolute;
   left: 0;
-  top: 2px;
+  top: 4px;
   font-weight: 900;
+  fill:#C5B358 !important;
 }
+
 
 .item-active::before {
   color: #C5B358;
@@ -283,4 +291,54 @@ body {
     font-size: 32px;
     padding: 5px;
   }
+}
+
+@media (max-width: 500px) {
+
+  body {
+    min-width: 320px;
+  }
+
+  .player {
+    font-size: 14px;
+  }
+
+  .weather {
+    width: 130px;
+    font-size: 14px;
+  }
+
+  .city {
+  width: 130px;
+  }
+
+  .time {
+    min-height: 60px;
+    font-size: 45px;    
+  }
+
+  .date {
+    min-height: 28px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+  .greeting-container {
+    min-height: 40px;
+    font-size: 20px;
+  }
+
+  .greeting {
+    padding: 5px;
+  }
+
+  .name {
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  .footer {
+    justify-content: center;
+  }
+  
 }
