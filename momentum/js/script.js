@@ -206,20 +206,35 @@ getQuotes();
 changeQuote.addEventListener("click", getQuotes)
 
 // Аудиоплеер================================================
+const length = document.querySelector(".length");
+const track = document.querySelector(".track");
+length.textContent = "00:00";
+track.textContent = playList[0].title;
+
+
 
 const audio = new Audio();
 
 function playAudio() {
 
   if(!isPlay) {
+
+    length.textContent = playList[playNum].duration;
+    track.textContent = playList[playNum].title;
+
     playListContainer.childNodes[playNum].style.color = '#C5B358';
     audio.src = playList[playNum].src;
     audio.currentTime = 0;
     audio.play();
     isPlay = true;
     toggleBtn();
+    
     // changeColor()
   } else {
+
+    length.textContent = "00:00"
+    // track.textContent = "";
+
     playListContainer.childNodes[playNum].style.color = '#fff';
     audio.pause();
     isPlay = false;
@@ -254,6 +269,11 @@ function getAudioNext() {
       playListContainer.childNodes[playNum-1].style.color = '#fff';
     }
     playListContainer.childNodes[playNum].style.color = '#C5B358';
+
+    length.textContent = playList[playNum].duration;
+    track.textContent = playList[playNum].title;
+
+
   }
 }
 
@@ -274,10 +294,15 @@ function getAudioPrev() {
       playListContainer.childNodes[playNum+1].style.color = '#fff';
     }
     playListContainer.childNodes[playNum].style.color = '#C5B358';
+
+    length.textContent = playList[playNum].duration;
+    track.textContent = playList[playNum].title;
+
   }
 }
 
 play.addEventListener('click', playAudio);
+// play.addEventListener('click', move);
 
 playPrev.addEventListener("click", getAudioPrev)
 playNext.addEventListener("click", getAudioNext)
@@ -302,5 +327,63 @@ playList.forEach((el,i) => {
 console.log(playListContainer.childNodes)
 console.log(playList)
 
+// Продвинутый плеер=============================
 
 
+// function move() {
+//   let elem = document.getElementById("goldBar");
+//   let width = 0;
+//   let id = setInterval(frame, 10);
+//   function frame() {
+//     if (width >= 100) {
+//       clearInterval(id);
+//     } else { width++;
+//       elem.style.width = width + '%';
+//       elem.innerHTML = width * 1 + '%';
+//   }
+//  }
+// }
+
+// audio.addEventListener(
+//   "loadeddata",
+//   () => {
+//     document.querySelector(".time .length").textContent = getTimeCodeFromNum(
+//       audio.duration
+//     );
+//     audio.volume = .75;
+//   },
+//   false
+// );
+
+
+const timeline = document.querySelector(".timeline");
+const progressBar = document.querySelector(".progress");
+
+
+
+timeline.addEventListener("click", e => {
+  const timelineWidth = window.getComputedStyle(timeline).width;
+  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+  audio.currentTime = timeToSeek;
+}, false);
+
+setInterval(() => {
+  progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+  document.querySelector(".audioTime .current").textContent = getTimeCodeFromNum(
+    audio.currentTime
+  );
+}, 500);
+
+
+function getTimeCodeFromNum(num) {
+  let seconds = parseInt(num);
+  let minutes = parseInt(seconds / 60);
+  seconds -= minutes * 60;
+  const hours = parseInt(minutes / 60);
+  minutes -= hours * 60;
+
+  if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+  return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+    seconds % 60
+  ).padStart(2, 0)}`;
+}
