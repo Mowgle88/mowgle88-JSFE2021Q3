@@ -1,5 +1,4 @@
 import playList from './playList.js';
-console.log(playList);
 
 // находим эл-т с классом time и записываем его в переменную time
 const time = document.querySelector('.time'); 
@@ -221,6 +220,7 @@ function playAudio() {
 
     length.textContent = playList[playNum].duration;
     track.textContent = playList[playNum].title;
+    // playList.classList.add('item-active');
 
     playListContainer.childNodes[playNum].style.color = '#C5B358';
     audio.src = playList[playNum].src;
@@ -272,8 +272,6 @@ function getAudioNext() {
 
     length.textContent = playList[playNum].duration;
     track.textContent = playList[playNum].title;
-
-
   }
 }
 
@@ -329,44 +327,39 @@ console.log(playList)
 
 // Продвинутый плеер=============================
 
-
-// function move() {
-//   let elem = document.getElementById("goldBar");
-//   let width = 0;
-//   let id = setInterval(frame, 10);
-//   function frame() {
-//     if (width >= 100) {
-//       clearInterval(id);
-//     } else { width++;
-//       elem.style.width = width + '%';
-//       elem.innerHTML = width * 1 + '%';
-//   }
-//  }
-// }
-
-// audio.addEventListener(
-//   "loadeddata",
-//   () => {
-//     document.querySelector(".time .length").textContent = getTimeCodeFromNum(
-//       audio.duration
-//     );
-//     audio.volume = .75;
-//   },
-//   false
-// );
-
-
 const timeline = document.querySelector(".timeline");
 const progressBar = document.querySelector(".progress");
+const volumeSlider = document.querySelector(".player-controls .volume-slider");
 
-
-
+// Шкала времени
 timeline.addEventListener("click", e => {
   const timelineWidth = window.getComputedStyle(timeline).width;
   const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
   audio.currentTime = timeToSeek;
 }, false);
 
+// Ползунок громкости
+document.addEventListener('click', e => {
+  const sliderWidth = window.getComputedStyle(volumeSlider).width;
+  const newVolume = e.offsetX / parseInt(sliderWidth);
+  audio.volume = newVolume;
+  document.querySelector(".player-controls .volume-percentage").style.width = newVolume * 100 + '%';
+}, false)
+
+// Кнопка volume-mute
+document.querySelector(".volume-button").addEventListener("click", () => {
+  const volumeEl = document.querySelector(".volume-container .volume");
+  audio.muted = !audio.muted;
+  if (audio.muted) {
+    volumeEl.classList.remove("icono-volumeMedium");
+    volumeEl.classList.add("icono-volumeMute");
+  } else {
+    volumeEl.classList.add("icono-volumeMedium");
+    volumeEl.classList.remove("icono-volumeMute");
+  }
+});
+
+// Процент звука и время обновления
 setInterval(() => {
   progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
   document.querySelector(".audioTime .current").textContent = getTimeCodeFromNum(
@@ -374,7 +367,7 @@ setInterval(() => {
   );
 }, 500);
 
-
+// Время отображения в цифрах
 function getTimeCodeFromNum(num) {
   let seconds = parseInt(num);
   let minutes = parseInt(seconds / 60);
