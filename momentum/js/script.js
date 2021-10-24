@@ -1,4 +1,5 @@
 import playList from './playList.js';
+import greetingTranslation from './greetingTranslation.js';
 
 // находим эл-т с классом time и записываем его в переменную time
 const time = document.querySelector('.time'); 
@@ -16,6 +17,7 @@ let randomNum;
 let randomQuotes;
 let isPlay = false;
 let playNum = 0;
+let lang = 'en';
 
 // Погода
 const weatherIcon = document.querySelector('.weather-icon');
@@ -38,45 +40,34 @@ const playNext = document.querySelector('.play-next');
 const playListContainer = document.querySelector('.play-list');
 
 
-
-
-
-
-
 // Показ времени=========================================
 function showTime () {
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
     time.textContent = currentTime;
-    showDate ();
-    showGreeting();
+    showDate (lang);
+    showGreeting(lang);
     setTimeout(showTime, 1000);
 };
+
 showTime ();
 
 // Показ даты, дня недели==================================
-function showDate () {
+function showDate (l) {
   const date = new Date();
   const options = {weekday: 'long', month: 'long', day: 'numeric'};
-  const currentDate = date.toLocaleDateString('en-US', options);
+  // const currentDate = date.toLocaleDateString('en-US', options);
+  const currentDate = date.toLocaleDateString(l, options);
   days.textContent = currentDate;
-
-  // const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  // let month = MONTHS[date.getMonth()];
-
-  // let week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  // let dayOfWeek = week[date.getDay()];
-  
-  // days.textContent = dayOfWeek + ", " + date.getDate() + " " + month;
 };
 
 // Приветствие===============================================
 
-function showGreeting() {
-  const timeOfDay = getTimeOfDay();
+function showGreeting(l) {
+  // const timeOfDay = getTimeOfDay();
 //   const greetingText = `Good ${timeOfDay},`;
-  const greetingText = "Good " + timeOfDay[0].toUpperCase() + timeOfDay.slice(1) + ",";
-  greet.textContent = greetingText;
+  // const greetingText = "Good " + timeOfDay[0].toUpperCase() + timeOfDay.slice(1) + ",";
+  greet.textContent = greetingTranslation[l];
 };
 
 
@@ -156,8 +147,15 @@ slideNext.addEventListener("click", getSlideNext)
 // Виджет погоды============================================
 
 async function getWeather() {
-  city.value = city.value || "Minsk";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=3c15876c9f36799411c8ddd57f155ca9&units=metric`;
+  if(city.value === '') {
+    if(lang === 'en') {
+      city.value = "Minsk";
+    }
+    if(lang === 'ru') {
+      city.value = "Минск";
+    }
+  }
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=3c15876c9f36799411c8ddd57f155ca9&units=metric`;
   const res = await fetch(url);
   const data = await res.json(); 
   
@@ -175,8 +173,15 @@ async function getWeather() {
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${Math.round(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
-    wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`;
+    if(lang === 'en') {
+      wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
+      humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`;
+    }
+    if(lang === 'ru') {
+      wind.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`;
+      humidity.textContent = `Влажность: ${Math.round(data.main.humidity)}%`;
+    }
+    
   }
 }
 
@@ -196,8 +201,15 @@ async function getQuotes() {
   randomQuotes = getRandomNum(0, data.length-1);
   console.log(randomQuotes);
   console.log(data[randomQuotes]);
-  author.textContent = data[randomQuotes].author;
-  quote.textContent = data[randomQuotes].text;
+  if(lang === 'en') {
+    author.textContent = data[randomQuotes].author;
+    quote.textContent = data[randomQuotes].text;
+  }
+  if(lang === 'ru') {
+    author.textContent = data[randomQuotes].автор;
+    quote.textContent = data[randomQuotes].текст;
+  }
+  
 }
 
 getQuotes();
@@ -336,6 +348,7 @@ timeline.addEventListener("click", e => {
   const timelineWidth = window.getComputedStyle(timeline).width;
   const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
   audio.currentTime = timeToSeek;
+
 }, false);
 
 // Ползунок громкости
@@ -359,7 +372,7 @@ document.querySelector(".volume-button").addEventListener("click", () => {
   }
 });
 
-// Процент звука и время обновления
+// Процент время обновления
 setInterval(() => {
   progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
   document.querySelector(".audioTime .current").textContent = getTimeCodeFromNum(
@@ -380,3 +393,22 @@ function getTimeCodeFromNum(num) {
     seconds % 60
   ).padStart(2, 0)}`;
 }
+
+// перевод приложения
+
+let language = document.getElementById('language');
+
+function changeLang() {
+  if(language.value === 'en') {
+    lang = 'en';
+    yorName.placeholder = "[Enter name]"
+  }
+  if(language.value === 'ru') {
+    lang = 'ru';
+    yorName.placeholder = "[Введите имя]"
+  }
+  getQuotes();
+  getWeather()
+}
+
+language.addEventListener("change", changeLang)
