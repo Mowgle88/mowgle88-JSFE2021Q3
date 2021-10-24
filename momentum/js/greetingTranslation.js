@@ -17,7 +17,7 @@ function getTimeOfDayEn() {
  }
 
 const greetingTranslation = {
-   'en-US': timeOfDay_en,
+   'en': timeOfDay_en,
    'ru': timeOfDay_ru
 }
 

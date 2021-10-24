@@ -17,7 +17,7 @@ let randomNum;
 let randomQuotes;
 let isPlay = false;
 let playNum = 0;
-let lang;
+let lang = 'en';
 
 // Погода
 const weatherIcon = document.querySelector('.weather-icon');
@@ -45,8 +45,8 @@ function showTime () {
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
     time.textContent = currentTime;
-    showDate ('en-US');
-    showGreeting('en-US');
+    showDate (lang);
+    showGreeting(lang);
     setTimeout(showTime, 1000);
 };
 
@@ -147,8 +147,15 @@ slideNext.addEventListener("click", getSlideNext)
 // Виджет погоды============================================
 
 async function getWeather() {
-  city.value = city.value || "Minsk";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=3c15876c9f36799411c8ddd57f155ca9&units=metric`;
+  if(city.value === '') {
+    if(lang === 'en') {
+      city.value = "Minsk";
+    }
+    if(lang === 'ru') {
+      city.value = "Минск";
+    }
+  }
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=3c15876c9f36799411c8ddd57f155ca9&units=metric`;
   const res = await fetch(url);
   const data = await res.json(); 
   
@@ -166,8 +173,15 @@ async function getWeather() {
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${Math.round(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
-    wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`;
+    if(lang === 'en') {
+      wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
+      humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`;
+    }
+    if(lang === 'ru') {
+      wind.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`;
+      humidity.textContent = `Влажность: ${Math.round(data.main.humidity)}%`;
+    }
+    
   }
 }
 
@@ -187,8 +201,15 @@ async function getQuotes() {
   randomQuotes = getRandomNum(0, data.length-1);
   console.log(randomQuotes);
   console.log(data[randomQuotes]);
-  author.textContent = data[randomQuotes].author;
-  quote.textContent = data[randomQuotes].text;
+  if(lang === 'en') {
+    author.textContent = data[randomQuotes].author;
+    quote.textContent = data[randomQuotes].text;
+  }
+  if(lang === 'ru') {
+    author.textContent = data[randomQuotes].автор;
+    quote.textContent = data[randomQuotes].текст;
+  }
+  
 }
 
 getQuotes();
@@ -375,6 +396,19 @@ function getTimeCodeFromNum(num) {
 
 // перевод приложения
 
-// const date = new Date();
-// console.log(date.toLocaleString());
+let language = document.getElementById('language');
 
+function changeLang() {
+  if(language.value === 'en') {
+    lang = 'en';
+    yorName.placeholder = "[Enter name]"
+  }
+  if(language.value === 'ru') {
+    lang = 'ru';
+    yorName.placeholder = "[Введите имя]"
+  }
+  getQuotes();
+  getWeather()
+}
+
+language.addEventListener("change", changeLang)
