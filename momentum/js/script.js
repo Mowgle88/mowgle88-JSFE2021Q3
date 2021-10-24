@@ -336,6 +336,7 @@ timeline.addEventListener("click", e => {
   const timelineWidth = window.getComputedStyle(timeline).width;
   const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
   audio.currentTime = timeToSeek;
+
 }, false);
 
 // Ползунок громкости
@@ -359,7 +360,7 @@ document.querySelector(".volume-button").addEventListener("click", () => {
   }
 });
 
-// Процент звука и время обновления
+// Процент время обновления
 setInterval(() => {
   progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
   document.querySelector(".audioTime .current").textContent = getTimeCodeFromNum(
