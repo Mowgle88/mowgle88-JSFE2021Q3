@@ -1,4 +1,5 @@
 import playList from './playList.js';
+import greetingTranslation from './greetingTranslation.js';
 
 // находим эл-т с классом time и записываем его в переменную time
 const time = document.querySelector('.time'); 
@@ -16,6 +17,7 @@ let randomNum;
 let randomQuotes;
 let isPlay = false;
 let playNum = 0;
+let lang;
 
 // Погода
 const weatherIcon = document.querySelector('.weather-icon');
@@ -38,45 +40,34 @@ const playNext = document.querySelector('.play-next');
 const playListContainer = document.querySelector('.play-list');
 
 
-
-
-
-
-
 // Показ времени=========================================
 function showTime () {
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
     time.textContent = currentTime;
-    showDate ();
-    showGreeting();
+    showDate ('en-US');
+    showGreeting('en-US');
     setTimeout(showTime, 1000);
 };
+
 showTime ();
 
 // Показ даты, дня недели==================================
-function showDate () {
+function showDate (l) {
   const date = new Date();
   const options = {weekday: 'long', month: 'long', day: 'numeric'};
-  const currentDate = date.toLocaleDateString('en-US', options);
+  // const currentDate = date.toLocaleDateString('en-US', options);
+  const currentDate = date.toLocaleDateString(l, options);
   days.textContent = currentDate;
-
-  // const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  // let month = MONTHS[date.getMonth()];
-
-  // let week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  // let dayOfWeek = week[date.getDay()];
-  
-  // days.textContent = dayOfWeek + ", " + date.getDate() + " " + month;
 };
 
 // Приветствие===============================================
 
-function showGreeting() {
-  const timeOfDay = getTimeOfDay();
+function showGreeting(l) {
+  // const timeOfDay = getTimeOfDay();
 //   const greetingText = `Good ${timeOfDay},`;
-  const greetingText = "Good " + timeOfDay[0].toUpperCase() + timeOfDay.slice(1) + ",";
-  greet.textContent = greetingText;
+  // const greetingText = "Good " + timeOfDay[0].toUpperCase() + timeOfDay.slice(1) + ",";
+  greet.textContent = greetingTranslation[l];
 };
 
 
@@ -380,3 +371,9 @@ function getTimeCodeFromNum(num) {
     seconds % 60
   ).padStart(2, 0)}`;
 }
+
+// перевод приложения
+
+// const date = new Date();
+// console.log(date.toLocaleString());
+
