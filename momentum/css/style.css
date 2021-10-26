@@ -371,8 +371,110 @@ body {
 }
 
 
+/* burger====================== */
+.settings {
+  margin: 10px auto;
+  width: 250px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+}
+
+#menu {
+  display: none;
+}
+
+.menu {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+  background-image: url(../assets/svg/setting.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.menu:hover {
+  opacity: 0.9;
+}
+
+.settings-nav {
+  display: block;
+  position: absolute;
+  width: 100%;
+  max-height: 0;
+  font-size: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: 0.5s all;
+  opacity: 0.7;
+  z-index: 10;
+}
+
+.settings-item {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border-top: 1px solid rgba(255,255,255, 0.3);
+  background-color: #000;
+  user-select: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.settings-item:hover {
+  opacity: 1;
+}
+
+.item-lang {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.lang-inner {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  justify-content: space-between;
+}
+
+.ru-lang,
+.en-lang {
+  width: 27px;
+  height: 27px;
+  padding-top: 3px;
+  border: 2px solid white;
+  border-radius: 50%;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 0.8;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ru-lang:hover,
+.en-lang:hover {
+  opacity: 1;
+}
+
+#menu:checked ~ .settings-nav {
+  max-height: 500px;
+  font-size: 1rem;
+}
+
 /* ===================== */
-.settings-btn {
+/* .settings-btn {
   position: absolute;
   left: 20px;
   bottom: 20px;
@@ -505,11 +607,9 @@ body {
 
 .change-quote:hover {
   opacity: 1;
-}
+} */
 
 /* ========================= */
-
-
 
 .footer {
   display: flex;
@@ -543,7 +643,6 @@ body {
   justify-content: center;
 }
 
-
 .github-link {
   border: 0;
   outline: 0;
@@ -574,7 +673,7 @@ body {
 }
 /* ============================================= */
 
-.todo-container {
+/* .todo-container {
   display: none;
   position: absolute;
   padding: 10px;
@@ -662,7 +761,7 @@ body {
 .text-th {
   text-decoration: line-through;
   opacity: 0.5;
-}
+} */
 
 
 @media (max-width: 768px) {

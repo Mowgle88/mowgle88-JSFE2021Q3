@@ -13,6 +13,7 @@ const slidePrev = document.querySelector(".slide-prev");
 const slideNext = document.querySelector(".slide-next");
 
 // Погода
+const weather = document.querySelector('.weather');
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
@@ -27,21 +28,24 @@ const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 
 // аудиоплеер
+const player = document.querySelector('.player');
 const play = document.querySelector('.play');
 const playPrev = document.querySelector('.play-prev');
 const playNext = document.querySelector('.play-next');
 const playListContainer = document.querySelector('.play-list');
 
-//настройки
-const settings = document.querySelector(".settings-btn");
-const setCont = document.querySelector('.settings-container');
-const languages = setCont.querySelector('.language');
-const apps = setCont.querySelector('.apps');
+// настройки 
 
-//список дел
-const todo = document.querySelector(".todo");
-const newTodo = document.querySelector(".new-todo");
-const todoContainer = document.querySelector(".todo-container");
+const langElement = document.querySelector(".langElement"); 
+const playerElement = document.querySelector(".playerElement"); 
+const weatherElement = document.querySelector(".weatherElement"); 
+const timeElement = document.querySelector(".timeElement"); 
+const dateElement = document.querySelector(".dateElement"); 
+const greetingElement = document.querySelector(".greetingElement"); 
+const quoteElement = document.querySelector(".quoteElement"); 
+const todoElement = document.querySelector(".todoElement"); 
+const ruLang = document.querySelector(".ru-lang"); 
+const enLang = document.querySelector(".en-lang"); 
 
 // Переменные
 let randomNum;
@@ -49,10 +53,8 @@ let randomQuotes;
 let isPlay = false;
 let playNum = 0;
 let lang = 'en';
-let setTr = true;
-let setApps = true;
-let todoNumber = 0;
-let addTodoNum = 0;
+// let todoNumber = 0;
+// let addTodoNum = 0;
 
 // Показ времени=========================================
 function showTime () {
@@ -93,11 +95,22 @@ function getTimeOfDay() {
 
 // Пользователь может ввести своё имя===========================
 const yorName = document.querySelector(".name"); 
+const greeting = document.querySelector('.greeting-container');
+const quoteContainer = document.querySelector('.quote-container');
+
+
 
 function setLocalStorage() {
     localStorage.setItem('name', yorName.value);
     localStorage.setItem('city', city.value);
-    }
+    localStorage.setItem('player', p);
+    localStorage.setItem('weather', weather.style.opacity);
+    localStorage.setItem('time', time.style.opacity);
+    localStorage.setItem('date', days.style.opacity);
+    localStorage.setItem('greeting', greeting.style.opacity);
+    localStorage.setItem('quote', quoteContainer.style.opacity);
+}
+
 window.addEventListener('beforeunload', setLocalStorage)
 
 
@@ -107,9 +120,27 @@ function getLocalStorage() {
     }
     if(localStorage.getItem('city')) {
       city.value = localStorage.getItem('city');
-  }
-
+    }
+    if (localStorage.getItem('player')) {
+      p = localStorage.getItem('player');
+    }
+    if (localStorage.getItem('weather')) {
+      weather.style.opacity = localStorage.getItem('weather');
+    }
+    if (localStorage.getItem('time')) {
+      time.style.opacity = localStorage.getItem('time');
+    }
+    if (localStorage.getItem('date')) {
+      days.style.opacity = localStorage.getItem('date');
+    }
+    if (localStorage.getItem('greeting')) {
+      greeting.style.opacity = localStorage.getItem('greeting');
+    }
+    if (localStorage.getItem('quote')) {
+      quoteContainer.style.opacity = localStorage.getItem('quote');
+    } 
 }
+
 window.addEventListener('load', getLocalStorage)
 
 
@@ -161,14 +192,17 @@ slideNext.addEventListener("click", getSlideNext)
 // Виджет погоды============================================
 
 async function getWeather() {
-  if(city.value === '') {
-    if(lang === 'en') {
+  if(lang === 'en') {
+    if(city.value === ''|| "Минск") {
       city.value = "Minsk";
     }
-    if(lang === 'ru') {
+  }
+  if(lang === 'ru') {
+    if(city.value === '' || "Minsk") {
       city.value = "Минск";
     }
   }
+
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=3c15876c9f36799411c8ddd57f155ca9&units=metric`;
   const res = await fetch(url);
   const data = await res.json(); 
@@ -255,17 +289,13 @@ function playAudio() {
     isPlay = true;
     toggleBtn();
     
-    // changeColor()
   } else {
 
     length.textContent = "00:00"
-    // track.textContent = "";
-
     playListContainer.childNodes[playNum].style.color = '#fff';
     audio.pause();
     isPlay = false;
     toggleBtn();
-    // changeColor()
   }
 }
 
@@ -273,10 +303,6 @@ function toggleBtn() {
   play.classList.toggle('pause');
 }
 
-// function changeColor() {
-//   let li = document.querySelector('.play-item');
-//   li.classList.toggle('play-item-active');
-// }
 
 function getAudioNext() {
   let n = playList.length - 1;
@@ -409,372 +435,226 @@ function getTimeCodeFromNum(num) {
 }
 
 
-
-
 //настройки==================================================
 
 // перевод приложения
 
-function currentSet() {
-  switch(lang) {
-    case 'en':
-      languages.textContent = 'Language';
-      apps.textContent = 'Apps';
-      break
-    case 'ru':
-      languages.textContent = 'Язык';
-      apps.textContent = 'Приложения';
-      break
-  }
-}
 
-currentSet();
-
-function choseLang() {
-  const choseLang = document.createElement('div');
-  choseLang.classList = 'chose-lang';
-  setCont.append(choseLang)
-  const ru = document.createElement('div');
-  ru.classList = 'ru-lang';
-  ru.textContent = 'ru';
-  choseLang.append(ru);
-  const en = document.createElement('div');
-  en.classList = 'en-lang';
-  en.textContent = 'en';
-  choseLang.append(en);
-
-  ru.addEventListener('click', function() {
-    lang = 'ru';
-    yorName.placeholder = "[Введите имя]"
-    getQuotes();
-    getWeather();
-    currentTodo();
-    currentSet();
-  });
-
-  en.addEventListener('click', function() {
-    lang = 'en';
-    yorName.placeholder = "[Enter name]"
-    getQuotes();
-    getWeather();
-    currentTodo();
-    currentSet();
-  });
-
-}
-
-function closeLang() {
-  const closeLang = setCont.querySelector('.chose-lang');
-  closeLang.remove();
-}
-
-
-languages.addEventListener('click', function() {
-  if (!setApps) {
-    closeApps();
-    setApps = true;
-  } 
-  if (setTr) {
-    choseLang();
-    setTr = false;
+function changeSettingsLang() {
+  if(lang === 'en') {
+    langElement.textContent = 'Language';
+    playerElement.textContent = 'Player';
+    weatherElement.textContent = 'Weather';
+    timeElement.textContent = 'Time';
+    dateElement.textContent = 'Date';
+    greetingElement.textContent = 'Greeting';
+    quoteElement.textContent = 'Quote';
+    todoElement.textContent = 'Todo';
   } else {
-    closeLang();
-    setTr = true;
-  }
-}
-);
-
-
-function hideSettings() {
-  setCont.classList.toggle('settings-active');
-}
-
-function choseApps() {
-  const choseApps = document.createElement('div');
-  choseApps.classList = 'chose-apps';
-  setCont.append(choseApps)
-  const player = document.createElement('div');
-  player.classList = 'set-btn';
-  const weather = document.createElement('div');
-  weather.classList = 'set-btn';
-  const quote = document.createElement('div');
-  quote.classList = 'set-btn';
-  const todo = document.createElement('div');
-  todo.classList = 'set-btn';
-  const time = document.createElement('div');
-  time.classList = 'set-btn';
-  const date = document.createElement('div');
-  date.classList = 'set-btn';
-  const greeting = document.createElement('div');
-  greeting.classList = 'set-btn';
-  
-  switch(lang) {
-    case 'en':
-      player.textContent = 'Player';
-      weather.textContent = 'Weather';
-      quote.textContent = 'Quote';
-      todo.textContent = 'Todo';
-      time.textContent = 'Time';
-      date.textContent = 'Date';
-      greeting.textContent = 'Greeting';
-      break
-    case 'ru':
-      player.textContent = 'Плеер';
-      weather.textContent = 'Погода';
-      quote.textContent = 'Цитата';
-      todo.textContent = 'Дела';
-      time.textContent = 'Время';
-      date.textContent = 'Дата';
-      greeting.textContent = 'Приветствие';
-      choseApps.style = 'left: 172px';
-      break
-  }
-
-  choseApps.append(player);
-  choseApps.append(weather);
-  choseApps.append(quote);
-  choseApps.append(todo);
-  choseApps.append(time);
-  choseApps.append(date);
-  choseApps.append(greeting);
-
-  player.addEventListener('click', function hidePlayer() {
-    document.querySelector('.player').classList.toggle('hide');
-    player.classList.toggle('text-th');
-    if (localStorage.getItem('player') == 'true') {
-      localStorage.setItem('player', false);
-    } else {
-      localStorage.player = true;
-    }
-  });
-  weather.addEventListener('click', function() {
-    document.querySelector('.weather').classList.toggle('hide');
-    weather.classList.toggle('text-th');
-    if (localStorage.getItem('weather') == 'true') {
-      localStorage.setItem('weather', false);
-    } else {
-      localStorage.weather = true;
-    }
-  });
-  quote.addEventListener('click', function() {
-    document.querySelector('.quote').classList.toggle('hide');
-    document.querySelector('.change-quote').classList.toggle('hide');
-    document.querySelector('.author').classList.toggle('hide');
-    quote.classList.toggle('text-th');
-    if (localStorage.getItem('quote') == 'true') {
-      localStorage.setItem('quote', false);
-    } else {
-      localStorage.quote = true;
-    }
-  });
-  todo.addEventListener('click', function() {
-    document.querySelector('.todo-container').classList.toggle('hide');
-    document.querySelector('.todo').classList.toggle('hide');
-    todo.classList.toggle('text-th');
-    if (localStorage.getItem('todo') == 'true') {
-      localStorage.setItem('todo', false);
-    } else {
-      localStorage.todo = true;
-    }
-  });
-  time.addEventListener('click', function() {
-    document.querySelector('.time').classList.toggle('hide');
-    time.classList.toggle('text-th');
-    if (localStorage.getItem('time') == 'true') {
-      localStorage.setItem('time', false);
-    } else {
-      localStorage.time = true;
-    }
-  });
-  date.addEventListener('click', function() {
-    document.querySelector('.date').classList.toggle('hide');
-    date.classList.toggle('text-th');
-    if (localStorage.getItem('date') == 'true') {
-      localStorage.setItem('date', false);
-    } else {
-      localStorage.date = true;
-    }
-  });
-  greeting.addEventListener('click', function() {
-    document.querySelector('.greeting-container').classList.toggle('hide');
-    greeting.classList.toggle('text-th');
-    if (localStorage.getItem('greeting') == 'true') {
-      localStorage.setItem('greeting', false);
-    } else {
-      localStorage.greeting = true;
-    }
-  });
-
-  if (localStorage.getItem('player') == 'true') {
-    player.classList.toggle('text-th');
-  }
-  if (localStorage.getItem('weather') == 'true') {
-    weather.classList.toggle('text-th');
-  }
-  if (localStorage.getItem('quote') == 'true') {
-    quote.classList.toggle('text-th');
-  }
-  if (localStorage.getItem('todo') == 'true') {
-    todo.classList.toggle('text-th');
-  }
-  if (localStorage.getItem('time') == 'true') {
-    time.classList.toggle('text-th');
-  }
-  if (localStorage.getItem('date') == 'true') {
-    date.classList.toggle('text-th');
-  }
-  if (localStorage.getItem('greeting') == 'true') {
-    greeting.classList.toggle('text-th');
+    langElement.textContent = 'Язык';
+    playerElement.textContent = 'Плеер';
+    weatherElement.textContent = 'Погода';
+    timeElement.textContent = 'Время';
+    dateElement.textContent = 'Дата';
+    greetingElement.textContent = 'Приветствие';
+    quoteElement.textContent = 'Цитата';
+    todoElement.textContent = 'Дела';
   }
 }
 
-function closeApps() {
-  const closeApps = setCont.querySelector('.chose-apps');
-  closeApps.remove();
-}
+changeSettingsLang()
 
-apps.addEventListener('click', function() {
-  if (!setTr) {
-    closeLang();
-    setTr = true;
-  } 
-  if (setApps) {
-    choseApps();
-    setApps = false;
-  } else {
-    closeApps();
-    setApps = true;
-  }
-}
-);
-
-function settingsActive() {
-  settings.classList.toggle('settings-btn-active');
-  hideSettings();
-}
-
-settings.addEventListener('click', function() {
-  if (setApps !== true) {
-    closeApps();
-    setApps = true;
-  } 
-
-  if (setTr !== true) {
-    closeLang();
-    setTr = true;
-  } 
-  settingsActive();
+ruLang.addEventListener('click', function() {
+  lang = 'ru';
+  yorName.placeholder = "[Введите имя]"
+  getQuotes();
+  getWeather();
+  // currentTodo();
+  changeSettingsLang();
 });
 
-function hideElements() {
-  if (localStorage.getItem('player') == 'true') {
-    document.querySelector('.player').classList.toggle('hide');
+enLang.addEventListener('click', function() {
+  lang = 'en';
+  yorName.placeholder = "[Enter name]"
+  getQuotes();
+  getWeather();
+  // currentTodo();
+  changeSettingsLang();
+});
+
+
+// скрыть элементы=================
+let p = true;
+
+playerElement.addEventListener('click', function() {
+  if(p) {
+    player.style.opacity = "0";
+    playerElement.style.opacity = "0.5";
+    p = false;
+  } else {
+    player.style.opacity = "1";
+    playerElement.style.opacity = "0.8";
+    p = true;
   }
-  if (localStorage.getItem('weather') == 'true') {
-    document.querySelector('.weather').classList.toggle('hide');
+console.log(p)
+
+  // if (localStorage.getItem('player')) {
+  //   localStorage.setItem('player', false);
+  // } else {
+  //   localStorage.player = true;
+  // }
+});
+
+
+
+
+let w = true;
+
+weatherElement.addEventListener('click', function() {
+  if(w) {
+    weather.style.opacity = "0";
+    weatherElement.style.opacity = "0.5";
+    w = false;
+  } else {
+    weather.style.opacity = "1";
+    weatherElement.style.opacity = "0.8";
+    w = true;
   }
-  if (localStorage.getItem('quote') == 'true') {
-    document.querySelector('.quote').classList.toggle('hide');
-    document.querySelector('.author').classList.toggle('hide');
-    document.querySelector('.change-quote').classList.toggle('hide');
+
+  // if (localStorage.getItem('weather') == 'true') {
+  //   localStorage.setItem('weather', false);
+  // } else {
+  //   localStorage.weather = true;
+  // }
+});
+
+
+let t = true;
+
+timeElement.addEventListener('click', function() {
+  if(t) {
+    time.style.opacity = "0";
+    timeElement.style.opacity = "0.5";
+    t = false;
+  } else {
+    time.style.opacity = "1";
+    timeElement.style.opacity = "0.8";
+    t = true;
   }
-  if (localStorage.getItem('todo') == 'true') {
-    document.querySelector('.todo').classList.toggle('hide');
-    document.querySelector('.todo-container').classList.toggle('hide');
+
+  // if (localStorage.getItem('time') == 'true') {
+  //   localStorage.setItem('time', false);
+  // } else {
+  //   localStorage.time = true;
+  // }
+});
+
+
+let d = true;
+
+dateElement.addEventListener('click', function() {
+  if(d) {
+    days.style.opacity = "0";
+    dateElement.style.opacity = "0.5";
+    d = false;
+  } else {
+    days.style.opacity = "1";
+    dateElement.style.opacity = "0.8";
+    d = true;
   }
-  if (localStorage.getItem('time') == 'true') {
-    document.querySelector('.time').classList.toggle('hide');
+  
+  // if (localStorage.getItem('date') == 'true') {
+  //   localStorage.setItem('date', false);
+  // } else {
+  //   localStorage.date = true;
+  // }
+});
+
+
+let g = true;
+
+greetingElement.addEventListener('click', function() {
+  if(g) {
+    greeting.style.opacity = "0";
+    greetingElement.style.opacity = "0.5";
+    g = false;
+  } else {
+    greeting.style.opacity = "1";
+    greetingElement.style.opacity = "0.8";
+    g = true;
   }
-  if (localStorage.getItem('date') == 'true') {
-    document.querySelector('.date').classList.toggle('hide');
+  // if (localStorage.getItem('greeting') == 'true') {
+  //   localStorage.setItem('greeting', false);
+  // } else {
+  //   localStorage.greeting = true;
+  // }
+});
+
+
+let q = true; 
+
+quoteElement.addEventListener('click', function() {
+  if(q) {
+    quoteContainer.style.opacity = "0";
+    quoteElement.style.opacity = "0.5";
+    q = false;
+  } else {
+    quoteContainer.style.opacity = "1";
+    quoteElement.style.opacity = "0.8";
+    q = true;
   }
-  if (localStorage.getItem('greeting') == 'true') {
-    document.querySelector('.greeting-container').classList.toggle('hide');
-  }
-}
-
-hideElements();
-
-
-//список дел================================================
-
-const todoNothing = document.createElement('div');
-
-function currentTodo() {
-  switch(lang) {
-    case 'en':
-      todo.textContent = 'Todo';
-      newTodo.textContent = 'New Todo';
-      todoNothing.textContent = 'Nothing Todo!';
-      break
-    case 'ru':
-      todo.textContent = 'Дела';
-      newTodo.textContent = 'Новое Дело';
-      todoNothing.textContent = 'Нету дел!'
-      break
-  }
-}
-
-currentTodo();
-
-todoNothing.className = `todo-nothing`;
-todoContainer.prepend(todoNothing);
-
-function todoActive() {
-  todo.classList.toggle('todo-active');
-  todoContainer.classList.toggle('todo-cont-active');
-}
+  
+  // if (localStorage.getItem('quote') == 'true') {
+  //   localStorage.setItem('quote', false);
+  // } else {
+  //   localStorage.quote = true;
+  // }
+});
 
 
-function setNewTodo() {
-  if(todoNumber !== 0) {
-    if (localStorage.getItem(`todo-${todoNumber-1}`) == null) return;
-  }
-  if (todoNumber > 10) return;
-  const todoOnDay = document.createElement('label');
-  todoOnDay.classList = `todo-list todo-${todoNumber}`; 
-  todoContainer.prepend(todoOnDay);
-  const checkbox = document.createElement('input');
-  checkbox.type = "checkbox";
-  checkbox.value = 1;
-  checkbox.id = `${todoNumber}`;
-  checkbox.classList = `checkbox checkbox-${todoNumber}`; 
-  todoOnDay.prepend(checkbox);
-  const todoInput = document.createElement('input');
-  todoInput.type = 'text';
-  todoInput.setAttribute("maxlength", 40);
-  todoInput.value = localStorage.getItem(`todo-${todoNumber}`)
-  todoInput.id = `${todoNumber}`;
-  todoInput.classList = `todo-input todo-input-${todoNumber}`; 
-  todoOnDay.append(todoInput);
-  if (todoNumber == 0) document.querySelector(".todo-nothing").remove();
-  todoNumber++
-  Array.from(document.querySelectorAll('.todo-input'), function(el){
-    el.onfocus = function(){
-      el.addEventListener('change', () => {
-        localStorage.setItem(`todo-${this.id}`, todoInput.value);
-        document.querySelector(`.todo-input-${this.id}`).style= "border-bottom: none";
-      })
-    }
-  })
-  Array.from(document.querySelectorAll('.checkbox'), function(el){
-    el.onfocus = function(){
-      el.addEventListener('change', () => {
-        document.querySelector(`.todo-input-${this.id}`).classList.toggle('text-th')});
-    }
-  })
-}
+// function hideElements() {
+//   if (localStorage.getItem('player') == 'true') {
+//     player.style.opacity = "0";
+//     playerElement.style.opacity = "0.5";
+//   } else {
+//     player.style.opacity = "1";
+//     playerElement.style.opacity = "0.8";
+//   }
+//   if (localStorage.getItem('weather') == 'true') {
+//     weather.style.opacity = "0";
+//     weatherElement.style.opacity = "0.5";
+//   } else {
+//     weather.style.opacity = "1";
+//     weatherElement.style.opacity = "0.8";
+//   }
+//   if (localStorage.getItem('quote') == 'true') {
+//     quoteContainer.style.opacity = "0";
+//     quoteElement.style.opacity = "0.5";
+//   } else {
+//     quoteContainer.style.opacity = "1";
+//     quoteElement.style.opacity = "0.8";
+//   }
+//   if (localStorage.getItem('time') == 'true') {
+//     time.style.opacity = "0";
+//     timeElement.style.opacity = "0.5";
+//   } else {
+//     time.style.opacity = "1";
+//     timeElement.style.opacity = "0.8";
+//   }
+//   if (localStorage.getItem('date') == 'true') {
+//     days.style.opacity = "0";
+//     dateElement.style.opacity = "0.5";
+//   } else {
+//     days.style.opacity = "1";
+//     dateElement.style.opacity = "0.8";
+//   }
+//   if (localStorage.getItem('greeting') == 'true') {
+//     greeting.style.opacity = "0";
+//     greetingElement.style.opacity = "0.5";
+//   } else {
+//     greeting.style.opacity = "1";
+//     greetingElement.style.opacity = "0.8";
+//   }
+// }
 
-function addTodo() {
-  if (localStorage.getItem(`todo-${addTodoNum}`) !== null) {
-    setNewTodo();
-    document.querySelector(`.todo-input-${addTodoNum}`).style= "border-bottom: none";
-    addTodoNum++;
-    addTodo();
-  } else return;
-
-} 
-
-addTodo();
-newTodo.addEventListener('click', setNewTodo);
-todo.addEventListener('click', todoActive);
+// hideElements();
