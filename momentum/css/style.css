@@ -240,13 +240,121 @@ body {
 }
 
 
+.openTodo {
+  width: 60px;
+  height: 60px;
+  background-image: url(../assets/svg/todo.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top:50px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  opacity: 0.7;
+}
 
+.openTodo:hover {
+  opacity: 1;
+}
 
-/* ========================= */
+.todo{
+  display: none;
+  max-width: 800px;
+	padding: 10px;
+	margin: 10px auto;
+	background: #000;
+	/* position: relative; */
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  opacity: 0.8;
+  z-index: 10; 
+}
 
+.addTask{
+	width: 100%;
+	display: flex;
+	padding: 10px 0;
+}
 
+.addTask > input[type="text"]{
+	width: 90%;
+	color: #cfcfe1;;
+	border:none;
+	border-bottom: 2px solid #666;
+	background: none;
+	padding: 10px;
+	font-size: 22px;
+	outline: none;
+}
+.addTask button{
+	margin: 0 10px;
+	background: #222;
+	color: #fff;
+	font-size: 18px;
+	text-transform: uppercase;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.notCompleted, .Completed{
+	margin: 5px 0;
+	padding: 20px;
+}
+h3{
+	font-size: 20px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+}
 
-/* ================================ */
+ol{
+	list-style: none;
+	counter-reset: my-counter;
+}
+
+ol li{
+	width: 100%;
+	padding: 18px;
+	margin: 5px 0;
+	background: #e96969bb;
+	font-size: 22px;
+	counter-increment: my-counter;
+}
+
+ol.Completed li{
+	background: #00ff62;
+}
+
+ol li::before{
+	content: counter(my-counter);
+	background: #231381;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	display: inline-block;
+	line-height: 2rem;
+	text-align: center;
+	color: #fff;
+	margin-right: 0.5rem;
+}
+
+li button{
+	float: right;
+	padding: 5px;
+	font-size: 28px;
+	line-height: 28px;
+	margin-right: 15px;
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
 
 .weather {
   display: flex;
@@ -473,143 +581,7 @@ body {
   font-size: 1rem;
 }
 
-/* ===================== */
-/* .settings-btn {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  width: 30px;
-  height: 30px;
-  background-size: 30px 30px;
-  background-image: url("../assets/svg/settings.svg");
-  opacity: .8;
-  user-select: none;
-}
 
-.settings-btn:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-
-.settings-btn-active {
-  opacity: 1;
-  transform: rotate(180deg);
-}
-
-.settings-container {
-  position: absolute;
-  padding: 10px;
-  left: -12%;
-  bottom: 80px;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  z-index: -1;
-}
-
-.settings-active {
-  left: 50px;
-  opacity: 1;
-  z-index: 1;
-}
-
-.set-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  opacity: .8;
-  text-align: left;
-  margin: 5px;
-  margin-left: 30px;
-  user-select: none;
-
-}
-
-.set-btn:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-
-.language::before,
-.apps::before {
-  content: '';
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  left: 10px;
-}
-
-.language::before {
-  background-image: url("../assets/svg/language.svg");
-}
-
-.chose-lang {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  top: 0;
-  left: 144px;
-  padding: 10px;
-  width: 100px;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.ru-lang,
-.en-lang {
-  font-size: 20px;
-  padding-top: 3px;
-  text-align: center;
-  vertical-align: middle;
-  opacity: .8;
-  border: 2px solid white;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  user-select: none;
-
-}
-
-.ru-lang:hover,
-.en-lang:hover {
-  opacity: 1;
-}
-
-.apps::before {
-  background-image: url("../assets/svg/apps.svg");
-}
-
-.chose-apps {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  bottom: 0;
-  left: 144px;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.chose-apps .set-btn {
-  margin: 5px
-}
-
-.change-quote {
-  margin-bottom: 30px;
-  background-image: url("./assets/svg/reload.svg");  
-}
-
-.change-quote:hover {
-  opacity: 1;
-} */
-
-/* ========================= */
 
 .footer {
   display: flex;
@@ -671,97 +643,6 @@ body {
   width: 100%;
   height: 100%;
 }
-/* ============================================= */
-
-/* .todo-container {
-  display: none;
-  position: absolute;
-  padding: 10px;
-  right: 50px;
-  bottom: 170px;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  z-index: -1;
-}
-
-.todo-cont-active {
-  display: flex;
-  opacity: 1;
-  z-index: 1;
-}
-
-.todo {
-  position: absolute;
-  padding: 0;
-  right: 40px;
-  bottom: 20px;
-  font-size: 28px;
-  opacity: .8;
-  background: none;
-  border: none;
-  color: white;
-}
-
-.todo:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-
-.todo-input {
-  width: 400px;
-  overflow: hidden;
-}
-
-.todo-active {
-  text-decoration: underline;
-  opacity: 1;
-}
-
-.new-todo {
-  font-size: 20px;
-  opacity: .8;
-  background: none;
-  border: none;
-  color: white;
-}
-
-.new-todo:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-
-.todo-nothing {
-  font-size: 20px;
-  padding-bottom: 20px;
-  opacity: .8;
-}
-
-.checkbox:checked {
-  background: white;
-}
-
-.todo-input {
-  margin-left: 20px;
-  margin-bottom: 10px;
-  font-size: 20px;
-  line-height: 24px;
-  color: #fff;  
-  border: 0;
-  outline: 0;
-  border-bottom: 1px solid #fff;
-  background-color: transparent;
-}
-
-.hide {
-  opacity: 0;
-}
-
-.text-th {
-  text-decoration: line-through;
-  opacity: 0.5;
-} */
 
 
 @media (max-width: 768px) {
@@ -849,15 +730,33 @@ body {
     justify-content: center;
   }
 
-  .todo-container {
-    right: 10px;
-    bottom: 75px;
-    width: 95%;
+  .todo {
+    width: 90%;
+  }
+  .addTask button {
+    font-size: 14px;
 }
 
-.todo-input {
-  width: 280px;
-  overflow: hidden;
-  }
+.addTask > input[type="text"] {
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+}
+
+ol li {
+  padding: 10px;
+  font-size: 15px;
+}
+
+.notCompleted, .Completed {
+  margin: 5px 0;
+  padding: 10px;
+}
+
   
 }

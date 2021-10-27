@@ -466,6 +466,35 @@ function changeSettingsLang() {
 
 changeSettingsLang()
 
+const close = document.querySelector(".close"); 
+const add = document.querySelector(".add"); 
+const notCompleted = document.querySelector(".notCompleted"); 
+const Completed = document.querySelector(".completed"); 
+const notComp = document.querySelector(".notComp"); 
+const comp = document.querySelector(".Comp"); 
+const todoInput = document.querySelector(".todo-input"); 
+
+
+
+function changeTodoLang() {
+  if(lang === 'en') {
+    close.textContent = 'Close';
+    add.textContent = 'Add';
+    notComp.textContent = 'Not Completed';
+    comp.textContent = 'Completed';
+    todoInput.placeholder = "Add a Task"
+  } else {
+    close.textContent = 'Закрыть';
+    add.textContent = 'Добавить';
+    notComp.textContent = 'Не выполнено';
+    comp.textContent = 'Выполнено';
+    todoInput.placeholder = "Добавить задание"
+
+  }
+}
+
+changeTodoLang();
+
 ruLang.addEventListener('click', function() {
   localStorage.Language = 'ru';
   lang = localStorage.getItem('Language');
@@ -474,6 +503,7 @@ ruLang.addEventListener('click', function() {
   getWeather();
   // currentTodo();
   changeSettingsLang();
+  changeTodoLang()
 });
 
 enLang.addEventListener('click', function() {
@@ -484,6 +514,7 @@ enLang.addEventListener('click', function() {
   getWeather();
   // currentTodo();
   changeSettingsLang();
+  changeTodoLang()
 });
 
 
@@ -500,11 +531,8 @@ playerElement.addEventListener('click', function() {
     playerElement.style.opacity = "0.8";
     p = true;
   }
-
   
 });
-
-
 
 
 let w = true;
@@ -520,9 +548,7 @@ weatherElement.addEventListener('click', function() {
     w = true;
   }
 
-  
 });
-
 
 let t = true;
 
@@ -537,9 +563,7 @@ timeElement.addEventListener('click', function() {
     t = true;
   }
 
-  
 });
-
 
 let d = true;
 
@@ -554,9 +578,7 @@ dateElement.addEventListener('click', function() {
     d = true;
   }
   
-  
 });
-
 
 let g = true;
 
@@ -570,7 +592,6 @@ greetingElement.addEventListener('click', function() {
     greetingElement.style.opacity = "0.8";
     g = true;
   }
-  
 });
 
 
@@ -588,4 +609,79 @@ quoteElement.addEventListener('click', function() {
   }
   
 });
+
+let tD = true; 
+
+todoElement.addEventListener('click', function() {
+  if(tD) {
+    openTodo.style.opacity = "0";
+    todo.style.opacity = "0";
+    todoElement.style.opacity = "0.5";
+    tD = false;
+  } else {
+    openTodo.style.opacity = "1";
+    todo.style.opacity = "1";
+    todoElement.style.opacity = "0.8";
+    tD = true;
+  }
+  
+});
+
+// Список дел======
+
+const openTodo = document.querySelector('.openTodo');
+const todo = document.querySelector('.todo');
+const input = document.querySelector('input');
+const btn = document.querySelector('.addTask > .add');
+
+
+openTodo.addEventListener('click', function() {
+    todo.style.display = "block";
+    openTodo.style.display = "none";
+});
+
+close.addEventListener('click', function() {
+  todo.style.display = "none";
+  openTodo.style.display = "block";
+});
+
+
+
+
+btn.addEventListener('click', addList);
+input.addEventListener('keyup', (e)=>{
+	(e.keyCode === 13 ? addList(e) : null);
+})
+
+function addList(e){
+  const notCompleted = document.querySelector('.notCompleted');
+	const Completed = document.querySelector('.Completed');
+
+	const newLi = document.createElement('li');
+	const checkBtn = document.createElement('button');
+	const delBtn = document.createElement('button');
+
+	checkBtn.innerHTML = '<i class="fa fa-check"></i>';
+	delBtn.innerHTML = '<i class="fa fa-trash"></i>';
+
+	if(input.value !==''){
+		newLi.textContent = input.value;
+		input.value = '';
+		notCompleted.appendChild(newLi);
+		newLi.appendChild(checkBtn);
+		newLi.appendChild(delBtn);
+	}
+
+	checkBtn.addEventListener('click', function(){
+		const parent = this.parentNode;
+		parent.remove();
+		Completed.appendChild(parent);
+		checkBtn.style.display = 'none';
+	});
+
+	delBtn.addEventListener('click', function(){
+		const parent = this.parentNode;
+		parent.remove();
+	});
+}
 
