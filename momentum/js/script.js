@@ -52,7 +52,9 @@ let randomNum;
 let randomQuotes;
 let isPlay = false;
 let playNum = 0;
-let lang = 'en';
+if (localStorage.getItem('Language') == null) {localStorage.setItem('Language', 'en');}
+
+let lang = localStorage.getItem('Language');
 // let todoNumber = 0;
 // let addTodoNum = 0;
 
@@ -103,7 +105,7 @@ const quoteContainer = document.querySelector('.quote-container');
 function setLocalStorage() {
     localStorage.setItem('name', yorName.value);
     localStorage.setItem('city', city.value);
-    localStorage.setItem('player', p);
+    localStorage.setItem('player', player.style.opacity);
     localStorage.setItem('weather', weather.style.opacity);
     localStorage.setItem('time', time.style.opacity);
     localStorage.setItem('date', days.style.opacity);
@@ -122,7 +124,7 @@ function getLocalStorage() {
       city.value = localStorage.getItem('city');
     }
     if (localStorage.getItem('player')) {
-      p = localStorage.getItem('player');
+      player.style.opacity = localStorage.getItem('player');
     }
     if (localStorage.getItem('weather')) {
       weather.style.opacity = localStorage.getItem('weather');
@@ -465,7 +467,8 @@ function changeSettingsLang() {
 changeSettingsLang()
 
 ruLang.addEventListener('click', function() {
-  lang = 'ru';
+  localStorage.Language = 'ru';
+  lang = localStorage.getItem('Language');
   yorName.placeholder = "[Введите имя]"
   getQuotes();
   getWeather();
@@ -474,7 +477,8 @@ ruLang.addEventListener('click', function() {
 });
 
 enLang.addEventListener('click', function() {
-  lang = 'en';
+  localStorage.Language = 'en';
+  lang = localStorage.getItem('Language');
   yorName.placeholder = "[Enter name]"
   getQuotes();
   getWeather();
@@ -496,13 +500,8 @@ playerElement.addEventListener('click', function() {
     playerElement.style.opacity = "0.8";
     p = true;
   }
-console.log(p)
 
-  // if (localStorage.getItem('player')) {
-  //   localStorage.setItem('player', false);
-  // } else {
-  //   localStorage.player = true;
-  // }
+  
 });
 
 
@@ -521,11 +520,7 @@ weatherElement.addEventListener('click', function() {
     w = true;
   }
 
-  // if (localStorage.getItem('weather') == 'true') {
-  //   localStorage.setItem('weather', false);
-  // } else {
-  //   localStorage.weather = true;
-  // }
+  
 });
 
 
@@ -542,11 +537,7 @@ timeElement.addEventListener('click', function() {
     t = true;
   }
 
-  // if (localStorage.getItem('time') == 'true') {
-  //   localStorage.setItem('time', false);
-  // } else {
-  //   localStorage.time = true;
-  // }
+  
 });
 
 
@@ -563,11 +554,7 @@ dateElement.addEventListener('click', function() {
     d = true;
   }
   
-  // if (localStorage.getItem('date') == 'true') {
-  //   localStorage.setItem('date', false);
-  // } else {
-  //   localStorage.date = true;
-  // }
+  
 });
 
 
@@ -583,11 +570,7 @@ greetingElement.addEventListener('click', function() {
     greetingElement.style.opacity = "0.8";
     g = true;
   }
-  // if (localStorage.getItem('greeting') == 'true') {
-  //   localStorage.setItem('greeting', false);
-  // } else {
-  //   localStorage.greeting = true;
-  // }
+  
 });
 
 
@@ -604,57 +587,5 @@ quoteElement.addEventListener('click', function() {
     q = true;
   }
   
-  // if (localStorage.getItem('quote') == 'true') {
-  //   localStorage.setItem('quote', false);
-  // } else {
-  //   localStorage.quote = true;
-  // }
 });
 
-
-// function hideElements() {
-//   if (localStorage.getItem('player') == 'true') {
-//     player.style.opacity = "0";
-//     playerElement.style.opacity = "0.5";
-//   } else {
-//     player.style.opacity = "1";
-//     playerElement.style.opacity = "0.8";
-//   }
-//   if (localStorage.getItem('weather') == 'true') {
-//     weather.style.opacity = "0";
-//     weatherElement.style.opacity = "0.5";
-//   } else {
-//     weather.style.opacity = "1";
-//     weatherElement.style.opacity = "0.8";
-//   }
-//   if (localStorage.getItem('quote') == 'true') {
-//     quoteContainer.style.opacity = "0";
-//     quoteElement.style.opacity = "0.5";
-//   } else {
-//     quoteContainer.style.opacity = "1";
-//     quoteElement.style.opacity = "0.8";
-//   }
-//   if (localStorage.getItem('time') == 'true') {
-//     time.style.opacity = "0";
-//     timeElement.style.opacity = "0.5";
-//   } else {
-//     time.style.opacity = "1";
-//     timeElement.style.opacity = "0.8";
-//   }
-//   if (localStorage.getItem('date') == 'true') {
-//     days.style.opacity = "0";
-//     dateElement.style.opacity = "0.5";
-//   } else {
-//     days.style.opacity = "1";
-//     dateElement.style.opacity = "0.8";
-//   }
-//   if (localStorage.getItem('greeting') == 'true') {
-//     greeting.style.opacity = "0";
-//     greetingElement.style.opacity = "0.5";
-//   } else {
-//     greeting.style.opacity = "1";
-//     greetingElement.style.opacity = "0.8";
-//   }
-// }
-
-// hideElements();
