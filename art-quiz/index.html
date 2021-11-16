@@ -4,27 +4,77 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./css/titlePagesStyles.css">
+  <link rel="stylesheet" href="./css/settindsStyles.css">
   <title>Art-quiz</title>
 </head>
 <body>
 
-  <div class="settings"></div>
-
-  <div class="main">
-    <div class="title">
-      <img class="img-title" src="./assets/png/Art-quiz.png" alt="">
-    </div>
-    
-    <div class="buttons">
-      <div class="artistBtn btn">
-        <p>Artist quiz</p>
+  <div class="title-page">
+    <div class="settings-btn"></div>
+    <div class="main">
+      <div class="title">
+        <img class="img-title" src="./assets/png/Art-quiz.png" alt="">
       </div>
-      <div class="pictureBtn btn">
-        <p>Picture quiz</p>
+    
+      <div class="buttons">
+        <div class="artistBtn btn">
+          <p>Artist quiz</p>
+        </div>
+        <div class="pictureBtn btn">
+          <p>Picture quiz</p>
+        </div>
       </div>
     </div>
   </div>
+
+
+  <div class="settings-menu">
+		<div class="settings-container">
+
+			<div class="settings-header">
+				<div class="to-home-btn"></div>
+				<h2 class="settings-title">Settings</h2>
+				<p class="close"></p>
+			</div>
+
+      <div class="setting-main">
+
+        <p class="volume-title">Volume</p>
+
+			  <div class="volume-progress">
+				  <input class="volume-range" type="range" min="0" max="100" step="1" value="35">
+				  <div class="volume-circle"></div>
+			  </div>
+			  <div class="min-max-volume">
+			  	<div class="mute"></div>
+			  	<div class="volume volume-active"></div>
+			  </div>
+
+			  <p class="settings-time-game">Time game</p>
+
+			  <div class="on-off-time">
+				  <p class="on-time">On</p>
+				  <p class="off-time">Off</p>
+				  <button class="btn-time">
+					  <div class="btn-circle"></div>
+				  </button>
+			  </div>
+
+			  <p class="time-to-answer">Time to answer</p>
+
+			  <div class="time-to-answer-container">
+				  <div class="btn-minus">-</div>
+				  <input class="time-count" type="number" min = "20" max="60" step="5" value="20" readonly>
+				  <div class="btn-plus">+</div>
+			  </div>
+			  <div class="default-save">
+				  <div class="default btn">Default</div>
+				  <div class="save btn">Save</div>
+			  </div>
+      </div>
+		</div>
+	</div>
 
   <footer class="footer">
     <div class="rsshool">
@@ -35,9 +85,9 @@
       <a href="https://github.com/Mowgle88" class="github-link" target="_blank">@Mowgle88</a>
     </div>
   </footer>
-  
-  
-  
+
   <script src="./main.js"></script>
+  <script src="./settings.js"></script>
+
 </body>
 </html>

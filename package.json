@@ -1,0 +1,19 @@
+{
+  "name": "mowgle88",
+  "version": "1.0.0",
+  "description": "Quiz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/mowgle88-JSFE2021Q3.git"
+  },
+  "author": "Dmitry Ilyin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/mowgle88-JSFE2021Q3/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/mowgle88-JSFE2021Q3#readme"
+}

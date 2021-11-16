@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'Gentium-Bold';
-  src: url(./assets/fonts/GentiumBookBasic-Bold.ttf);
+  src: url(../assets/fonts/GentiumBookBasic-Bold.ttf);
 }
 
 @font-face {
   font-family: 'Gentium-BoldItalic';
-  src: url(./assets/fonts/GentiumBookBasic-BoldItalic.ttf);
+  src: url(../assets/fonts/GentiumBookBasic-BoldItalic.ttf);
 }
 
 @font-face {
   font-family: 'Gentium-Italic';
-  src: url(./assets/fonts/GentiumBookBasic-Italic.ttf);
+  src: url(../assets/fonts/GentiumBookBasic-Italic.ttf);
 }
 
 @font-face {
   font-family: 'Gentium-Regular';
-  src: url(./assets/fonts/GentiumBookBasic-Regular.ttf);
+  src: url(../assets/fonts/GentiumBookBasic-Regular.ttf);
 }
 
 *,
@@ -26,18 +26,17 @@
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 0;
   margin: 0;
   border: 0;
-  font-family: 'Gentium-Regular', serif;
-  font-weight: 200;
+  font-family: 'Gentium-Regular';
   font-size: 22px;
   line-height: 26px;
-  background-image: url(./assets/png/j-retrato-de-cardenal-rafael.png);
+  /* background-image: url(./assets/png/j-retrato-de-cardenal-rafael.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   background-color: #000000;
   color: #ffffff;
 }
@@ -54,13 +53,24 @@ h6 {
 
 /* ================================================================== */
 
-.settings {
+.title-page {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(../assets/png/j-retrato-de-cardenal-rafael.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  transition: opacity 0.8s;
+}
+
+.settings-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 45px;
+  right: 50px;
   width: 26px;
   height: 36px;
-  background: url(./assets/svg/carbon_settings.svg) center center/contain no-repeat;
+  background: url(../assets/svg/carbon_settings.svg) center center/contain no-repeat;
   cursor: pointer;
   user-select: none;
 }
@@ -106,10 +116,23 @@ h6 {
   user-select: none;
 }
 
+.btn:hover,
+.btn:hover {
+  color: #000;
+	background: #ffffff;
+}
+
+.btn:active,
+.btn:active {
+  color: #000;
+	background: #FFBCA2;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   padding: 20px;
+  /* width: 100%; */
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -120,7 +143,7 @@ h6 {
 .rsshool {
   width: 85px;
   height: 31px;
-  background: url(./assets/svg/rs_school_js.svg) center center/contain no-repeat;
+  background: url(../assets/svg/rs_school_js.svg) center center/contain no-repeat;
 }
 
 .course-link {
