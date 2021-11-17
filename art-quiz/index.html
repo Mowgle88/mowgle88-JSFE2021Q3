@@ -6,23 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/titlePagesStyles.css">
   <link rel="stylesheet" href="./css/settindsStyles.css">
+  <link rel="stylesheet" href="./css/category.css">
   <title>Art-quiz</title>
 </head>
 <body>
 
   <div class="title-page">
-    <div class="settings-btn"></div>
-    <div class="main">
-      <div class="title">
-        <img class="img-title" src="./assets/png/Art-quiz.png" alt="">
-      </div>
-    
-      <div class="buttons">
-        <div class="artistBtn btn">
-          <p>Artist quiz</p>
+    <div class="wrapper">
+      <div class="settings-btn"></div>
+      <div class="main">
+        <div class="title">
+          <img class="img-title" src="./assets/png/Art-quiz.png" alt="">
         </div>
-        <div class="pictureBtn btn">
-          <p>Picture quiz</p>
+        <div class="buttons">
+          <div class="artistBtn btn">
+            <p>Artist quiz</p>
+          </div>
+          <div class="pictureBtn btn">
+            <p>Picture quiz</p>
+          </div>
         </div>
       </div>
     </div>
@@ -65,7 +67,7 @@
 
 			  <div class="time-to-answer-container">
 				  <div class="btn-minus">-</div>
-				  <input class="time-count" type="number" min = "20" max="60" step="5" value="20" readonly>
+				  <input class="time-count" type="number" min = "5" max="30" step="5" value="20" readonly>
 				  <div class="btn-plus">+</div>
 			  </div>
 			  <div class="default-save">
@@ -75,6 +77,45 @@
       </div>
 		</div>
 	</div>
+
+  <div class="artist">
+    <header class="artist-header">
+      <div class="art-quiz"></div>
+      <div class="settings-btn"></div>
+    </header>
+
+
+    <h2 class="text-categories">Categories</h2>
+    <div class="categories-container">
+
+      <div class="img-cards">
+        <div class="img-text">Partian   5/10</div>
+        <img src="./assets/png/question-01.png" height="155" width="164" alt="">
+      </div>
+
+      <div class="img-cards">
+        <div class="img-text">Partian   5/10</div>
+        <img src="./assets/png/question-01.png" height="155" width="164" alt="">
+      </div>
+
+      <div class="img-cards">
+        <div class="img-text">Partian   5/10</div>
+        <img src="./assets/png/question-01.png" height="155" width="164" alt="">
+      </div>
+
+      <div class="img-cards">
+        <div class="img-text">Partian   5/10</div>
+        <img src="./assets/png/question-01.png" height="155" width="164" alt="">
+      </div>
+    </div>
+
+
+    <footer class="category-footer">
+      <div class="home"></div>
+      <div class="categories"></div>
+      <div class="score"></div>
+    </footer>
+  </div>
 
   <footer class="footer">
     <div class="rsshool">
