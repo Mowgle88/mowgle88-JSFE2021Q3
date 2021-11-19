@@ -54,23 +54,17 @@ h6 {
 /* ================================================================== */
 
 .title-page {
-  display: none;
-
-  height: 100vh;
-  width: 100vw;
   background: #000000;
-  
   opacity: 1;
-  transition: opacity 0.8s;
+  transition: opacity 1s;
 }
 
 .title-wrapper {
-  width: 360px;
+  width: 100%;
+  max-width: 360px;
   height: 640px;
   margin: 0 auto;
   background: url(../assets/png/j-retrato-de-cardenal-rafael-360.png) center center / cover no-repeat;
-  opacity: 1;
-  transition: opacity 0.8s;
 }
 
 .settings-btn {
@@ -93,7 +87,6 @@ h6 {
   flex-direction: column;
   justify-content: space-between;
   height: 260px;
-  /* width: 614px; */
 }
 
 .title {
@@ -138,6 +131,13 @@ h6 {
 	background: #FFBCA2;
 }
 
+.artist-picture-active{
+	color: #000;
+	background: #FFBCA2;
+	border: 1px solid #FFBCA2;
+	transition: 0.5s;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -147,7 +147,6 @@ h6 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  display: none;
 }
 
 .rsshool {

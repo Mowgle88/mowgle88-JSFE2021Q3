@@ -1,27 +1,3 @@
-// close settings
-
-let toHomeBtn = document.querySelector('.to-home-btn');
-let closeSetting = document.querySelector('.close');
-let settingsMenu = document.querySelector('.settings-menu');
-let titlePage = document.querySelector('.title-page');
-let settingsBtn = document.querySelector('.settings-btn');
-
-
-function openSet() {
-  titlePage.style.display = 'none';
-  settingsMenu.style.display = 'block';
-}
-
-settingsBtn.addEventListener('click', openSet)
-
-function closeSet() {
-  settingsMenu.style.display = 'none';
-  titlePage.style.display = 'block';
-}
-
-closeSetting.addEventListener('click', closeSet);
-
-
 // Volume control
 let volumeRange = document.querySelector('.volume-range');
 let volumeProgress = document.querySelector('.volume-progress');
@@ -130,3 +106,4 @@ def.addEventListener('click', () => {
 		save.classList.remove('default-save-active')
 	}
 })
+

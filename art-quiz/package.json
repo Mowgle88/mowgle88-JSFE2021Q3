@@ -1,0 +1,24 @@
+{
+  "name": "art-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "webpack": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/mowgle88-JSFE2021Q3.git"
+  },
+  "author": "Mowgle88",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/mowgle88-JSFE2021Q3/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/mowgle88-JSFE2021Q3#readme",
+  "dependencies": {
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1"
+  }
+}
