@@ -59,12 +59,19 @@ h6 {
   transition: opacity 1s;
 }
 
-.title-wrapper {
+/* .title-wrapper {
   width: 100%;
   max-width: 360px;
   height: 640px;
   margin: 0 auto;
   background: url(../assets/png/j-retrato-de-cardenal-rafael-360.png) center center / cover no-repeat;
+} */
+
+.title-wrapper {
+  width: auto;
+  height: 100vh;
+  margin: 0 auto;
+  background: url(../assets/png/j-retrato-de-cardenal-rafael-360.png) center center / auto 100% no-repeat;
 }
 
 .settings-btn {
@@ -139,7 +146,7 @@ h6 {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   padding: 20px;
   width: 100%;

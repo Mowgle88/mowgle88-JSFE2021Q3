@@ -1,11 +1,13 @@
-.artist-page {
+.artist-page,
+.pictures-page {
   display: none;
   background: #000000;
   opacity: 0;
   transition: opacity 1s;
 }
 
-.artist-header {
+.artist-header,
+.pictures-header {
   height: 62px;
   margin: 20px;
 }
@@ -21,11 +23,12 @@
 }
 
 .categories-container {
-  margin: 5px;
+  /* margin: 5px; */
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  column-gap: 14px;
 }
 
 .img-cards {
@@ -59,8 +62,6 @@
   transform: translateY(0%) scale(1);
 }
 
-
-
 .category-footer {
   height: 75px;
   width: 100%;
@@ -74,6 +75,7 @@
   border: 2px solid #fff;
   border-radius: 20px 20px 0 0;
   background: #000;
+  z-index: 10;
 }
 
 .home {
