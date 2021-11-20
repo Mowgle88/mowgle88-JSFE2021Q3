@@ -122,3 +122,37 @@
   background: url('../assets/svg/Score-active.svg') center center/contain no-repeat;
 }
 
+@media (min-width: 520px) {
+
+  .categories-container {
+    column-gap: 26px;
+  }
+
+  .img-cards {
+    height: 251px;
+    width: 200px;
+    /* opacity: 0.5;
+    transform: translateY(10%) scale(0.95); */
+  }
+
+  .img-small {
+    height: 206px;
+    width: 195px;
+    
+  }
+
+}
+
+@media (min-width: 726px) {
+
+  .img-cards {
+    opacity: 0.5;
+    transform: translateY(10%) scale(0.95);
+  }
+
+  .img-small {
+    height: 206px;
+    width: 195px;
+  }
+
+}

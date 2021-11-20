@@ -65,10 +65,12 @@ images.forEach(img => {
         console.log(arrayImg);
         const questionsPage = document.querySelector('.question-about-artists');
         const questionArtist = document.querySelector('.question-artist');
-        const questionContainer = document.querySelector('.question-container');
+        const questionsContainer = document.querySelector('.question-container');
 
         async function openQuestion() {
             let i = 1;
+	        let j = 0;
+
 	        while(i >= 0) {
 		        artistPage.style.opacity = i;
 		        i -= 0.1;
@@ -76,12 +78,13 @@ images.forEach(img => {
 	        setTimeout(function() {
 		        artistPage.style.display = 'none';
 		        questionsPage.style.display = 'block';
+	        }, 500)
+            setTimeout(function() {
+		        while(j <= 1) {
+                    questionsPage.style.opacity = j;
+                    j += 0.1;
+                }
 	        }, 1000)
-	        let j = 0;
-	        while(j <= 1) {
-		        questionsPage.style.opacity = j;
-		        j += 0.1;
-	        }
         }
 
         async function question(num) {    
@@ -102,17 +105,27 @@ images.forEach(img => {
                 image.classList.add('question-img');
                 image.src = `./img/${num}.webp`;
                 image.alt = `img${num}`;
-                questionContainer.append(image);
+                questionsContainer.append(image);
             }
 
-            for(let i = 0; i < 4; i++) {
-                CreateOptions(num + i)
+            CreateOptions(num)
+
+            for(let i = 0; i < 3; i++) {
+                const randomNumImages = Math.floor(Math.random() * data.length);
+                CreateOptions(randomNumImages)
             } 
 
             openQuestion()
           }
-          
+
           question(arrayImg[0])
+
+
+        //   for(let i = 0; i < arrayImg.length; i++) {
+        //     question(arrayImg[i])
+        //   }
+          
+          
 
 
         
