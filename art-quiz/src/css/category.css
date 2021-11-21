@@ -138,7 +138,8 @@ span {
     column-gap: 26px;
   }
 
-  .img-cards {
+  .img-cards-artists,
+  .img-cards-pictures {
     height: 251px;
     width: 200px;
     /* opacity: 0.5;
@@ -155,7 +156,8 @@ span {
 
 @media (min-width: 726px) {
 
-  .img-cards {
+  .img-cards-artists,
+  .img-cards-pictures {
     opacity: 0.5;
     transform: translateY(10%) scale(0.95);
   }

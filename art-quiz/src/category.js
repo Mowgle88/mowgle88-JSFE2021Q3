@@ -20,7 +20,7 @@ function addImgArtists(i) {
 
 	const img = document.createElement('img');
 	img.classList.add('img-small');
-	img.src = `./img/${i}.webp`;
+	img.src = `./assets/img/${i}.webp`;
 	img.alt = `img${i}`;
     div.append(img);
 }
@@ -39,7 +39,7 @@ function addImgPictures(i) {
 
 	const img = document.createElement('img');
 	img.classList.add('img-small');
-	img.src = `./img/${i}.webp`;
+	img.src = `./assets/img/${i}.webp`;
 	img.alt = `img${i}`;
     div.append(img);
 }
@@ -148,7 +148,7 @@ imagesArtists.forEach(img => {
             function CreateOptions(num) {
                 const image = document.createElement('img');
                 image.classList.add('question-img');
-                image.src = `./img/${num}.webp`;
+                image.src = `./assets/img/${num}.webp`;
                 image.alt = `img${num}`;
                 questionsContainer.append(image);
                 categories.forEach(el => {
@@ -228,7 +228,7 @@ imagesPictures.forEach(img => {
             function CreateOptions(num) {
                 const image = document.createElement('img');
                 image.classList.add('question-img');
-                image.src = `./img/${num}.webp`;
+                image.src = `./assets/img/${num}.webp`;
                 image.alt = `img${num}`;
                 questionsContainer.append(image);
                 categories.forEach(el => {
