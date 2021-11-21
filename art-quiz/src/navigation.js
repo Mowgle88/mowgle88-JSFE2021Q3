@@ -3,7 +3,8 @@ let toHomeBtn = document.querySelector('.to-home-btn');
 let closeSetting = document.querySelector('.close');
 let settingsMenu = document.querySelector('.settings-menu');
 let titlePage = document.querySelector('.title-page');
-let settingsBtn = document.querySelector('.settings-btn');
+let settingsBtns = document.querySelectorAll('.settings-btn');
+
 let footer = document.querySelector('.footer');
 let artistPage = document.querySelector('.artist-page');
 let picturesPage = document.querySelector('.pictures-page');
@@ -13,27 +14,28 @@ let home = document.querySelector('.home');
 let categories = document.querySelector('.categories');
 
 
-settingsBtn.addEventListener('click', function(e) {
-  console.log(e.path[2])
-  let i = 1;
-	let j = 0;
-
-	while(i >= 0) {
-		titlePage.style.opacity = i;
-		i -= 0.1;
-	}
-	setTimeout(function() {
-		titlePage.style.display = 'none';
-		settingsMenu.style.display = 'block';
-	}, 500)
-
-	setTimeout(function() {
-		while(j <= 1) {
-			settingsMenu.style.opacity = j;
-			j += 0.1;
-		}
-	}, 1000)
+settingsBtns.forEach(item => {
+	item.addEventListener('click', function(e) {
+		console.log(e.path[2])
+		let i = 1;
+		let j = 0;
 	
+		while(i >= 0) {
+			titlePage.style.opacity = i;
+			i -= 0.1;
+		}
+		setTimeout(function() {
+			titlePage.style.display = 'none';
+			settingsMenu.style.display = 'block';
+		}, 500)
+	
+		setTimeout(function() {
+			while(j <= 1) {
+				settingsMenu.style.opacity = j;
+				j += 0.1;
+			}
+		}, 1000)
+	})
 })
 
 

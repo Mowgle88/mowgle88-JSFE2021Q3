@@ -1,24 +1,31 @@
 {
-  "name": "art-quiz",
+  "name": "my-webpack-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "description": "My webpack project",
+  "main": "index.js",
   "scripts": {
-    "webpack": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rolling-scopes-school/mowgle88-JSFE2021Q3.git"
-  },
-  "author": "Mowgle88",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rolling-scopes-school/mowgle88-JSFE2021Q3/issues"
-  },
-  "homepage": "https://github.com/rolling-scopes-school/mowgle88-JSFE2021Q3#readme",
-  "dependencies": {
-    "webpack": "^5.64.1",
-    "webpack-cli": "^4.9.1"
+  "dependencies": {},
+  "devDependencies": {
+    "@webpack-cli/generators": "^2.4.1",
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "prettier": "^2.4.1",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.2",
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0",
+    "workbox-webpack-plugin": "^6.4.1"
   }
 }
