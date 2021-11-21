@@ -1,5 +1,5 @@
 import './settings'
-import './img-slide'
+import './category'
 import './navigation'
 import './css/category.css'
 import './css/question.css'
