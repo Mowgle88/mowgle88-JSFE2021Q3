@@ -1,0 +1,170 @@
+.artist-page,
+.pictures-page {
+  display: none;
+  background: #000000;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.artist-header,
+.pictures-header {
+  height: 62px;
+  margin: 20px;
+}
+
+.art-quiz {
+  height: 62px;
+  width: 166px;
+  background: url('../assets/svg/Art-Quiz.svg') center center/contain no-repeat;
+}
+
+.text-categories {
+  margin: 28px 16px 51px;
+}
+
+.categories-artists,
+.categories-pictures {
+  /* margin: 5px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 14px;
+}
+
+.img-cards-artists,
+.img-cards-pictures {
+  height: 200px;
+  width: 164px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(30%) scale(0.8);
+  transition: all 1s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.img-text {
+  padding: 5px;
+  font-size: 20px;
+}
+
+span {
+  padding: 5px;
+  color: #FFBCA2;
+}
+
+.img-small {
+  height: 155px;
+  width: 164px;
+  border-radius: 20px;
+  filter: grayscale(100%);
+  transition: all 1s;
+}
+
+.img-small:hover {
+  filter: grayscale(0);
+}
+
+.img-cards-artists.img-active,
+.img-cards-pictures.img-active {
+  opacity: 1;
+  transform: translateY(0%) scale(1);
+}
+
+.category-footer {
+  height: 75px;
+  width: 100%;
+  padding: 0 40px 0 40px;
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #fff;
+  border-radius: 20px 20px 0 0;
+  background: #000;
+  z-index: 10;
+}
+
+.home {
+  width: 31px;
+  height: 48px;
+  background: url('../assets/svg/Home.svg') center center/contain no-repeat;
+  user-select: none;
+  cursor: pointer;
+}
+
+.home:hover {
+  background: url('../assets/svg/Home-active.svg') center center/contain no-repeat;
+}
+
+.home-active {
+  background: url('../assets/svg/Home-active.svg') center center/contain no-repeat;
+}
+
+.categories {
+  width: 58px;
+  height: 48px;
+  background: url('../assets/svg/Categories.svg') center center/contain no-repeat;
+  user-select: none;
+  cursor: pointer;
+}
+
+.categories-active {
+  background: url('../assets/svg/Categories-active.svg') center center/contain no-repeat;
+}
+
+.categories:hover {
+  background: url('../assets/svg/Categories-active.svg') center center/contain no-repeat;
+}
+
+.score {
+  width: 31px;
+  height: 48px;
+  background: url('../assets/svg/Score.svg') center center/contain no-repeat;
+  user-select: none;
+  cursor: pointer;
+}
+
+.score:hover {
+  background: url('../assets/svg/Score-active.svg') center center/contain no-repeat;
+}
+
+@media (min-width: 520px) {
+
+  .categories-container {
+    column-gap: 26px;
+  }
+
+  .img-cards-artists,
+  .img-cards-pictures {
+    height: 251px;
+    width: 200px;
+    /* opacity: 0.5;
+    transform: translateY(10%) scale(0.95); */
+  }
+
+  .img-small {
+    height: 206px;
+    width: 195px;
+    
+  }
+
+}
+
+@media (min-width: 726px) {
+
+  .img-cards-artists,
+  .img-cards-pictures {
+    opacity: 0.5;
+    transform: translateY(10%) scale(0.95);
+  }
+
+  .img-small {
+    height: 206px;
+    width: 195px;
+  }
+
+}
