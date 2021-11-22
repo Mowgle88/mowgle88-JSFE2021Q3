@@ -223,12 +223,15 @@ imagesPictures.forEach(img => {
 
             console.log(currentAuthor);
 
-            questionPictures.textContent = `Какую картину написал ${currentAuthor}?`;
+            questionPictures.textContent = `Кто написал эту картину?`;
+
+
+            // questionPictures.textContent = `Какую картину написал ${currentAuthor}?`;
 
             function CreateOptions(num) {
                 const image = document.createElement('img');
-                image.classList.add('question-img');
-                image.src = `./assets/img/${num}.webp`;
+                image.classList.add('question-img-2');
+                image.src = `./assets/full/${num}full.webp`;
                 image.alt = `img${num}`;
                 questionsContainer.append(image);
                 categories.forEach(el => {
@@ -237,9 +240,23 @@ imagesPictures.forEach(img => {
             }
             CreateOptions(num)
 
+            const div = document.createElement('div');
+	            div.classList.add('answers-container');
+                questionsContainer.append(div);
+
+            function CreateAnswers() {
+                const divText = document.createElement('div');
+	            divText.classList.add('answers');
+                divText.textContent = `${currentAuthor}`;
+                div.append(divText);
+            }
+
+            CreateAnswers()
+
             for(let i = 0; i < 3; i++) {
                 const randomNumImages = Math.floor(Math.random() * data.length);
-                CreateOptions(randomNumImages)
+                currentAuthor = data[randomNumImages]["author"];
+                CreateAnswers()
             } 
 
             let categoriesActive = document.querySelectorAll(".question-img");
@@ -249,11 +266,6 @@ imagesPictures.forEach(img => {
           }
 
           question(arrayImg[0])
-
-
-        //   for(let i = 0; i < arrayImg.length; i++) {
-        //     question(arrayImg[i])
-        //   }
  
       })
 });
