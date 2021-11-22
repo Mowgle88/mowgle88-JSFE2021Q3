@@ -172,6 +172,8 @@ home.forEach(item => {
 				j += 0.1;
 			}
 			document.querySelectorAll('.question-img').forEach(e => e.remove());
+			document.querySelectorAll('.question-img-2').forEach(e => e.remove());
+			document.querySelectorAll('.answers-container').forEach(e => e.remove());
 		}, 1000)
 
 		
@@ -180,7 +182,8 @@ home.forEach(item => {
 
 categories.forEach(item => {
 	item.addEventListener('click', function(e) {
-		// console.log(e.target.className === 'home home-bt')
+		console.log(item.parentElement.parentElement.className)
+		console.log(e)
 		let i = 1;
 		let j = 0;
 
@@ -194,20 +197,27 @@ categories.forEach(item => {
 			questionsArtists.style.display = 'none';
 			questionsPictures.style.display = 'none';
 
-			artistPage.style.display = 'block';
-			
+			if(item.parentElement.parentElement.className === 'question-about-artists') {
+				artistPage.style.display = 'block';
+			} else {
+				picturesPage.style.display = 'block';
+			}
 		}, 500)
 		setTimeout(function() {
 			while(j <= 1) {
-				artistPage.style.opacity = j;
+				if(item.parentElement.parentElement.className === 'question-about-artists') {
+					artistPage.style.opacity = j;
+				} else {
+					picturesPage.style.opacity = j;
+				}
 				j += 0.1;
 			}
 			document.querySelectorAll('.question-img').forEach(e => e.remove());
+			document.querySelectorAll('.question-img-2').forEach(e => e.remove());
+			document.querySelectorAll('.answers-container').forEach(e => e.remove());
 		}, 1000)
 	})
 })
-
-
 
 
 // =========================================================

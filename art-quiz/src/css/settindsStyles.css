@@ -62,36 +62,41 @@
 .volume-progress{
 	position: relative;
 	width: 320px;
-	height: 16px;
+	height: 18px;
+	border-radius: 8px;
 	margin: 28px auto;
-	background: #000;
+	background: #f4f4f4;
 }
+
+output {
+	position: absolute;
+  left: 45%;
+  top: 18px;
+  padding: 7px 10px;
+  color: #fff;
+  font-weight: bold;
+}
+
 .volume-range{
+	position: relative;
+	top: -5px;
+  left: 4px;
+  width: 98%;
+	height: 10px;
+	background: #FFBCA2;
 	-webkit-appearance: none;
-	overflow: hidden;
-	width: 100%;
-	height: 3px;
-	background: #A4A4A4;
+	outline: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 .volume-range::-webkit-slider-thumb{
 	-webkit-appearance: none;
-	width: 16px;
-	height: 16px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
-	background: red;
-	box-shadow: -300px 0 0 300px #FFBCA2;
+	background: #FFBCA2;
+	box-shadow: 0 0 10px #222;
 }
-.volume-circle{
-	position: absolute;
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	background: #FFFFFF;
-	top: 10px;
-  user-select: none;
-  cursor: pointer;
-}
-
 
 .min-max-volume{
 	width: 320px;

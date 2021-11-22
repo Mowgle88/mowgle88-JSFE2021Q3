@@ -1,31 +1,78 @@
 // Volume control
-let volumeRange = document.querySelector('.volume-range');
-let volumeProgress = document.querySelector('.volume-progress');
-let volumeCircle = document.querySelector('.volume-circle');
+let input = document.querySelector('.volume-range');
+let output = document.querySelector('#volume');
 let mute = document.querySelector('.mute');
-let volume = document.querySelector('.volume');
-let isVolume = true;
+let vol = document.querySelector('.volume');
+
+let isVolume;
+
+if (localStorage.getItem('outputValue') == null) {localStorage.setItem('outputValue', 35)}
+
+if (localStorage.getItem('inputValue') == null) {localStorage.setItem('inputValue', 35)}
+
+if (localStorage.getItem('isVolume') == null) {localStorage.setItem('isVolume', true)}
+
+output.value = localStorage.getItem('outputValue')
+input.value = localStorage.getItem('inputValue')
+isVolume = localStorage.getItem('isVolume')
+
+console.log(output.value)
+
+function load() {
+	if(output.value == 0) {
+		mute.classList.add('mute-active');
+    vol.classList.remove('volume-active');
+	} else {
+		mute.classList.remove('mute-active');
+		vol.classList.add('volume-active');
+	}
+}
+
+load();
 
 
-let initLeft = volumeProgress.getBoundingClientRect().width * volumeRange.value / 100;
-volumeCircle.style.left = initLeft - 5 + 'px';
-// volumeCircle.addEventListener('mousedown', () => {
+let audio = new Audio();
+audio.src = './assets/audio/Andy_Timmons-Cry_For_You.mp3';
 
-// })
+function playAudio() {
+	if(isVolume) {
+		audio.play()
+	} else {
+		audio.pause()
+	}
+	audio.volume = input.value/100;
+}
+
+playAudio()
+
+input.oninput = function () {
+	isVolume = true;
+	audio.volume = input.value/100;
+	output.value = input.value;
+	mute.classList.remove('mute-active');
+	vol.classList.add('volume-active');
+};
+
 
 mute.addEventListener('click', () => {
   if(isVolume) {
     isVolume = false;
     mute.classList.add('mute-active');
-    volume.classList.remove('volume-active');
+    vol.classList.remove('volume-active');
+		output.value = 0;
+		input.value = 0;
+		audio.pause()
   }
 })
 
-volume.addEventListener('click', () => {
+vol.addEventListener('click', () => {
   if(!isVolume) {
     isVolume = true;
-    volume.classList.add('volume-active');
+    vol.classList.add('volume-active');
     mute.classList.remove('mute-active');
+		output.value = 35;
+		input.value = 35;
+		audio.play()
   }
 })
 
@@ -94,6 +141,7 @@ save.addEventListener('click', () => {
 		def.classList.remove('default-save-active')
 		save.classList.add('default-save-active')
 	}
+	setLocalStorage()
 })
 
 def.addEventListener('click', () => {
@@ -106,4 +154,12 @@ def.addEventListener('click', () => {
 		save.classList.remove('default-save-active')
 	}
 })
+
+function setLocalStorage() {
+	localStorage.setItem('outputValue', output.value);
+	localStorage.setItem('inputValue', input.value);
+	localStorage.setItem('isVolume', isVolume);
+}
+
+setLocalStorage()
 
