@@ -2,9 +2,6 @@
 let toHomeBtn = document.querySelector('.to-home-btn');
 let settingsBtns = document.querySelectorAll('.settings-btn');
 let closeSetting = document.querySelectorAll('.close');
-let closeSet = document.querySelectorAll('.to-home-btn');
-
-
 
 let titlePage = document.querySelector('.title-page');
 let artistPage = document.querySelector('.artist-page');
@@ -65,44 +62,6 @@ settingsBtns.forEach(item => {
 
 
 closeSetting.forEach(item => {
-	item.addEventListener('click', function(e) {
-	console.log(e.target)
-
-		let i = 1;
-		let j = 0;
-	
-		while(i >= 0) {
-			settingsMenu.style.opacity = i;
-			i -= 0.1;
-		}
-		setTimeout(function() {
-			settingsMenu.style.display = 'none';
-			if(whatPage === 'title-page') {
-				titlePage.style.display = 'block';
-			} else if(whatPage === 'artist-page') {
-				artistPage.style.display = 'block';
-			} else {
-				picturesPage.style.display = 'block';
-			}
-		}, 500)
-	
-		setTimeout(function() {
-			while(j <= 1) {
-				if(whatPage === 'title-page') {
-					titlePage.style.opacity = j;
-				} else if(whatPage === 'artist-page') {
-					artistPage.style.opacity = j;
-				} else {
-					picturesPage.style.opacity = j;
-				}
-				j += 0.1;
-			}
-		}, 1000)
-		
-	})
-})
-
-closeSet.forEach(item => {
 	item.addEventListener('click', function(e) {
 	console.log(e.target)
 
