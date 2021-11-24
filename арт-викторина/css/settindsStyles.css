@@ -38,7 +38,7 @@
 }
 
 .close {
-  background: url('../assets/svg/cross.svg') center center/contain no-repeat;
+  background: url('../assets/svg/Cross.svg') center center/contain no-repeat;
   user-select: none;
   cursor: pointer;
 }
