@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="./css/titlePagesStyles.css">
   <link rel="stylesheet" href="./css/settindsStyles.css">
   <link rel="stylesheet" href="./css/category.css">
-  <link rel="stylesheet" href="./css/question.css">  
-  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/question.css">
+  <link type="image/x-icon" rel="shortcut icon" href="./assets/favicon.ico">
   <title>Art-quiz</title>
 </head>
 <body>
@@ -16,17 +16,17 @@
   <!-- title page========================== -->
 
   <div class="title-page">
-    <div class="settings-btn"></div>
+    <div class="settings-btn press-btn"></div>
     <div class="title-wrapper">
       <div class="main">
         <div class="title">
           <img class="img-title" src="./assets/png/Art-quiz.png" alt="">
         </div>
         <div class="buttons">
-          <div class="artistBtn btn">
+          <div class="artistBtn btn press-btn">
             <p>Artist quiz</p>
           </div>
-          <div class="pictureBtn btn">
+          <div class="pictureBtn btn press-btn">
             <p>Picture quiz</p>
           </div>
         </div>
@@ -43,16 +43,15 @@
     </footer>
   </div>
 
-
   <!-- settings menu=========================================== -->
 
   <div class="settings-menu">
 		<div class="settings-container">
 
 			<div class="settings-header">
-				<div class="to-home-btn"></div>
+				<div class="to-home-btn press-btn"></div>
 				<h2 class="settings-title">Settings</h2>
-				<p class="close"></p>
+				<div class="close press-btn"></div>
 			</div>
 
       <div class="setting-main">
@@ -81,13 +80,13 @@
 			  <p class="time-to-answer">Time to answer</p>
 
 			  <div class="time-to-answer-container">
-				  <div class="btn-minus">-</div>
+				  <div class="btn-minus press-btn">-</div>
 				  <input class="time-count" type="number" min = "5" max="30" step="5" value="20" readonly>
-				  <div class="btn-plus">+</div>
+				  <div class="btn-plus press-btn">+</div>
 			  </div>
 			  <div class="default-save">
-				  <div class="default btn">Default</div>
-				  <div class="save btn">Save</div>
+				  <div class="default btn press-btn">Default</div>
+				  <div class="save btn press-btn">Save</div>
 			  </div>
       </div>
 		</div>
@@ -96,16 +95,16 @@
   <!-- questions about artists============================================ -->
 
   <div class="artist-page">
-    <div class="settings-btn"></div>
+    <div class="settings-btn press-btn"></div>
     <header class="artist-header">
       <div class="art-quiz"></div>
     </header>
     <h2 class="text-categories">Categories</h2>
     <div class="categories-artists"></div>
     <footer class="category-footer">
-      <div class="home"></div>
-      <div class="categories"></div>
-      <div class="score"></div>
+      <div class="home press-btn"></div>
+      <div class="categories press-btn"></div>
+      <div class="score press-btn"></div>
     </footer>
   </div>
 
@@ -113,8 +112,8 @@
 
   <div class="question-about-artists">
     <header class="header-question">
-      <div class="home home-bt"></div>
-      <div class="categories categories-bt"></div>
+      <div class="home home-bt press-btn"></div>
+      <div class="categories categories-btn press-btn"></div>
     </header>
     <div class="question-artist"></div>
     <div class="question-container-artists"></div>
@@ -124,23 +123,26 @@
 
 
   <div class="pictures-page">
-    <div class="settings-btn"></div>
+    <div class="settings-btn press-btn"></div>
     <header class="pictures-header">
       <div class="art-quiz"></div>
     </header>
     <h2 class="text-categories">Categories</h2>
     <div class="categories-pictures"></div>
     <footer class="category-footer">
-      <div class="home"></div>
-      <div class="categories"></div>
-      <div class="score"></div>
+      <div class="home press-btn"></div>
+      <div class="categories press-btn"></div>
+      <div class="score press-btn"></div>
     </footer>
   </div>
 
+
+  <!-- question about pictures============================================ -->
+
   <div class="question-about-pictures">
     <header class="header-question">
-      <div class="home home-bt"></div>
-      <div class="categories categories-bt"></div>
+      <div class="home home-bt press-btn"></div>
+      <div class="categories categories-btn press-btn"></div>
     </header>
     <div class="question-pictures"></div>
     <div class="question-container-pictures"></div>

@@ -17,6 +17,7 @@ let pictureBtn = document.querySelector('.pictureBtn');
 
 let home = document.querySelectorAll('.home');
 let categories = document.querySelectorAll('.categories');
+let categoriesBtn = document.querySelectorAll('.categories-btn');
 
 
 
@@ -180,14 +181,15 @@ home.forEach(item => {
 	})
 })
 
-categories.forEach(item => {
+categoriesBtn.forEach(item => {
 	item.addEventListener('click', function(e) {
-		console.log(item.parentElement.parentElement.className)
-		console.log(e)
+		// console.log(item.parentElement.parentElement.className)
+		// console.log(e)
 		let i = 1;
 		let j = 0;
 
 		categories.forEach(el => el.classList.add('categories-active'))
+
 		while(i >= 0) {
 			questionsArtists.style.opacity = i;
 			questionsPictures.style.opacity = i;
