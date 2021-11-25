@@ -3,6 +3,7 @@ let input = document.querySelector('.volume-range');
 let output = document.querySelector('#volume');
 let mute = document.querySelector('.mute');
 let vol = document.querySelector('.volume');
+let pressButton = document.querySelectorAll('.press-btn');
 
 let isVolume;
 let circlePosition = 0;
@@ -49,21 +50,30 @@ load();
 let audio = new Audio();
 audio.src = './assets/audio/Andy_Timmons-Cry_For_You.mp3';
 
+let pressBtn = new Audio();
+pressBtn.src = './assets/audio/press-button.mp3';
+
 function playAudio() {
-	
 	if(isVolume) {
 		audio.play()
 	} else {
 		audio.pause()
 	}
-	audio.volume = input.value/100;
+	audio.volume = input.value/200;
 }
 // window.addEventListener('beforeload', playAudio)
 playAudio()
 
+pressButton.forEach(el => {
+	el.addEventListener('click', () => {
+		pressBtn.play()
+		pressBtn.volume = input.value/100;
+	})
+})
+
 input.oninput = function () {
 	isVolume = true;
-	audio.volume = input.value/100;
+	audio.volume = input.value/200;
 	output.value = input.value;
 	mute.classList.remove('mute-active');
 	vol.classList.add('volume-active');

@@ -15,7 +15,7 @@
 }
 
 .home-bt,
-.categories-bt {
+.categories-btn {
   width: 64px;
   height: 64px;
   border: 1px solid #fff;
@@ -23,14 +23,14 @@
 }
 
 .home-bt:hover,
-.categories-bt:hover {
+.categories-btn:hover {
   border: 1px solid #FFBCA2;
 }
 
 .question-artist,
 .question-pictures {
   width: 90%;
-  margin: 50px auto 25px;
+  margin: 10px auto 25px;
   text-align: center;
 }
 
@@ -53,10 +53,15 @@
 }
 
 .question-img-2 {
-  width: 70%;
+  width: 100%;
   height: auto;
   cursor: pointer;
   user-select: none;
+}
+
+.picture-name {
+  margin: 0 auto;
+  color: #FFBCA2;
 }
 
 .answers-container {
@@ -74,6 +79,7 @@
   border: 2px solid #fff;
   margin: 5px 5px;
   cursor: pointer;
+  text-align: center;
 }
 
 .answers:hover {
