@@ -9,17 +9,23 @@ const baseConfig = {
     module: {
         rules: [
             {
+                test: /\.[tj]s$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
         ],
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.ts', '.js'],
     },
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, 'dist'),
+        // path: path.resolve(__dirname, '../dist'),
     },
     plugins: [
         new HtmlWebpackPlugin({
