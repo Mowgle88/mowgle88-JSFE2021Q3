@@ -4,8 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/index.js'),
     mode: 'development',
+    devtool: 'inline-source-map',
+    entry: path.resolve(__dirname, './src/index.js'),
+    output: {
+        filename: 'index.js',
+        path: path.resolve(__dirname, './dist'),
+    },
     module: {
         rules: [
             {
@@ -19,14 +24,6 @@ const baseConfig = {
             },
         ],
     },
-    resolve: {
-        extensions: ['.ts', '.js'],
-    },
-    output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, 'dist'),
-        // path: path.resolve(__dirname, '../dist'),
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
@@ -34,6 +31,9 @@ const baseConfig = {
         }),
         new CleanWebpackPlugin(),
     ],
+    resolve: {
+        extensions: ['.ts', '.js'],
+    },
 };
 
 module.exports = ({ mode }) => {
