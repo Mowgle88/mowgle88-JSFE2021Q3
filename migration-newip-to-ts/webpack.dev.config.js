@@ -1,5 +1,4 @@
 const path = require('path');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 
 module.exports = {
@@ -7,8 +6,5 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
-    },
-    plugins: [
-        new ESLintPlugin()
-    ],
+    }
 };
