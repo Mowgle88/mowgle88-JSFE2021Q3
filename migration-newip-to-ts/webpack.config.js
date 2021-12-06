@@ -7,7 +7,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const baseConfig = {
     mode: 'development',
     devtool: 'inline-source-map',
-    entry: path.resolve(__dirname, './src/index.js'),
+    entry: path.resolve(__dirname, './src/index.ts'),
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, './dist'),

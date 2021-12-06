@@ -22,5 +22,6 @@
     "suppressExcessPropertyErrors": false,
     "suppressImplicitAnyIndexErrors": false,
     "noStrictGenericChecks": false,
+    "noEmitOnError": false
   }
 }
