@@ -1,14 +1,8 @@
 import AppLoader from './appLoader';
-
-type Callback<T> = (data: T) => void;
-
-// interface Target {
-//   target: HTMLElement ;
-//   currentTarget:HTMLElement 
-// }
+import { Callback, IData } from './Callback';
 
 class AppController extends AppLoader {
-  getSources(callback: Callback<void>) {
+  getSources(callback: Callback<IData>): void {
     super.getResp(
       {
         endpoint: 'sources',
@@ -17,7 +11,7 @@ class AppController extends AppLoader {
     );
   }
 
-  getNews(e: Event, callback: Callback<void>) {
+  getNews(e: Event, callback: Callback<IData>): void {
 
     
     let target = e.target as HTMLElement;

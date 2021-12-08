@@ -1,15 +1,6 @@
 import './news.css';
 
-export interface NewsList {
-  author: string;
-  content: string;
-  description: string;
-  publishedAt: string;
-  source: {id: string; name: string;};
-  title: string;
-  url: string;
-  urlToImage: string;
-}
+import {NewsList} from '../../controller/Callback';
 
 class News {
   draw(data: NewsList[]) {

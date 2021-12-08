@@ -1,21 +1,7 @@
 import News from './news/news';
 import Sources from './sources/sources';
 
-import {NewsList} from './news/news';
-
-import {SourcesObject} from './sources/sources';
-
-interface DataNewsValue {
-  articles: NewsList[];
-  status: string;
-  totalResults: number;
-}
-
-interface DataSourcesValue {
-  sources: SourcesObject[];
-  status: string;
-}
-
+import {IData} from '../controller/Callback';
 export class AppView {
 
   news: News;
@@ -26,12 +12,12 @@ export class AppView {
     this.sources = new Sources();
   }
 
-  drawNews(data: DataNewsValue) {
+  drawNews(data: IData) {
     const values = data?.articles ? data?.articles : [];
     this.news.draw(values);
   }
 
-  drawSources(data: DataSourcesValue) {
+  drawSources(data: IData) {
     console.log(data)
 
     const values = data?.sources ? data?.sources : [];

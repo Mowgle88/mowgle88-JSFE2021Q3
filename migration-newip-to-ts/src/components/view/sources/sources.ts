@@ -1,15 +1,6 @@
 import './sources.css';
 
-export interface SourcesObject {
-  category: string;
-  country: string;
-  description: string;
-  id: string;
-  language: string;
-  name: string;
-  url: string;
-}
-
+import {SourcesObject} from '../../controller/Callback';
 
 class Sources {
   draw(data: SourcesObject[]) {
