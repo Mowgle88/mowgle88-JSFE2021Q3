@@ -5,6 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home-page.css" />
+  <link rel="stylesheet" href="css/toy-page.css" />
+
 </head>
 <body>
 
@@ -23,12 +26,106 @@
       </div>
     </header>
     <main class="main-home-page">
-      <div class="home">Новогодняя игра<span>«Наряди ёлку»</span></div>
+      <div class="home-title">Новогодняя игра<span>«Наряди ёлку»</span></div>
       <button class="button-home-page third">Начать</button>
     </main>
   </div> -->
 
-  
+  <div class="toy-page">
+    <div class="toy-page-settings">
+      <header class="settings-header">
+        <button class="button volume-button"></button>
+        <button class="button snowflake-header"></button>
+        <input type="search" class="search search-toy-page" autocomplete="off" />
+      </header>
+
+      <div class="settings">
+        <div class="sort">
+          <div class="settings-title">Сортировать</div>
+          <select class="sort-select">
+            <option selected value="sort-name-max">По названию от «А» до «Я»</option>
+            <option value="sort-name-min">По названию от «Я» до «А»</option>
+            <option value="sort-count-max">По кол-ву по возрастанию</option>
+            <option value="sort-count-min">По кол-ву по убыванию</option>
+          </select>
+        </div>
+
+        <div class="categories">
+          <div class="settings-title">Категории</div>
+          <div class="shapes">
+            <div>Форма</div>
+            <div class="shape">
+              <div class="button-wrapper">
+                <button class="button shape-button ball"></button>
+              </div>
+              <div class="button-wrapper">
+                <button class="button shape-button bell"></button>
+              </div>
+              <div class="button-wrapper">
+                <button class="button shape-button cone"></button>
+              </div>
+              <div class="button-wrapper">
+                <button class="button shape-button snowflake"></button>
+              </div>
+              <div class="button-wrapper">
+                <button class="button shape-button toy"></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="colors">
+            <div>Цвет</div>
+            <button class="color-button white-button"></button>
+            <button class="color-button yellow-button"></button>
+            <button class="color-button red-button"></button>
+            <button class="color-button blue-button"></button>
+            <button class="color-button green-button"></button>
+          </div>
+
+          <div class="size">
+            <div>Размер</div>
+            <input type="checkbox" class="custom-checkbox" id="big" name="big" value="Большая">
+            <label for="big">Большой</label>
+            <input type="checkbox" class="custom-checkbox" id="medium" name="medium " value="Средняя">
+            <label for="medium">Средний</label>
+            <input type="checkbox" class="custom-checkbox" id="little" name="little" value="Маленькая">
+            <label for="little">Маленький</label>
+          </div>
+
+          <div class="range">
+            
+            <div>Количество экземпляров:</div>
+            <div class="count-filter">
+              <input class="count-range" type="range" min="1" max="12" step="1" value="1">
+              <output for="fader" id="count-range">0</output>
+            </div>
+
+            <div>Год приобретения:</div>
+            <div class="year-filter">
+              <input class="year-range" type="range" min="1940" max="2020" step="10" value="1940">
+              <output for="fader" id="year-range">0</output>
+            </div>
+          </div>
+
+          <input type="checkbox" class="custom-checkbox" id="favourite" name="favourite" value="Любимые">
+          <label for="favourite">Только любимые</label>
+
+          <div class="save-and-reset">
+            <button class="save">Сброс фильтров</button>
+            <button class="reset">Сброс фильтров</button>
+          </div>
+
+        </div>
+
+      </div>
+      
+    </div>
+
+    <div class="toy-page-section">
+
+    </div>
+
+  </div>
 
   <footer class="footer">
     <div class="github-link">

@@ -1,0 +1,344 @@
+/* toy-page */
+
+.toy-page {
+  min-width: 100%;
+  min-height: calc(100vh - 70px);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(25, 47, 45, 0.6);
+}
+
+.toy-page-settings {
+  width: 500px;
+  margin: 10px;
+  padding: 0 10px;
+  border: 3px solid #4dd2e9;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 #278D9F inset, 0 0 10px 10px #4dd2e9;
+}
+
+.settings-header {
+  display: flex;
+  height: 128px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button {
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.volume-button {
+  background: url(../assets/svg/audio.svg) no-repeat;
+  background-size: 36px 36px;
+}
+
+.snowflake-header {
+  background: url(../assets/svg/snowflake-header.svg) no-repeat;
+  background-size: 36px 36px;
+}
+
+.search-toy-page {
+  width: 254px;
+  margin: 0;
+  background-position: 204px center;
+}
+
+.toy-page-section {
+  width: calc(100% - 586px);
+}
+
+/* Settings */
+
+.settings {
+  border-radius: 10px;
+  background-color: rgba(31, 112, 127, .3);
+  backdrop-filter: blur(6px);
+}
+
+/* Sort */
+
+.sort,
+.categories {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort-select {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  width: 260px;
+  height: 40px;
+  padding: 5px 15px;
+  background-color: rgba(31, 112, 127, .3);
+  background-image: url(../assets/svg/arrow-down.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 220px center;
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid #278D9F;
+  font-size: 15px;
+  line-height: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sort-select option {
+  color: inherit;
+  background-color: #183E42;
+}
+
+.settings-title {
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  text-transform: uppercase;
+}
+
+/* Categories */
+
+.categories {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Shapes */
+
+.shapes,
+.colors,
+.size {
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px;
+  border: 2px solid #4dd2e9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #1BFFFF, 0 0 40px #1BFFFF, 0 0 80px #1BFFFF;
+  font-size: 18px;
+}
+
+.shape {
+  width: 100%;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button-wrapper {
+  width: 70px;
+  height: 75px;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.button-wrapper:hover {
+  background-color: #1BFFFF;
+  transition-delay: 0.3s;
+  box-shadow: 0 0 10px #1BFFFF, 0 0 40px #1BFFFF, 0 0 80px #1BFFFF;
+}
+
+.shape-button {
+  width: 42px;
+  height: 42px;
+}
+
+.ball {
+  background: url(../assets/svg/ball.svg) no-repeat;
+  background-size: 42px 42px;
+}
+
+.shape-button::after {
+  position: relative;
+  color: #fff;
+  font-size: 100%;
+  padding: 2px;
+  bottom: -35px;
+  left: -8px;
+}
+
+.ball::after {
+  content: "Шарик";
+}
+
+.bell {
+  background: url(../assets/svg/bell.svg) no-repeat;
+  background-size: 42px 42px;
+}
+
+.bell::after {
+  content: "Колокол";
+  left: -12px;
+}
+
+.cone {
+  background: url(../assets/svg/cone.svg) no-repeat;
+  background-size: 42px 42px;
+}
+
+.cone::after {
+  content: "Шишка";
+}
+
+.snowflake {
+  background: url(../assets/svg/snowflake.svg) no-repeat;
+  background-size: 42px 42px;
+}
+
+.snowflake::after {
+  content: "Снежинка";
+  left: -17px;
+}
+
+.toy {
+  background: url(../assets/svg/toy.svg) no-repeat;
+  background-size: 42px 42px;
+}
+
+.toy::after {
+  content: "Фигурка";
+  left: -12px;
+}
+
+
+.button.active {
+  filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
+}
+
+/* Colors */
+
+.color-button {
+  width: 24px;
+  height: 24px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.white-button {
+  background-color: #FFFFFF;
+}
+
+.yellow-button {
+  background-color: #FDD700;
+}
+
+.red-button {
+  background-color: #FD0000;
+}
+
+.blue-button {
+  background-color: #2299EB;
+}
+
+.green-button {
+  background-color: #08AA05;
+}
+
+/* Size */
+
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.custom-checkbox+label {
+  margin: 10px;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+.custom-checkbox+label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  background-color: rgba(31, 112, 127, .3);
+  border: 1px solid #278D9F;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.custom-checkbox:checked+label::before {
+  background-color: #1BFFFF;
+  background-color: #1BFFFF;
+  box-shadow: 0 0 10px #1BFFFF, 0 0 40px #1BFFFF, 0 0 80px #1BFFFF;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+/* range */
+
+.count-filter,
+.year-filter {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.year-range,
+.count-range {
+  position: relative;
+  top: -5px;
+  left: 4px;
+  width: 98%;
+  height: 10px;
+  background: #278D9F;
+  -webkit-appearance: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+output {
+  display: inline-block;
+}
+
+
+
+/* save-and-reset */
+
+.save-and-reset {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+}
+
+.reset,
+.save {
+  width: 45%;
+  height: 40px;
+  margin: 10px 0;
+  border-radius: 20px;
+  border: 1px solid #278D9F;
+  background-color: rgba(31, 112, 127, .3);
+  backdrop-filter: blur(6px);
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.reset:hover,
+.save:hover {
+  background-color: #1BFFFF;
+  box-shadow: 0 0 10px #1BFFFF, 0 0 40px #1BFFFF, 0 0 80px #1BFFFF;
+}
