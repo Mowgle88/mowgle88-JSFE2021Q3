@@ -44,6 +44,11 @@
   background-size: 36px 36px;
 }
 
+.volume-button:hover,
+.snowflake-header:hover {
+  filter: invert(28%) sepia(21%) saturate(3282%) hue-rotate(125deg) brightness(104%) contrast(106%) drop-shadow(0 0 10px #1BFFFF);
+}
+
 .search-toy-page {
   width: 254px;
   margin: 0;
@@ -229,20 +234,40 @@
   background-color: #FFFFFF;
 }
 
+.white-button:hover {
+box-shadow: 0 0 40px #FFFFFF, 0 0 40px #FFFFFF, 0 0 40px #FFFFFF, 0 0 40px #FFFFFF;
+}
+
 .yellow-button {
   background-color: #FDD700;
+}
+
+.yellow-button:hover {
+  box-shadow: 0 0 40px #FDD700, 0 0 40px #FDD700, 0 0 40px #FDD700, 0 0 40px #FDD700;
 }
 
 .red-button {
   background-color: #FD0000;
 }
 
+.red-button:hover {
+  box-shadow: 0 0 40px #FD0000, 0 0 40px #FD0000, 0 0 40px #FD0000, 0 0 40px #FD0000;
+}
+
 .blue-button {
   background-color: #2299EB;
 }
 
+.blue-button:hover {
+  box-shadow: 0 0 40px #2299EB, 0 0 40px #2299EB, 0 0 40px #2299EB, 0 0 40px #2299EB;
+}
+
 .green-button {
   background-color: #08AA05;
+}
+
+.green-button:hover {
+  box-shadow: 0 0 40px #08AA05, 0 0 40px #08AA05, 0 0 40px #08AA05, 0 0 40px #08AA05;
 }
 
 /* Size */
@@ -273,6 +298,8 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 50% 50%;
+  user-select: none;
+  cursor: pointer;
 }
 
 .custom-checkbox:checked+label::before {
@@ -282,45 +309,12 @@
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
 }
 
-/* range */
-
-.count-filter,
-.year-filter {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 30px;
-}
-
-.year-range,
-.count-range {
-  position: relative;
-  top: -5px;
-  left: 4px;
-  width: 98%;
-  height: 10px;
-  background: #278D9F;
-  -webkit-appearance: none;
-  outline: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-output {
-  display: inline-block;
-}
-
-
-
 /* save-and-reset */
 
 .save-and-reset {
   display: flex;
   width: 100%;
   justify-content: space-between;
-
 }
 
 .reset,
@@ -341,4 +335,11 @@ output {
 .save:hover {
   background-color: #1BFFFF;
   box-shadow: 0 0 10px #1BFFFF, 0 0 40px #1BFFFF, 0 0 80px #1BFFFF;
+}
+
+#input-select,
+#input-number {
+	padding: 7px;
+	margin: 15px 5px 5px;
+	width: 70px;
 }

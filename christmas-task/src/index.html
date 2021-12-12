@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/home-page.css" />
-  <link rel="stylesheet" href="css/toy-page.css" />
+  <link rel="stylesheet" href="css/toy-page.css" /> -->
+  <!-- <link href="nouislider.css" rel="stylesheet">
+  <script src="nouislider.js"></script> -->
 
 </head>
 <body>
@@ -93,18 +95,15 @@
           </div>
 
           <div class="range">
-            
             <div>Количество экземпляров:</div>
-            <div class="count-filter">
-              <input class="count-range" type="range" min="1" max="12" step="1" value="1">
-              <output for="fader" id="count-range">0</output>
-            </div>
-
+              <div id="slider-count"></div>
+              <select id="input-select-count-left"></select>
+              <select id="input-select-count-right"></select>
+              
             <div>Год приобретения:</div>
-            <div class="year-filter">
-              <input class="year-range" type="range" min="1940" max="2020" step="10" value="1940">
-              <output for="fader" id="year-range">0</output>
-            </div>
+            <div id="slider-year"></div>
+            <select id="input-select-year-left"></select>
+            <select id="input-select-year-right"></select>
           </div>
 
           <input type="checkbox" class="custom-checkbox" id="favourite" name="favourite" value="Любимые">
@@ -114,11 +113,8 @@
             <button class="save">Сброс фильтров</button>
             <button class="reset">Сброс фильтров</button>
           </div>
-
         </div>
-
       </div>
-      
     </div>
 
     <div class="toy-page-section">
@@ -137,7 +133,7 @@
     </div>
   </footer>
 
-
+  <script src="./index.ts"></script>
   
 </body>
 </html>

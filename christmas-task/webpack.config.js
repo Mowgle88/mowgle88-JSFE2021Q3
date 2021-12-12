@@ -6,6 +6,12 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const isProduction = process.env.NODE_ENV == "production";
+
+const stylesHandler = isProduction
+  ? MiniCssExtractPlugin.loader
+  : "style-loader";
+
 
 const baseConfig = {
   mode: 'development',
@@ -32,16 +38,20 @@ const baseConfig = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [stylesHandler, "css-loader"],
       },
-      {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      }
+      // {
+      //   test: /\.css$/i,
+      //   use: ['style-loader', 'css-loader'],
+      // },
+      // {
+      //   test: /\.css$/i,
+      //   use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      // },
+      // {
+      //   test: /\.s[ac]ss$/i,
+      //   use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      // }
     ],
   },
   plugins: [
