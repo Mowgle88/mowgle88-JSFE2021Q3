@@ -11,6 +11,7 @@
 
 .toy-page-settings {
   width: 500px;
+  height: 860px;
   margin: 10px;
   padding: 0 10px;
   border: 3px solid #4dd2e9;
@@ -121,7 +122,7 @@
 
 .shapes,
 .colors,
-.size {
+.sizes {
   width: 100%;
   margin: 5px 0;
   padding: 5px;
@@ -342,4 +343,59 @@ box-shadow: 0 0 40px #FFFFFF, 0 0 40px #FFFFFF, 0 0 40px #FFFFFF, 0 0 40px #FFFF
 	padding: 7px;
 	margin: 15px 5px 5px;
 	width: 70px;
+}
+
+.card-container {
+  margin-bottom: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: calc(100% - 520px);
+  max-width: 1600px;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+
+.card {
+  width: 265px;
+  height: 350px;
+  margin: 10px;
+  background-color: rgba(31, 112, 127, .3);
+  backdrop-filter: blur(6px);
+  border: 3px solid #4dd2e9;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 #278d9f inset, 0 0 10px 10px #4dd2e9;
+}
+
+.card-img {
+  height: 105px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto 
+}
+
+.card-title {
+  margin: 10px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.card-info {
+  margin: 10px;
+  padding: 10px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.count,
+.year,
+.shape,
+.color,
+.size,
+.favorite {
+  margin: 0;
 }
