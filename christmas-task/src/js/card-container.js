@@ -1,6 +1,9 @@
 import data from './data';
 const container = document.querySelector('.card-container');
 
+const disription = ['count', 'year', 'shape', 'color', 'size', 'favorite'];
+const string = ['Количество:', 'Год покупки:', 'Форма игрушки:', 'Цвет игрушки:', 'Размер игрушки:', 'Любиая:'];
+
 function addCard(i) {
   const div = document.createElement('div');
   div.classList.add('card');
@@ -20,42 +23,24 @@ function addCard(i) {
   cardInfo.classList.add('card-info');
   div.append(cardInfo);
 
-  const pCount = document.createElement('p');
-  pCount.classList.add('count');
-  pCount.textContent = `Количество: ${i.count}`;
-  cardInfo.append(pCount);
+  function createEl(descript, str) {
+    const p = document.createElement('p');
+    p.className = `${descript}`;
+    if (i[descript] === false) {
+      p.textContent = `${str} нет`;
+    } else if (i[descript] === true) {
+      p.textContent = `${str} да`;
+    } else if (descript === 'year') {
+      p.textContent = `${str} ${i[descript]} год`;
+    } else {
+      p.textContent = `${str} ${i[descript]}`;
+    }
+    cardInfo.append(p);
+  }
 
-  const pYear = document.createElement('p');
-  pYear.classList.add('year');
-  pYear.textContent = `Год покупки: ${i.year} год`;
-  cardInfo.append(pYear);
-
-  const pShape = document.createElement('p');
-  pShape.classList.add('shape');
-  pShape.textContent = `Форма игрушки: ${i.shape}`;
-  cardInfo.append(pShape);
-
-  const pColor = document.createElement('p');
-  pColor.classList.add('color');
-  pColor.textContent = `Цвет игрушки: ${i.color}`;
-  cardInfo.append(pColor);
-
-  const pSize = document.createElement('p');
-  pSize.classList.add('size');
-  pSize.textContent = `Размер игрушки: ${i.size}`;
-  cardInfo.append(pSize);
-
-  const pFavorite = document.createElement('p');
-  pFavorite.classList.add('favorite');
-  pFavorite.textContent = `Любиая: ${i.favorite}`;
-
-  cardInfo.append(pFavorite);
+  disription.forEach((item, index) => createEl(item, string[index]));
 
   container.append(div);
 }
 
-// data.forEach(el => addCard(data[j]))
-
-for (let j = 0; j < data.length; j++) {
-  addCard(data[j]);
-}
+data.forEach((el) => addCard(el));
