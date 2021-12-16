@@ -221,8 +221,9 @@
 }
 
 
-.button.active {
-  filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
+.shape-active {
+  filter: invert(28%) sepia(21%) saturate(3282%) hue-rotate(
+125deg) brightness(104%) contrast(106%) drop-shadow(0 0 10px #1BFFFF);
 }
 
 /* Colors */
