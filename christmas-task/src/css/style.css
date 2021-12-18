@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+mark {
+  background: #1bffff;
+ }
+
 body {
   /* width: 100vw; */
   /* height: 100vh; */

@@ -74,11 +74,22 @@
   background-repeat: no-repeat;
   background-position: 330px center;
   backdrop-filter: blur(6px);  
+  -webkit-appearance: none;
 }
 
 .search {
   outline: 0;
 }
+
+input[type="search"]::-webkit-search-cancel-button { 
+  -webkit-appearance: none;
+  background-image: url("../assets/svg/cross.svg");
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+  
 
 .select {
   width: 48px;

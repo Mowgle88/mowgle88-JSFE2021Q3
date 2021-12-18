@@ -23,6 +23,11 @@ const boolen = {
   green: true,
 };
 
+// function chooseСolor(coloris) {
+//   const res = data.filter((el) => el.color === colors[coloris]);
+//   res.forEach((item, i) => addCard(item, i));
+// }
+
 function chooseСolor(color) {
   const allColor = container.querySelectorAll('.color');
   const dataName = container.querySelectorAll(`.color[data-color = ${colors[color]}]`);

@@ -4,7 +4,7 @@ const container = document.querySelector('.card-container');
 const disription = ['count', 'year', 'shape', 'color', 'size', 'favorite'];
 const string = ['Количество:', 'Год покупки:', 'Форма игрушки:', 'Цвет игрушки:', 'Размер игрушки:', 'Любиая:'];
 
-function addCard(el, ind) {
+export function addCard(el, ind) {
   const div = document.createElement('div');
   div.classList.add('card');
   div.setAttribute(`data-num`, ind);

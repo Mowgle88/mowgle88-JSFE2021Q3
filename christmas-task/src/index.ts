@@ -1,6 +1,7 @@
 import './js/data'
 import './js/range-slider'
 import './js/card-container'
+import './js/search'
 import './js/filter-color'
 import './js/filter-shape'
 import './js/filter-size'
