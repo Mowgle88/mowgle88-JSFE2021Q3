@@ -10,6 +10,7 @@ export function addCard(el, ind) {
   div.setAttribute(`data-num`, ind);
   div.setAttribute(`data-count`, el.count);
   div.setAttribute(`data-name`, el.name[0]);
+  div.setAttribute(`data-year`, el.year);
 
   const h = document.createElement('h4');
   h.classList.add('card-title');
