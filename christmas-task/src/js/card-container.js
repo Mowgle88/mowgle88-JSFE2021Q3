@@ -1,4 +1,10 @@
 import data from './data';
+
+import * as swal from 'sweetalert';
+// import { SweetAlert } from 'sweetalert/typings/core';
+// const swal = _swal;
+// const swal: SweetAlert = _swal as any;
+
 const container = document.querySelector('.card-container');
 
 const disription = ['count', 'year', 'shape', 'color', 'size', 'favorite'];
@@ -72,7 +78,7 @@ card.forEach((el) => {
         el.classList.toggle('card-active');
         count--;
       } else {
-        alert('Хватит');
+        swal('Блиин', 'Извините, все слоты заполнены!', 'error');
       }
       select.textContent = count;
     }
