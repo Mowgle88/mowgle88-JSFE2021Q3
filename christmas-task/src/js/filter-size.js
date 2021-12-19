@@ -25,16 +25,26 @@ function chooseSize(size) {
   if (isSize[size] === true) {
     allSize.forEach((el) => {
       el.parentNode.parentNode.style.display = 'none';
+      el.parentNode.parentNode.classList.add(`hide-size`);
     });
     dataName.forEach((el) => {
       el.parentNode.parentNode.style.display = 'block';
+      el.parentNode.parentNode.classList.add(`card-size-${size}`);
     });
     isSize[size] = false;
   } else {
     allSize.forEach((el) => {
       el.parentNode.parentNode.style.display = 'block';
+      el.parentNode.parentNode.classList.remove(`card-size-${size}`);
     });
     isSize[size] = true;
+  }
+
+  if (Object.values(isSize).every((e) => e === true)) {
+    allSize.forEach((el) => {
+      // el.parentNode.parentNode.style.display = 'block';
+      el.parentNode.parentNode.classList.remove(`hide-size`);
+    });
   }
 }
 

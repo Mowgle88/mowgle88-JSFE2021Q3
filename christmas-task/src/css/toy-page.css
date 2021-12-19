@@ -487,3 +487,15 @@ h2 {
   opacity: 1;
   display: block !important;
 }
+
+.hide-size {
+  opacity: 0;
+  display: none !important;
+}
+
+.card-size-big,
+.card-size-medium,
+.card-size-little {
+  opacity: 1;
+  display: block !important;
+}
