@@ -30,17 +30,27 @@ function chooseShape(shape) {
 
   if (isShape[shape] === true) {
     allShapes.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'none';
+      // el.parentNode.parentNode.style.display = 'none';
+      el.parentNode.parentNode.classList.add(`hide-shape`);
     });
     dataName.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'block';
+      // el.parentNode.parentNode.style.display = 'block';
+      el.parentNode.parentNode.classList.add(`card-shape-${shape}`);
     });
     isShape[shape] = false;
   } else {
     allShapes.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'block';
+      // el.parentNode.parentNode.style.display = 'block';
+      el.parentNode.parentNode.classList.remove(`card-shape-${shape}`);
     });
     isShape[shape] = true;
+  }
+
+  if (Object.values(isShape).every((e) => e === true)) {
+    allShapes.forEach((el) => {
+      // el.parentNode.parentNode.style.display = 'block';
+      el.parentNode.parentNode.classList.remove(`hide-shape`);
+    });
   }
 }
 
