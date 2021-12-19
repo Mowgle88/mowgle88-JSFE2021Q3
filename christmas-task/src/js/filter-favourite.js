@@ -5,21 +5,21 @@ const favouritebtn = document.querySelector('#favourite');
 let isFavourite = true;
 
 function chooseFavourite() {
-  const allFavourite = container.querySelectorAll('.favorite');
-  const dataName = container.querySelectorAll(`.favorite[data-favorite = 'true']`);
-  console.log(dataName);
+  const card = container.querySelectorAll('.card');
+  const cardFavorite = container.querySelectorAll(`.card[data-favorite = 'true']`);
+  // console.log(dataName);
 
   if (isFavourite === true) {
-    allFavourite.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'none';
+    card.forEach((el) => {
+      el.style.display = 'none';
     });
-    dataName.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'block';
+    cardFavorite.forEach((el) => {
+      el.style.display = 'block';
     });
     isFavourite = false;
   } else {
-    allFavourite.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'block';
+    card.forEach((el) => {
+      el.style.display = 'block';
     });
     isFavourite = true;
   }

@@ -18,32 +18,27 @@ const isSize = {
 };
 
 function chooseSize(size) {
-  const allSize = container.querySelectorAll('.size');
-  const dataName = container.querySelectorAll(`.size[data-size = ${sizes[size]}]`);
-  console.log(dataName);
+  const card = container.querySelectorAll('.card');
+  const cardSize = container.querySelectorAll(`.card[data-size = ${sizes[size]}]`);
 
   if (isSize[size] === true) {
-    allSize.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'none';
-      el.parentNode.parentNode.classList.add(`hide-size`);
+    card.forEach((el) => {
+      el.classList.add(`hide`);
     });
-    dataName.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'block';
-      el.parentNode.parentNode.classList.add(`card-size-${size}`);
+    cardSize.forEach((el) => {
+      el.classList.add(`card-size-${size}`);
     });
     isSize[size] = false;
   } else {
-    allSize.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'block';
-      el.parentNode.parentNode.classList.remove(`card-size-${size}`);
+    card.forEach((el) => {
+      el.classList.remove(`card-size-${size}`);
     });
     isSize[size] = true;
   }
 
   if (Object.values(isSize).every((e) => e === true)) {
-    allSize.forEach((el) => {
-      // el.parentNode.parentNode.style.display = 'block';
-      el.parentNode.parentNode.classList.remove(`hide-size`);
+    card.forEach((el) => {
+      el.classList.remove(`hide`);
     });
   }
 }

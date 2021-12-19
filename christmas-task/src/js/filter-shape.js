@@ -24,32 +24,27 @@ const isShape = {
 };
 
 function chooseShape(shape) {
-  const allShapes = container.querySelectorAll('.shape');
-  const dataName = container.querySelectorAll(`.shape[data-shape = ${shapes[shape]}]`);
-  console.log(dataName);
+  const card = container.querySelectorAll('.card');
+  const cardShape = container.querySelectorAll(`.card[data-shape = ${shapes[shape]}]`);
 
   if (isShape[shape] === true) {
-    allShapes.forEach((el) => {
-      // el.parentNode.parentNode.style.display = 'none';
-      el.parentNode.parentNode.classList.add(`hide-shape`);
+    card.forEach((el) => {
+      el.classList.add(`hide`);
     });
-    dataName.forEach((el) => {
-      // el.parentNode.parentNode.style.display = 'block';
-      el.parentNode.parentNode.classList.add(`card-shape-${shape}`);
+    cardShape.forEach((el) => {
+      el.classList.add(`card-shape-${shape}`);
     });
     isShape[shape] = false;
   } else {
-    allShapes.forEach((el) => {
-      // el.parentNode.parentNode.style.display = 'block';
-      el.parentNode.parentNode.classList.remove(`card-shape-${shape}`);
+    card.forEach((el) => {
+      el.classList.remove(`card-shape-${shape}`);
     });
     isShape[shape] = true;
   }
 
   if (Object.values(isShape).every((e) => e === true)) {
-    allShapes.forEach((el) => {
-      // el.parentNode.parentNode.style.display = 'block';
-      el.parentNode.parentNode.classList.remove(`hide-shape`);
+    card.forEach((el) => {
+      el.classList.remove(`hide`);
     });
   }
 }

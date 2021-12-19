@@ -460,7 +460,7 @@ h2 {
 
 /* прятать или показывать карточки */
 
-.hide-color {
+.hide {
   opacity: 0;
   display: none !important;
 }
@@ -474,10 +474,10 @@ h2 {
   display: block !important;
 }
 
-.hide-shape {
+/* .hide-shape {
   opacity: 0;
   display: none !important;
-}
+} */
 
 .card-shape-ball,
 .card-shape-bell,
@@ -488,10 +488,10 @@ h2 {
   display: block !important;
 }
 
-.hide-size {
+/* .hide-size {
   opacity: 0;
   display: none !important;
-}
+} */
 
 .card-size-big,
 .card-size-medium,

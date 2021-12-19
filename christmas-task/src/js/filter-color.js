@@ -24,31 +24,27 @@ const isColor = {
 };
 
 function chooseСolor(color) {
-  const allColor = container.querySelectorAll('.color');
-  const dataName = container.querySelectorAll(`.color[data-color = ${colors[color]}]`);
+  const card = container.querySelectorAll('.card');
+  const cardColor = container.querySelectorAll(`.card[data-color = ${colors[color]}]`);
 
   if (isColor[color] === true) {
-    allColor.forEach((el) => {
-      // el.parentNode.parentNode.style.display = 'none';
-      el.parentNode.parentNode.classList.add(`hide-color`);
+    card.forEach((el) => {
+      el.classList.add(`hide`);
     });
-    dataName.forEach((el) => {
-      // el.parentNode.parentNode.style.display = 'block';
-      el.parentNode.parentNode.classList.add(`card-color-${color}`);
+    cardColor.forEach((el) => {
+      el.classList.add(`card-color-${color}`);
     });
     isColor[color] = false;
   } else {
-    allColor.forEach((el) => {
-      // el.parentNode.parentNode.style.display = 'block';
-      el.parentNode.parentNode.classList.remove(`card-color-${color}`);
+    card.forEach((el) => {
+      el.classList.remove(`card-color-${color}`);
     });
     isColor[color] = true;
   }
 
   if (Object.values(isColor).every((e) => e === true)) {
-    allColor.forEach((el) => {
-      // el.parentNode.parentNode.style.display = 'block';
-      el.parentNode.parentNode.classList.remove(`hide-color`);
+    card.forEach((el) => {
+      el.classList.remove(`hide`);
     });
   }
 }

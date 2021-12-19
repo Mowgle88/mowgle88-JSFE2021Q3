@@ -14,9 +14,13 @@ export function addCard(el, ind) {
   const div = document.createElement('div');
   div.classList.add('card');
   div.setAttribute(`data-num`, ind);
+  div.setAttribute(`data-name`, el.name);
   div.setAttribute(`data-count`, el.count);
-  div.setAttribute(`data-name`, el.name[0]);
   div.setAttribute(`data-year`, el.year);
+  div.setAttribute(`data-shape`, el.shape);
+  div.setAttribute(`data-color`, el.color);
+  div.setAttribute(`data-size`, el.size);
+  div.setAttribute(`data-favorite`, el.favorite);
 
   const h = document.createElement('h4');
   h.classList.add('card-title');
@@ -36,7 +40,7 @@ export function addCard(el, ind) {
   function createEl(descript, str) {
     const p = document.createElement('p');
     p.className = `${descript}`;
-    p.setAttribute(`data-${descript}`, el[descript]);
+    // p.setAttribute(`data-${descript}`, el[descript]);
     if (el[descript] === false) {
       p.textContent = `${str} нет`;
     } else if (el[descript] === true) {
