@@ -7,19 +7,19 @@ let isFavourite = true;
 function chooseFavourite() {
   const card = container.querySelectorAll('.card');
   const cardFavorite = container.querySelectorAll(`.card[data-favorite = 'true']`);
-  // console.log(dataName);
 
   if (isFavourite === true) {
     card.forEach((el) => {
-      el.style.display = 'none';
+      el.classList.add(`hide`);
     });
     cardFavorite.forEach((el) => {
-      el.style.display = 'block';
+      el.classList.add(`card-favorite`);
     });
     isFavourite = false;
   } else {
     card.forEach((el) => {
-      el.style.display = 'block';
+      el.classList.remove(`card-favorite`);
+      el.classList.remove(`hide`);
     });
     isFavourite = true;
   }

@@ -474,11 +474,6 @@ h2 {
   display: block !important;
 }
 
-/* .hide-shape {
-  opacity: 0;
-  display: none !important;
-} */
-
 .card-shape-ball,
 .card-shape-bell,
 .card-shape-cone,
@@ -488,14 +483,11 @@ h2 {
   display: block !important;
 }
 
-/* .hide-size {
-  opacity: 0;
-  display: none !important;
-} */
-
 .card-size-big,
 .card-size-medium,
-.card-size-little {
+
+
+.card-favorite {
   opacity: 1;
   display: block !important;
 }
