@@ -23,29 +23,33 @@ const boolen = {
   green: true,
 };
 
-// function chooseСolor(coloris) {
-//   const res = data.filter((el) => el.color === colors[coloris]);
-//   res.forEach((item, i) => addCard(item, i));
-// }
-
 function chooseСolor(color) {
   const allColor = container.querySelectorAll('.color');
   const dataName = container.querySelectorAll(`.color[data-color = ${colors[color]}]`);
-  console.log(dataName);
 
   if (boolen[color] === true) {
     allColor.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'none';
+      // el.parentNode.parentNode.style.display = 'none';
+      el.parentNode.parentNode.classList.add(`hide-color`);
     });
     dataName.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'block';
+      // el.parentNode.parentNode.style.display = 'block';
+      el.parentNode.parentNode.classList.add(`card-color-${color}`);
     });
     boolen[color] = false;
   } else {
     allColor.forEach((el) => {
-      el.parentNode.parentNode.style.display = 'block';
+      // el.parentNode.parentNode.style.display = 'block';
+      el.parentNode.parentNode.classList.remove(`card-color-${color}`);
     });
     boolen[color] = true;
+  }
+
+  if (Object.values(boolen).every((e) => e === true)) {
+    allColor.forEach((el) => {
+      // el.parentNode.parentNode.style.display = 'block';
+      el.parentNode.parentNode.classList.remove(`hide-color`);
+    });
   }
 }
 
