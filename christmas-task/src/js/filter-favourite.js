@@ -10,15 +10,22 @@ function chooseFavourite() {
 
   if (isFavourite === true) {
     card.forEach((el) => {
-      el.classList.add(`hide`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.add(`hide`);
+      }
     });
     cardFavorite.forEach((el) => {
       el.classList.add(`card-favorite`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.add('isFilter');
+        el.classList.remove(`hide`);
+      }
     });
     isFavourite = false;
   } else {
     card.forEach((el) => {
       el.classList.remove(`card-favorite`);
+      el.classList.remove('isFilter');
       el.classList.remove(`hide`);
     });
     isFavourite = true;

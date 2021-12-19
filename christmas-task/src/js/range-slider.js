@@ -34,13 +34,15 @@ let selectCountRight = document.getElementById('input-select-count-right');
 // Сортировать в диапозоне значений по количеству экземпляров
 function sortCount() {
   for (let i = 1; i < container.children.length; i++) {
-    if (
-      +container.children[i].getAttribute('data-count') >= +selectCountLeft.value &&
-      +container.children[i].getAttribute('data-count') <= +selectCountRight.value
-    ) {
-      container.children[i].style.display = 'block';
-    } else {
-      container.children[i].style.display = 'none';
+    if (!container.children[i].classList.contains(`hide`)) {
+      if (
+        +container.children[i].getAttribute('data-count') >= +selectCountLeft.value &&
+        +container.children[i].getAttribute('data-count') <= +selectCountRight.value
+      ) {
+        container.children[i].classList.remove(`hide-sort`);
+      } else {
+        container.children[i].classList.add(`hide-sort`);
+      }
     }
   }
 }
@@ -94,13 +96,15 @@ let selectYearRight = document.getElementById('input-select-year-right');
 // Сортировать в диапозоне значений по году
 function sortYear() {
   for (let i = 1; i < container.children.length; i++) {
-    if (
-      +container.children[i].getAttribute('data-year') >= +selectYeartLeft.value &&
-      +container.children[i].getAttribute('data-year') <= +selectYearRight.value
-    ) {
-      container.children[i].style.display = 'block';
-    } else {
-      container.children[i].style.display = 'none';
+    if (!container.children[i].classList.contains(`hide`)) {
+      if (
+        +container.children[i].getAttribute('data-year') >= +selectYeartLeft.value &&
+        +container.children[i].getAttribute('data-year') <= +selectYearRight.value
+      ) {
+        container.children[i].classList.remove(`hide-sort`);
+      } else {
+        container.children[i].classList.add(`hide-sort`);
+      }
     }
   }
 }

@@ -469,25 +469,39 @@ h2 {
 .card-color-yellow,
 .card-color-red,
 .card-color-blue,
-.card-color-green {
+.card-color-green,
+.card-shape-ball,
+.card-shape-bell,
+.card-shape-cone,
+.card-shape-snowflake,
+.card-shape-toy,
+.card-size-big,
+.card-size-medium,
+.card-size-little,
+.card-favorite {
   opacity: 1;
   display: block !important;
 }
 
-.card-shape-ball,
+/* .card-shape-ball,
 .card-shape-bell,
 .card-shape-cone,
 .card-shape-snowflake,
 .card-shape-toy {
   opacity: 1;
   display: block !important;
-}
+} */
 
-.card-size-big,
+/* .card-size-big,
 .card-size-medium,
-
-
+.card-size-little,
 .card-favorite {
   opacity: 1;
   display: block !important;
+} */
+
+.hide-sort {
+  opacity: 0;
+  display: none !important;
 }
+

@@ -23,22 +23,32 @@ function chooseSize(size) {
 
   if (isSize[size] === true) {
     card.forEach((el) => {
-      el.classList.add(`hide`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.add(`hide`);
+      }
     });
     cardSize.forEach((el) => {
       el.classList.add(`card-size-${size}`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.add('isFilter');
+        el.classList.remove(`hide`);
+      }
     });
     isSize[size] = false;
   } else {
     card.forEach((el) => {
       el.classList.remove(`card-size-${size}`);
+      el.classList.remove('isFilter');
+      el.classList.add(`hide`);
     });
     isSize[size] = true;
   }
 
   if (Object.values(isSize).every((e) => e === true)) {
     card.forEach((el) => {
-      el.classList.remove(`hide`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.remove(`hide`);
+      }
     });
   }
 }

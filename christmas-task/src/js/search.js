@@ -11,20 +11,24 @@ search.oninput = function () {
   if (val != '') {
     search.style.backgroundImage = 'none';
     cardTitle.forEach((elem) => {
-      if (elem.innerText.search(valReg) == -1) {
-        elem.parentNode.style.display = 'none';
-        elem.innerHTML = elem.innerText;
-      } else {
-        elem.parentNode.style.display = 'block';
-        let str = elem.innerText;
-        elem.innerHTML = innerMark(str, elem.innerText.search(valReg), val.length);
+      if (!elem.parentNode.classList.contains(`hide`)) {
+        if (elem.innerText.search(valReg) == -1) {
+          elem.parentNode.classList.add(`hide-sort`);
+          elem.innerHTML = elem.innerText;
+        } else {
+          elem.parentNode.classList.remove(`hide-sort`);
+          let str = elem.innerText;
+          elem.innerHTML = innerMark(str, elem.innerText.search(valReg), val.length);
+        }
       }
     });
   } else {
     search.style.backgroundImage = 'url(../assets/svg/search.svg)';
     cardTitle.forEach((elem) => {
-      elem.parentNode.style.display = 'block';
-      elem.innerHTML = elem.innerText;
+      if (!elem.parentNode.classList.contains(`hide`)) {
+        elem.parentNode.classList.remove(`hide-sort`);
+        elem.innerHTML = elem.innerText;
+      }
     });
   }
 };

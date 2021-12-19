@@ -29,22 +29,32 @@ function chooseShape(shape) {
 
   if (isShape[shape] === true) {
     card.forEach((el) => {
-      el.classList.add(`hide`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.add(`hide`);
+      }
     });
     cardShape.forEach((el) => {
       el.classList.add(`card-shape-${shape}`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.add('isFilter');
+        el.classList.remove(`hide`);
+      }
     });
     isShape[shape] = false;
   } else {
-    card.forEach((el) => {
+    cardShape.forEach((el) => {
       el.classList.remove(`card-shape-${shape}`);
+      el.classList.remove('isFilter');
+      el.classList.add(`hide`);
     });
     isShape[shape] = true;
   }
 
   if (Object.values(isShape).every((e) => e === true)) {
     card.forEach((el) => {
-      el.classList.remove(`hide`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.remove(`hide`);
+      }
     });
   }
 }

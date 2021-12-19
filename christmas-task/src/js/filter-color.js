@@ -29,22 +29,32 @@ function chooseСolor(color) {
 
   if (isColor[color] === true) {
     card.forEach((el) => {
-      el.classList.add(`hide`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.add(`hide`);
+      }
     });
     cardColor.forEach((el) => {
       el.classList.add(`card-color-${color}`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.add('isFilter');
+        el.classList.remove(`hide`);
+      }
     });
     isColor[color] = false;
   } else {
-    card.forEach((el) => {
+    cardColor.forEach((el) => {
       el.classList.remove(`card-color-${color}`);
+      el.classList.remove('isFilter');
+      el.classList.add(`hide`);
     });
     isColor[color] = true;
   }
 
   if (Object.values(isColor).every((e) => e === true)) {
     card.forEach((el) => {
-      el.classList.remove(`hide`);
+      if (!el.classList.contains('isFilter')) {
+        el.classList.remove(`hide`);
+      }
     });
   }
 }
