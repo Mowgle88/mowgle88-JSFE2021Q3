@@ -15,7 +15,7 @@ const colors = {
   green: 'зелёный',
 };
 
-const boolen = {
+const isColor = {
   white: true,
   yellow: true,
   red: true,
@@ -27,7 +27,7 @@ function chooseСolor(color) {
   const allColor = container.querySelectorAll('.color');
   const dataName = container.querySelectorAll(`.color[data-color = ${colors[color]}]`);
 
-  if (boolen[color] === true) {
+  if (isColor[color] === true) {
     allColor.forEach((el) => {
       // el.parentNode.parentNode.style.display = 'none';
       el.parentNode.parentNode.classList.add(`hide-color`);
@@ -36,16 +36,16 @@ function chooseСolor(color) {
       // el.parentNode.parentNode.style.display = 'block';
       el.parentNode.parentNode.classList.add(`card-color-${color}`);
     });
-    boolen[color] = false;
+    isColor[color] = false;
   } else {
     allColor.forEach((el) => {
       // el.parentNode.parentNode.style.display = 'block';
       el.parentNode.parentNode.classList.remove(`card-color-${color}`);
     });
-    boolen[color] = true;
+    isColor[color] = true;
   }
 
-  if (Object.values(boolen).every((e) => e === true)) {
+  if (Object.values(isColor).every((e) => e === true)) {
     allColor.forEach((el) => {
       // el.parentNode.parentNode.style.display = 'block';
       el.parentNode.parentNode.classList.remove(`hide-color`);
