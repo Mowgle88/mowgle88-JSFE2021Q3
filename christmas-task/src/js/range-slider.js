@@ -147,3 +147,5 @@ selectYearRight.addEventListener('change', function () {
   sliderYear.noUiSlider.set([null, this.value]);
   sortYear();
 });
+
+export { sliderCount, sliderYear };

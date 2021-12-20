@@ -23,6 +23,8 @@ const isShape = {
   toy: true,
 };
 
+export { shapeButton, isShape };
+
 function chooseShape(shape) {
   const card = container.querySelectorAll('.card');
 

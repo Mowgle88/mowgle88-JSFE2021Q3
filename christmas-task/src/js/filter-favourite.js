@@ -2,13 +2,16 @@ import container from './card-container';
 
 const favouritebtn = document.querySelector('#favourite');
 
-let isFavourite = true;
+const isFavourite = {
+  favourite: true,
+};
+
+export { favouritebtn, isFavourite };
 
 function chooseFavourite() {
   const card = container.querySelectorAll('.card');
-  // const cardFavorite = container.querySelectorAll(`.card[data-favorite = 'true']`);
 
-  if (isFavourite === true) {
+  if (isFavourite.favourite === true) {
     card.forEach((el) => {
       if (!el.classList.contains('isFilter')) {
         el.classList.add(`hide`);
@@ -21,21 +24,14 @@ function chooseFavourite() {
         }
       }
     });
-    // cardFavorite.forEach((el) => {
-    //   el.classList.add(`card-favorite`);
-    //   if (!el.classList.contains('isFilter')) {
-    //     el.classList.add('isFilter');
-    //     el.classList.remove(`hide`);
-    //   }
-    // });
-    isFavourite = false;
+    isFavourite.favourite = false;
   } else {
     card.forEach((el) => {
       el.classList.remove(`card-favorite`);
       el.classList.remove('isFilter');
       el.classList.remove(`hide`);
     });
-    isFavourite = true;
+    isFavourite.favourite = true;
   }
 }
 

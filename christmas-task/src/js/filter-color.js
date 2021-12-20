@@ -23,6 +23,8 @@ const isColor = {
   green: true,
 };
 
+export { colorButton, isColor };
+
 function chooseСolor(color) {
   const card = container.querySelectorAll('.card');
 
