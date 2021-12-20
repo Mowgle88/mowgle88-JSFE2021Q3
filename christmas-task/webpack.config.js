@@ -29,7 +29,7 @@ const baseConfig = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg|webp|svg)$/i,
         type: 'asset/resource',
       },
       {
@@ -67,7 +67,8 @@ const baseConfig = {
     new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: './src/assets', to: 'assets' },
+        // { from: './src/assets', to: 'assets' },
+        { from: path.join(__dirname, 'src/assets/'), to: path.join(__dirname, 'dist/assets') },
       ],
     }),
   ],

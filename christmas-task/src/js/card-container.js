@@ -29,7 +29,7 @@ export function addCard(el, ind) {
 
   const img = document.createElement('img');
   img.classList.add('card-img');
-  img.src = `../assets/toys/${el.num}.webp`;
+  img.src = `./assets/toys/${el.num}.webp`;
   img.alt = `${el.name}`;
   div.append(img);
 
