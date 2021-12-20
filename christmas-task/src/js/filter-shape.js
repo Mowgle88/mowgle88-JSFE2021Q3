@@ -25,27 +25,28 @@ const isShape = {
 
 function chooseShape(shape) {
   const card = container.querySelectorAll('.card');
-  const cardShape = container.querySelectorAll(`.card[data-shape = ${shapes[shape]}]`);
 
   if (isShape[shape] === true) {
     card.forEach((el) => {
       if (!el.classList.contains('isFilter')) {
         el.classList.add(`hide`);
       }
-    });
-    cardShape.forEach((el) => {
-      el.classList.add(`card-shape-${shape}`);
-      if (!el.classList.contains('isFilter')) {
-        el.classList.add('isFilter');
-        el.classList.remove(`hide`);
+      if (el.getAttribute('data-shape') === shapes[shape]) {
+        el.classList.add(`card-shape-${shape}`);
+        if (!el.classList.contains('isFilter')) {
+          el.classList.add('isFilter');
+          el.classList.remove(`hide`);
+        }
       }
     });
     isShape[shape] = false;
   } else {
-    cardShape.forEach((el) => {
-      el.classList.remove(`card-shape-${shape}`);
-      el.classList.remove('isFilter');
-      el.classList.add(`hide`);
+    card.forEach((el) => {
+      if (el.getAttribute('data-shape') === shapes[shape]) {
+        el.classList.remove(`card-shape-${shape}`);
+        el.classList.remove('isFilter');
+        el.classList.add(`hide`);
+      }
     });
     isShape[shape] = true;
   }

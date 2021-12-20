@@ -19,27 +19,28 @@ const isSize = {
 
 function chooseSize(size) {
   const card = container.querySelectorAll('.card');
-  const cardSize = container.querySelectorAll(`.card[data-size = ${sizes[size]}]`);
 
   if (isSize[size] === true) {
     card.forEach((el) => {
       if (!el.classList.contains('isFilter')) {
         el.classList.add(`hide`);
       }
-    });
-    cardSize.forEach((el) => {
-      el.classList.add(`card-size-${size}`);
-      if (!el.classList.contains('isFilter')) {
-        el.classList.add('isFilter');
-        el.classList.remove(`hide`);
+      if (el.getAttribute('data-size') === sizes[size]) {
+        el.classList.add(`card-size-${size}`);
+        if (!el.classList.contains('isFilter')) {
+          el.classList.add('isFilter');
+          el.classList.remove(`hide`);
+        }
       }
     });
     isSize[size] = false;
   } else {
     card.forEach((el) => {
-      el.classList.remove(`card-size-${size}`);
-      el.classList.remove('isFilter');
-      el.classList.add(`hide`);
+      if (el.getAttribute('data-size') === sizes[size]) {
+        el.classList.remove(`card-size-${size}`);
+        el.classList.remove('isFilter');
+        el.classList.add(`hide`);
+      }
     });
     isSize[size] = true;
   }

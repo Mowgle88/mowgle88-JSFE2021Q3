@@ -25,27 +25,29 @@ const isColor = {
 
 function chooseСolor(color) {
   const card = container.querySelectorAll('.card');
-  const cardColor = container.querySelectorAll(`.card[data-color = ${colors[color]}]`);
 
   if (isColor[color] === true) {
     card.forEach((el) => {
+      // console.log(el.getAttribute('data-color'));
       if (!el.classList.contains('isFilter')) {
         el.classList.add(`hide`);
       }
-    });
-    cardColor.forEach((el) => {
-      el.classList.add(`card-color-${color}`);
-      if (!el.classList.contains('isFilter')) {
-        el.classList.add('isFilter');
-        el.classList.remove(`hide`);
+      if (el.getAttribute('data-color') === colors[color]) {
+        el.classList.add(`card-color-${color}`);
+        if (!el.classList.contains('isFilter')) {
+          el.classList.add('isFilter');
+          el.classList.remove(`hide`);
+        }
       }
     });
     isColor[color] = false;
   } else {
-    cardColor.forEach((el) => {
-      el.classList.remove(`card-color-${color}`);
-      el.classList.remove('isFilter');
-      el.classList.add(`hide`);
+    card.forEach((el) => {
+      if (el.getAttribute('data-color') === colors[color]) {
+        el.classList.remove(`card-color-${color}`);
+        el.classList.remove('isFilter');
+        el.classList.add(`hide`);
+      }
     });
     isColor[color] = true;
   }
