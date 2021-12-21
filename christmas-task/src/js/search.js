@@ -13,7 +13,11 @@ search.oninput = function (e) {
   if (val != '') {
     search.style.backgroundImage = 'none';
     cardTitle.forEach((elem) => {
-      if (!elem.parentNode.classList.contains(`hide`)) {
+      if (
+        !elem.parentNode.classList.contains(`hide-sort-count`) ||
+        !elem.parentNode.classList.contains(`hide-sort-year`) ||
+        !elem.parentNode.classList.contains(`hide`)
+      ) {
         if (elem.innerText.search(valReg) == -1) {
           elem.parentNode.classList.add(`hide-sort`);
           elem.classList.add(`hide-title`);

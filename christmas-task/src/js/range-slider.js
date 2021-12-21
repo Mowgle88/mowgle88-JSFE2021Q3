@@ -1,6 +1,8 @@
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 
+import * as swal from 'sweetalert';
+
 import container from './card-container';
 // import sortCount from './sort-count-slider';
 
@@ -33,17 +35,35 @@ let selectCountRight = document.getElementById('input-select-count-right');
 
 // Сортировать в диапозоне значений по количеству экземпляров
 function sortCount() {
+  const card = container.querySelectorAll('.card');
   for (let i = 1; i < container.children.length; i++) {
-    if (!container.children[i].classList.contains(`hide`)) {
+    const newLocal =
+      !container.children[i].classList.contains(`hide`) && !container.children[i].classList.contains(`hide-sort-year`);
+    if (
+      !container.children[i].classList.contains(`hide`) ||
+      !container.children[i].classList.contains(`hide-sort-year`) ||
+      newLocal
+    ) {
       if (
         +container.children[i].getAttribute('data-count') >= +selectCountLeft.value &&
         +container.children[i].getAttribute('data-count') <= +selectCountRight.value
       ) {
         container.children[i].classList.remove(`hide-sort`);
+        container.children[i].classList.remove(`hide-sort-count`);
       } else {
         container.children[i].classList.add(`hide-sort`);
+        container.children[i].classList.add(`hide-sort-count`);
       }
     }
+  }
+  let empty = Array.from(card).every(
+    (item) =>
+      item.classList.contains(`hide-sort-count`) ||
+      item.classList.contains(`hide-sort-year`) ||
+      item.classList.contains(`hide`)
+  );
+  if (empty) {
+    swal('Блииин', 'Извините, совпадений не обнаружено!', 'error');
   }
 }
 
@@ -95,17 +115,35 @@ let selectYearRight = document.getElementById('input-select-year-right');
 
 // Сортировать в диапозоне значений по году
 function sortYear() {
+  const card = container.querySelectorAll('.card');
   for (let i = 1; i < container.children.length; i++) {
-    if (!container.children[i].classList.contains(`hide`)) {
+    const newLocal =
+      !container.children[i].classList.contains(`hide`) && !container.children[i].classList.contains(`hide-sort-count`);
+    if (
+      !container.children[i].classList.contains(`hide`) ||
+      !container.children[i].classList.contains(`hide-sort-count`) ||
+      newLocal
+    ) {
       if (
         +container.children[i].getAttribute('data-year') >= +selectYeartLeft.value &&
         +container.children[i].getAttribute('data-year') <= +selectYearRight.value
       ) {
         container.children[i].classList.remove(`hide-sort`);
+        container.children[i].classList.remove(`hide-sort-year`);
       } else {
         container.children[i].classList.add(`hide-sort`);
+        container.children[i].classList.add(`hide-sort-year`);
       }
     }
+  }
+  let empty = Array.from(card).every(
+    (item) =>
+      item.classList.contains(`hide-sort-count`) ||
+      item.classList.contains(`hide-sort-year`) ||
+      item.classList.contains(`hide`)
+  );
+  if (empty) {
+    swal('Блииин', 'Извините, совпадений не обнаружено!', 'error');
   }
 }
 

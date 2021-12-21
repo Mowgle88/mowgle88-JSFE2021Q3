@@ -514,7 +514,9 @@ h2 {
   display: block !important;
 }
 
-.hide-sort {
+.hide-sort,
+.hide-sort-count,
+.hide-sort-year {
   opacity: 0;
   display: none !important;
 }
