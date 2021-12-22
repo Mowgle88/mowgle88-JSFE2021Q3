@@ -36,7 +36,7 @@ search.oninput = function (e) {
       swal('Блииин', 'Извините, совпадений не обнаружено!', 'error');
     }
   } else {
-    search.style.backgroundImage = 'url(../assets/svg/search.svg)';
+    search.style.backgroundImage = 'url(./assets/svg/search.svg)';
     cardTitle.forEach((elem) => {
       if (!elem.parentNode.classList.contains(`hide`)) {
         elem.parentNode.classList.remove(`hide-sort`);
