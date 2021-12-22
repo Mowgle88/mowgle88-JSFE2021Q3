@@ -1,9 +1,9 @@
-const sound = document.querySelector('.volume-button');
-let isPlay = false;
+const sound: Element = document.querySelector('.volume-button') as Element;
+let isPlay: boolean = false;
 
-const audio = new Audio();
+const audio: HTMLAudioElement = new Audio();
 
-function playAudio() {
+function playAudio(): void {
   if (!isPlay) {
     audio.src = './assets/audio/audio.mp3';
     audio.currentTime = 0;

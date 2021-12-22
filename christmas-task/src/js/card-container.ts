@@ -1,28 +1,30 @@
+import {ITData} from './data';
+
 import data from './data';
 
-import * as swal from 'sweetalert';
+// import * as swal from 'sweetalert';
 // import { SweetAlert } from 'sweetalert/typings/core';
 // const swal = _swal;
 // const swal: SweetAlert = _swal as any;
 
-const container = document.querySelector('.card-container');
+const container: HTMLDivElement  = document.querySelector('.card-container') as HTMLDivElement;
 
-const disription = ['count', 'year', 'shape', 'color', 'size', 'favorite'];
-const string = ['Количество:', 'Год покупки:', 'Форма игрушки:', 'Цвет игрушки:', 'Размер игрушки:', 'Любиая:'];
+const disription: string[] = ['count', 'year', 'shape', 'color', 'size', 'favorite'];
+const string: string[] = ['Количество:', 'Год покупки:', 'Форма игрушки:', 'Цвет игрушки:', 'Размер игрушки:', 'Любиая:'];
 
-export function addCard(el, ind) {
-  const div = document.createElement('div');
+export function addCard(el: ITData, ind: number) {
+  const div: HTMLDivElement = document.createElement('div');
   div.classList.add('card');
-  div.setAttribute(`data-num`, ind);
+  div.setAttribute(`data-num`, `${ind}`);
   div.setAttribute(`data-name`, el.name);
   div.setAttribute(`data-count`, el.count);
   div.setAttribute(`data-year`, el.year);
   div.setAttribute(`data-shape`, el.shape);
   div.setAttribute(`data-color`, el.color);
   div.setAttribute(`data-size`, el.size);
-  div.setAttribute(`data-favorite`, el.favorite);
+  div.setAttribute(`data-favorite`, `${el.favorite}`);
 
-  const h = document.createElement('h4');
+  const h: HTMLHeadingElement = document.createElement('h4');
   h.classList.add('card-title');
   h.textContent = `${el.name}`;
   div.append(h);
@@ -37,23 +39,23 @@ export function addCard(el, ind) {
   cardInfo.classList.add('card-info');
   div.append(cardInfo);
 
-  function createEl(descript, str) {
+  function createEl(descript: string, str: string) {
     const p = document.createElement('p');
     p.className = `${descript}`;
     // p.setAttribute(`data-${descript}`, el[descript]);
-    if (el[descript] === false) {
+    if (/*el[descript]*/el.favorite === false) {
       p.textContent = `${str} нет`;
-    } else if (el[descript] === true) {
+    } else if (el.favorite === true) {
       p.textContent = `${str} да`;
     } else if (descript === 'year') {
-      p.textContent = `${str} ${el[descript]} год`;
+      p.textContent = `${str} ${el.year} год`;
     } else {
-      p.textContent = `${str} ${el[descript]}`;
+      p.textContent = `${str} ${el.shape}`;//todo проверить значение
     }
     cardInfo.append(p);
   }
 
-  disription.forEach((item, index) => createEl(item, string[index]));
+  disription.forEach((item, index) => createEl(item, string[index] as string));
 
   container.append(div);
 }
@@ -63,11 +65,11 @@ data.forEach((el, i) => addCard(el, i));
 export default container;
 
 // Добавление игрушек в избранное
-const card = document.querySelectorAll('.card');
-const select = document.querySelector('.select span');
+const card: NodeListOf<Element> = document.querySelectorAll('.card');
+const select: HTMLElement  = document.querySelector('.select span') as HTMLElement;
 let count = 0;
 
-card.forEach((el) => {
+card.forEach((el: Element) => {
   el.addEventListener('click', () => {
     if (count < 20) {
       el.classList.toggle('card-active');
@@ -76,15 +78,15 @@ card.forEach((el) => {
       } else {
         count--;
       }
-      select.textContent = count;
+      select.textContent = `${count}`;
     } else {
       if (el.classList.contains('card-active')) {
         el.classList.toggle('card-active');
         count--;
       } else {
-        swal('Блиин', 'Извините, все слоты заполнены!', 'error');
+        // swal('Блиин', 'Извините, все слоты заполнены!', 'error');
       }
-      select.textContent = count;
+      select.textContent = `${count}`;
     }
   });
 });

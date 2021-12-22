@@ -1,4 +1,15 @@
-const data = [
+export interface ITData {
+  num: string;
+  name: string;
+  count: string;
+  year: string;
+  shape: string;
+  color: string;
+  size: string;
+  favorite: boolean;
+};
+
+const data: ITData[] = [
   {
     num: '1',
     name: 'Большой шар с рисунком',
