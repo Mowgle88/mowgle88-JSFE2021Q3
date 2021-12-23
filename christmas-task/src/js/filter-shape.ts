@@ -1,11 +1,11 @@
 import container from './card-container';
 
-const shapeButton = document.querySelectorAll('.shape-button');
-const ballbtn = document.querySelector('.ball');
-const bellbtn = document.querySelector('.bell');
-const conebtn = document.querySelector('.cone');
-const snowflakebtn = document.querySelector('.snowflake');
-const toybtn = document.querySelector('.toy');
+const shapeButton: NodeListOf<Element> = document.querySelectorAll('.shape-button') as NodeListOf<Element>;
+const ballbtn: Element = document.querySelector('.ball') as Element;
+const bellbtn: Element = document.querySelector('.bell') as Element;
+const conebtn: Element = document.querySelector('.cone') as Element;
+const snowflakebtn: Element = document.querySelector('.snowflake') as Element;
+const toybtn: Element = document.querySelector('.toy') as Element;
 
 const shapes = {
   ball: 'шар',
@@ -25,8 +25,8 @@ const isShape = {
 
 export { shapeButton, isShape };
 
-function chooseShape(shape) {
-  const card = container.querySelectorAll('.card');
+function chooseShape(shape: 'ball' | 'bell' | 'cone' | 'snowflake' | 'toy') {
+  const card: NodeListOf<Element> = container.querySelectorAll('.card') as NodeListOf<Element>;
 
   if (isShape[shape] === true) {
     card.forEach((el) => {

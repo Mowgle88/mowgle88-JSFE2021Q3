@@ -7,7 +7,9 @@
     "module": "commonjs",
     "allowJs": true,
     "sourceMap": true,
-    "outDir": "./dist/"
+    "outDir": "./dist/",
+    // "lib": ["DOM", "ES6", "ScriptHost"],
+    // "outDir": "lib"
   },
   "exclude": ["node_modules"],
   "include": ["./src"]

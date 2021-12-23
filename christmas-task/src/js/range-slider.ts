@@ -5,8 +5,8 @@ import 'nouislider/dist/nouislider.css';
 import noUiSlider from 'nouislider';
 // import { target, API } from 'nouislider';
 
-import * as swal from 'sweetalert';
-import '../../node_modules/sweetalert/typings/core';
+// import * as swal from 'sweetalert';
+// import '../../node_modules/sweetalert/typings/core';
 
 import container from './card-container';
 // import sortCount from './sort-count-slider';
@@ -53,25 +53,25 @@ let selectCountRight: HTMLInputElement = document.getElementById('input-select-c
 
 // Сортировать в диапозоне значений по количеству экземпляров
 function sortCount() {
-  const card = container.querySelectorAll('.card');
+  const card: NodeListOf<HTMLDivElement> = container.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
   for (let i = 1; i < container.children.length; i++) {
-    const child = container.children[i];
+    const child: HTMLDivElement = container.children[i] as HTMLDivElement;
     const newLocal =
-      !child?.classList.contains(`hide`) && !child?.classList.contains(`hide-sort-year`);
+      (<HTMLDivElement>child).classList.contains(`hide`) && !child?.classList.contains(`hide-sort-year`);
     if (
-      !child?.classList.contains(`hide`) ||
-      !child?.classList.contains(`hide-sort-year`) ||
+      (<HTMLDivElement>child).classList.contains(`hide`) ||
+      (<HTMLDivElement>child).classList.contains(`hide-sort-year`) ||
       newLocal
     ) {
       if (
-        +(child?.getAttribute('data-count') as string) >= +selectCountLeft.value &&
-        +(child?.getAttribute('data-count') as string) <= +selectCountRight.value
+        +((<HTMLDivElement>child).getAttribute('data-count') as string) >= +selectCountLeft.value &&
+        +((<HTMLDivElement>child).getAttribute('data-count') as string) <= +selectCountRight.value
       ) {
-        child?.classList.remove(`hide-sort`);
-        child?.classList.remove(`hide-sort-count`);
+        (<HTMLDivElement>child).classList.remove(`hide-sort`);
+        (<HTMLDivElement>child).classList.remove(`hide-sort-count`);
       } else {
-        child?.classList.add(`hide-sort`);
-        child?.classList.add(`hide-sort-count`);
+        (<HTMLDivElement>child).classList.add(`hide-sort`);
+        (<HTMLDivElement>child).classList.add(`hide-sort-count`);
       }
     }
   }
@@ -82,7 +82,8 @@ function sortCount() {
       item.classList.contains(`hide`)
   );
   if (empty) {
-    swal('Блииин', 'Извините, совпадений не обнаружено!', 'error');
+    alert('Извините, совпадений не обнаружено!');
+    // swal('Блииин', 'Извините, совпадений не обнаружено!', 'error');
   }
 }
 
@@ -116,12 +117,12 @@ sliderCount.noUiSlider.on('update', function (values: string[], handle: number) 
 });
 
 selectCountLeft.addEventListener('change', function () {
-  sliderCount.noUiSlider.set([+this.value, 12]);
+  sliderCount.noUiSlider.set([+this.value, null]);
   sortCount();
 });
 
 selectCountRight.addEventListener('change', function () {
-  sliderCount.noUiSlider.set([1, +this.value]);
+  sliderCount.noUiSlider.set([null, +this.value]);
   sortCount();
 });
 
@@ -132,25 +133,25 @@ let selectYearRight: HTMLInputElement = document.getElementById('input-select-ye
 
 // Сортировать в диапозоне значений по году
 function sortYear() {
-  const card = container.querySelectorAll('.card');
+  const card: NodeListOf<HTMLDivElement> = container.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
   for (let i = 1; i < container.children.length; i++) {
-    const child = container.children[i];
+    const child: HTMLDivElement = container.children[i] as HTMLDivElement;
     const newLocal =
-      !child?.classList.contains(`hide`) && !child?.classList.contains(`hide-sort-count`);
+      (<HTMLDivElement>child).classList.contains(`hide`) && !child?.classList.contains(`hide-sort-count`);
     if (
-      !child?.classList.contains(`hide`) ||
-      !child?.classList.contains(`hide-sort-count`) ||
+      (<HTMLDivElement>child).classList.contains(`hide`) ||
+      (<HTMLDivElement>child).classList.contains(`hide-sort-count`) ||
       newLocal
     ) {
       if (
-        +(child?.getAttribute('data-count') as string) >= +selectYeartLeft.value &&
-        +(child?.getAttribute('data-count') as string) <= +selectYearRight.value
+        +((<HTMLDivElement>child).getAttribute('data-count') as string) >= +selectYeartLeft.value &&
+        +((<HTMLDivElement>child).getAttribute('data-count') as string) <= +selectYearRight.value
       ) {
-        child?.classList.remove(`hide-sort`);
-        child?.classList.remove(`hide-sort-year`);
+        (<HTMLDivElement>child).classList.remove(`hide-sort`);
+        (<HTMLDivElement>child).classList.remove(`hide-sort-year`);
       } else {
-        child?.classList.add(`hide-sort`);
-        child?.classList.add(`hide-sort-year`);
+        (<HTMLDivElement>child).classList.add(`hide-sort`);
+        (<HTMLDivElement>child).classList.add(`hide-sort-year`);
       }
     }
   }
@@ -161,7 +162,8 @@ function sortYear() {
       item.classList.contains(`hide`)
   );
   if (empty) {
-    swal('Блииин', 'Извините, совпадений не обнаружено!', 'error');
+    alert('Извините, совпадений не обнаружено!');
+    // swal('Блииин', 'Извините, совпадений не обнаружено!', 'error');
   }
 }
 
@@ -195,12 +197,12 @@ sliderYear.noUiSlider.on('update', function (values: string[], handle: number) {
 });
 
 selectYeartLeft.addEventListener('change', function () {
-  sliderYear.noUiSlider.set([+this.value, 2020]);
+  sliderYear.noUiSlider.set([+this.value, null]);
   sortYear();
 });
 
 selectYearRight.addEventListener('change', function () {
-  sliderYear.noUiSlider.set([1940, +this.value]);
+  sliderYear.noUiSlider.set([null, +this.value]);
   sortYear();
 });
 

@@ -1,11 +1,11 @@
 import container from './card-container';
 
-const colorButton = document.querySelectorAll('.color-button');
-const whitebtn = document.querySelector('.white-button');
-const yellowbtn = document.querySelector('.yellow-button');
-const redbtn = document.querySelector('.red-button');
-const bluebtn = document.querySelector('.blue-button');
-const greenbtn = document.querySelector('.green-button');
+const colorButton: NodeListOf<Element> = document.querySelectorAll('.color-button') as NodeListOf<Element>;
+const whitebtn: Element = document.querySelector('.white-button') as Element;
+const yellowbtn: Element = document.querySelector('.yellow-button') as Element;
+const redbtn: Element = document.querySelector('.red-button') as Element;
+const bluebtn: Element = document.querySelector('.blue-button') as Element;
+const greenbtn: Element = document.querySelector('.green-button') as Element;
 
 const colors = {
   white: 'белый',
@@ -25,11 +25,11 @@ const isColor = {
 
 export { colorButton, isColor };
 
-function chooseСolor(color) {
-  const card = container.querySelectorAll('.card');
+function chooseСolor(color: 'white' | 'yellow' | 'red' | 'blue' | 'green') {
+  const card: NodeListOf<Element> = container.querySelectorAll('.card');
 
   if (isColor[color] === true) {
-    card.forEach((el) => {
+    card.forEach((el: Element) => {
       // console.log(el.getAttribute('data-color'));
       if (!el.classList.contains('isFilter')) {
         el.classList.add(`hide`);
@@ -44,7 +44,7 @@ function chooseСolor(color) {
     });
     isColor[color] = false;
   } else {
-    card.forEach((el) => {
+    card.forEach((el: Element) => {
       if (el.getAttribute('data-color') === colors[color]) {
         el.classList.remove(`card-color-${color}`);
         el.classList.remove('isFilter');
@@ -55,7 +55,7 @@ function chooseСolor(color) {
   }
 
   if (Object.values(isColor).every((e) => e === true)) {
-    card.forEach((el) => {
+    card.forEach((el: Element) => {
       if (!el.classList.contains('isFilter')) {
         el.classList.remove(`hide`);
       }

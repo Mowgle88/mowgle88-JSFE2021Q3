@@ -1,6 +1,6 @@
 import container from './card-container';
 
-const favouritebtn = document.querySelector('#favourite');
+const favouritebtn: HTMLInputElement = document.querySelector('#favourite') as HTMLInputElement;
 
 const isFavourite = {
   favourite: true,

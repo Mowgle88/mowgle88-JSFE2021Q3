@@ -5,7 +5,7 @@ import { littlebtn, mediumbtn, bigbtn, isSize } from './filter-size';
 import { favouritebtn, isFavourite } from './filter-favourite';
 import { sliderCount, sliderYear } from './range-slider';
 
-const resetBtn = document.querySelector('.reset');
+const resetBtn: HTMLButtonElement = document.querySelector('.reset') as HTMLButtonElement;
 
 resetBtn.addEventListener('click', () => {
   const card = container.querySelectorAll('.card');

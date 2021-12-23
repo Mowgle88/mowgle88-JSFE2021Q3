@@ -1,9 +1,9 @@
 import container from './card-container';
 
 // const shapeButton = document.querySelectorAll('.shape-button');
-const littlebtn = document.querySelector('#little');
-const mediumbtn = document.querySelector('#medium');
-const bigbtn = document.querySelector('#big');
+const littlebtn: HTMLInputElement = document.querySelector('#little') as HTMLInputElement;
+const mediumbtn: HTMLInputElement = document.querySelector('#medium') as HTMLInputElement;
+const bigbtn: HTMLInputElement = document.querySelector('#big') as HTMLInputElement;
 
 const sizes = {
   little: 'малый',
@@ -19,7 +19,7 @@ const isSize = {
 
 export { littlebtn, mediumbtn, bigbtn, isSize };
 
-function chooseSize(size) {
+function chooseSize(size: 'little' | 'medium' | 'big') {
   const card = container.querySelectorAll('.card');
 
   if (isSize[size] === true) {

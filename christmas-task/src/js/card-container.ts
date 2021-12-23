@@ -1,6 +1,6 @@
-import {ITData} from './data';
-
 import data from './data';
+
+import {ITData} from './data';
 
 // import * as swal from 'sweetalert';
 // import { SweetAlert } from 'sweetalert/typings/core';
@@ -65,11 +65,11 @@ data.forEach((el, i) => addCard(el, i));
 export default container;
 
 // Добавление игрушек в избранное
-const card: NodeListOf<Element> = document.querySelectorAll('.card');
+const card: NodeListOf<HTMLDivElement> = document.querySelectorAll('.card');
 const select: HTMLElement  = document.querySelector('.select span') as HTMLElement;
 let count = 0;
 
-card.forEach((el: Element) => {
+card.forEach((el: HTMLDivElement) => {
   el.addEventListener('click', () => {
     if (count < 20) {
       el.classList.toggle('card-active');
