@@ -104,15 +104,15 @@ sliderCount.noUiSlider?.on('update', (values, handle) => {
   }
 });
 
-// selectCountLeft.addEventListener('change', function () {
-//   sliderCount.noUiSlider?.set([+this.value, null]);
-//   sortCount();
-// });
+selectCountLeft.addEventListener('change', function () {
+  sliderCount.noUiSlider?.set([+this.value, `${null}`]);
+  sortCount();
+});
 
-// selectCountRight.addEventListener('change', function () {
-//   sliderCount.noUiSlider?.set([null, +this.value]);
-//   sortCount();
-// });
+selectCountRight.addEventListener('change', function () {
+  sliderCount.noUiSlider?.set([`${null}`, +this.value]);
+  sortCount();
+});
 
 // input-select-year=====================================================
 
@@ -187,14 +187,14 @@ sliderYear.noUiSlider?.on('update', function (values, handle) {
   }
 });
 
-// selectYeartLeft.addEventListener('change', function () {
-//   sliderYear.noUiSlider.set([+this.value, null]);
-//   sortYear();
-// });
+selectYeartLeft.addEventListener('change', function () {
+  sliderYear.noUiSlider?.set([+this.value, `${null}`]);
+  sortYear();
+});
 
-// selectYearRight.addEventListener('change', function () {
-//   sliderYear.noUiSlider.set([null, +this.value]);
-//   sortYear();
-// });
+selectYearRight.addEventListener('change', function () {
+  sliderYear.noUiSlider?.set([`${null}`, +this.value]);
+  sortYear();
+});
 
 export { sliderCount, sliderYear };

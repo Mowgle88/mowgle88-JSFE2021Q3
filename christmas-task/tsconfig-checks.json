@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    // Strict Checks
+    // Strict Checks]
+    "strict": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
     "strictBindCallApply": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
+    "strictNullChecks": true,
     // Linter Checks
     "noImplicitReturns": true, // https://eslint.org/docs/rules/consistent-return ?
     "noFallthroughCasesInSwitch": true, // https://eslint.org/docs/rules/no-fallthrough
