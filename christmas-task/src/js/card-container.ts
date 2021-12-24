@@ -2,10 +2,7 @@ import data from './data';
 
 import {ITData} from './data';
 
-// import * as swal from 'sweetalert';
-// import { SweetAlert } from 'sweetalert/typings/core';
-// const swal = _swal;
-// const swal: SweetAlert = _swal as any;
+import Swal from 'sweetalert2'
 
 const container: HTMLDivElement  = document.querySelector('.card-container') as HTMLDivElement;
 
@@ -29,33 +26,35 @@ export function addCard(el: ITData, ind: number) {
   h.textContent = `${el.name}`;
   div.append(h);
 
-  const img = document.createElement('img');
+  const img: HTMLImageElement = document.createElement('img');
   img.classList.add('card-img');
   img.src = `./assets/toys/${el.num}.webp`;
   img.alt = `${el.name}`;
   div.append(img);
 
-  const cardInfo = document.createElement('div');
+  const cardInfo: HTMLDivElement = document.createElement('div');
   cardInfo.classList.add('card-info');
   div.append(cardInfo);
 
-  function createEl(descript: string, str: string) {
+  type Disription = 'count' | 'year' | 'shape' | 'color' | 'size' | 'favorite';
+
+  function createEl(descript: Disription, str: string) {
+    console.log(data[ind]);
     const p = document.createElement('p');
     p.className = `${descript}`;
-    // p.setAttribute(`data-${descript}`, el[descript]);
-    if (/*el[descript]*/el.favorite === false) {
+    if ((el[descript]) === false) {
       p.textContent = `${str} нет`;
     } else if (el.favorite === true) {
       p.textContent = `${str} да`;
-    } else if (descript === 'year') {
+    } else if (`${descript}` === 'year') {
       p.textContent = `${str} ${el.year} год`;
     } else {
-      p.textContent = `${str} ${el.shape}`;//todo проверить значение
+      p.textContent = `${str} ${el[descript]}`;
     }
     cardInfo.append(p);
   }
 
-  disription.forEach((item, index) => createEl(item, string[index] as string));
+  disription.forEach((item, index) => createEl(item as Disription, string[index] as string));
 
   container.append(div);
 }
@@ -69,7 +68,7 @@ const card: NodeListOf<HTMLDivElement> = document.querySelectorAll('.card');
 const select: HTMLElement  = document.querySelector('.select span') as HTMLElement;
 let count = 0;
 
-card.forEach((el: HTMLDivElement) => {
+card.forEach((el) => {
   el.addEventListener('click', () => {
     if (count < 20) {
       el.classList.toggle('card-active');
@@ -84,7 +83,11 @@ card.forEach((el: HTMLDivElement) => {
         el.classList.toggle('card-active');
         count--;
       } else {
-        // swal('Блиин', 'Извините, все слоты заполнены!', 'error');
+        Swal.fire({
+          icon: 'error',
+          title: 'Блииин...',
+          text: 'Извините, совпадений не обнаружено!',
+        })
       }
       select.textContent = `${count}`;
     }

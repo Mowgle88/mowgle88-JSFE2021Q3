@@ -1,33 +1,17 @@
-// import * as noUiSlider from 'nouislider';
-// import { target, API } from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 
 import noUiSlider from 'nouislider';
-// import { target, API } from 'nouislider';
+import { target, API } from 'nouislider';
 
-// import * as swal from 'sweetalert';
-// import '../../node_modules/sweetalert/typings/core';
+import Swal from 'sweetalert2'
+// import 'sweetalert2/src/sweetalert2.scss'
 
 import container from './card-container';
-// import sortCount from './sort-count-slider';
 
-declare namespace noUiSlider {
-  interface noUiSlider {
-    on: (firstArgument: string, secondArgument: (values: string[], handle: number) => void) => void;
-    set: (firstArgument: Array<number> | null) => void;
-  }
+let sliderCount = document.getElementById('slider-count') as target;
+let sliderYear = document.getElementById('slider-year') as target;
 
-  interface Instance extends HTMLElement {
-      noUiSlider: noUiSlider
-  }
-}
-
-// let sliderCount: noUiSlider.Instance = document.getElementById('slider-count') as noUiSlider.Instance;
-// let sliderYear: noUiSlider.Instance = document.getElementById('slider-year') as noUiSlider.Instance;
-let sliderCount: any = document.getElementById('slider-count') as noUiSlider.Instance;
-let sliderYear: any = document.getElementById('slider-year') as noUiSlider.Instance;
-
-noUiSlider.create(sliderCount, {
+export const sliderC: API = noUiSlider.create(sliderCount, {
   start: [1, 12],
   connect: true,
   range: {
@@ -36,7 +20,7 @@ noUiSlider.create(sliderCount, {
   },
 });
 
-noUiSlider.create(sliderYear, {
+export const sliderY: API = noUiSlider.create(sliderYear, {
   start: [1940, 2020],
   step: 10,
   connect: true,
@@ -54,27 +38,28 @@ let selectCountRight: HTMLInputElement = document.getElementById('input-select-c
 // Сортировать в диапозоне значений по количеству экземпляров
 function sortCount() {
   const card: NodeListOf<HTMLDivElement> = container.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
-  for (let i = 1; i < container.children.length; i++) {
-    const child: HTMLDivElement = container.children[i] as HTMLDivElement;
+
+  card.forEach((el) => {
     const newLocal =
-      (<HTMLDivElement>child).classList.contains(`hide`) && !child?.classList.contains(`hide-sort-year`);
+      !el.classList.contains(`hide`) && !el.classList.contains(`hide-sort-year`);
     if (
-      (<HTMLDivElement>child).classList.contains(`hide`) ||
-      (<HTMLDivElement>child).classList.contains(`hide-sort-year`) ||
+      !el.classList.contains(`hide`) ||
+      !el.classList.contains(`hide-sort-year`) ||
       newLocal
     ) {
       if (
-        +((<HTMLDivElement>child).getAttribute('data-count') as string) >= +selectCountLeft.value &&
-        +((<HTMLDivElement>child).getAttribute('data-count') as string) <= +selectCountRight.value
+        +(el.getAttribute('data-count') as string) >= +selectCountLeft.value &&
+        +(el.getAttribute('data-count') as string) <= +selectCountRight.value
       ) {
-        (<HTMLDivElement>child).classList.remove(`hide-sort`);
-        (<HTMLDivElement>child).classList.remove(`hide-sort-count`);
+        el.classList.remove(`hide-sort`);
+        el.classList.remove(`hide-sort-count`);
       } else {
-        (<HTMLDivElement>child).classList.add(`hide-sort`);
-        (<HTMLDivElement>child).classList.add(`hide-sort-count`);
+        el.classList.add(`hide-sort`);
+        el.classList.add(`hide-sort-count`);
       }
     }
-  }
+  })
+
   let empty = Array.from(card).every(
     (item) =>
       item.classList.contains(`hide-sort-count`) ||
@@ -82,8 +67,11 @@ function sortCount() {
       item.classList.contains(`hide`)
   );
   if (empty) {
-    alert('Извините, совпадений не обнаружено!');
-    // swal('Блииин', 'Извините, совпадений не обнаружено!', 'error');
+    Swal.fire({
+      icon: 'error',
+      title: 'Блииин...',
+      text: 'Извините, совпадений не обнаружено!',
+    })
   }
 }
 
@@ -104,7 +92,7 @@ for (let i = 12; i >= 1; i--) {
   selectCountRight.appendChild(option);
 }
 
-sliderCount.noUiSlider.on('update', function (values: string[], handle: number) {
+sliderCount.noUiSlider?.on('update', (values, handle) => {
   let value: string = values[handle] as string;
 
   if (handle) {
@@ -116,15 +104,15 @@ sliderCount.noUiSlider.on('update', function (values: string[], handle: number) 
   }
 });
 
-selectCountLeft.addEventListener('change', function () {
-  sliderCount.noUiSlider.set([+this.value, null]);
-  sortCount();
-});
+// selectCountLeft.addEventListener('change', function () {
+//   sliderCount.noUiSlider?.set([+this.value, null]);
+//   sortCount();
+// });
 
-selectCountRight.addEventListener('change', function () {
-  sliderCount.noUiSlider.set([null, +this.value]);
-  sortCount();
-});
+// selectCountRight.addEventListener('change', function () {
+//   sliderCount.noUiSlider?.set([null, +this.value]);
+//   sortCount();
+// });
 
 // input-select-year=====================================================
 
@@ -134,27 +122,27 @@ let selectYearRight: HTMLInputElement = document.getElementById('input-select-ye
 // Сортировать в диапозоне значений по году
 function sortYear() {
   const card: NodeListOf<HTMLDivElement> = container.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
-  for (let i = 1; i < container.children.length; i++) {
-    const child: HTMLDivElement = container.children[i] as HTMLDivElement;
+  card.forEach((el) => {
     const newLocal =
-      (<HTMLDivElement>child).classList.contains(`hide`) && !child?.classList.contains(`hide-sort-count`);
+      !el.classList.contains(`hide`) && !el.classList.contains(`hide-sort-count`);
     if (
-      (<HTMLDivElement>child).classList.contains(`hide`) ||
-      (<HTMLDivElement>child).classList.contains(`hide-sort-count`) ||
+      !el.classList.contains(`hide`) ||
+      !el.classList.contains(`hide-sort-count`) ||
       newLocal
     ) {
       if (
-        +((<HTMLDivElement>child).getAttribute('data-count') as string) >= +selectYeartLeft.value &&
-        +((<HTMLDivElement>child).getAttribute('data-count') as string) <= +selectYearRight.value
+        +(el.getAttribute('data-year') as string) >= +selectYeartLeft.value &&
+        +(el.getAttribute('data-year') as string) <= +selectYearRight.value
       ) {
-        (<HTMLDivElement>child).classList.remove(`hide-sort`);
-        (<HTMLDivElement>child).classList.remove(`hide-sort-year`);
+        el.classList.remove(`hide-sort`);
+        el.classList.remove(`hide-sort-year`);
       } else {
-        (<HTMLDivElement>child).classList.add(`hide-sort`);
-        (<HTMLDivElement>child).classList.add(`hide-sort-year`);
+        el.classList.add(`hide-sort`);
+        el.classList.add(`hide-sort-year`);
       }
     }
-  }
+  })
+
   let empty = Array.from(card).every(
     (item) =>
       item.classList.contains(`hide-sort-count`) ||
@@ -162,8 +150,11 @@ function sortYear() {
       item.classList.contains(`hide`)
   );
   if (empty) {
-    alert('Извините, совпадений не обнаружено!');
-    // swal('Блииин', 'Извините, совпадений не обнаружено!', 'error');
+    Swal.fire({
+      icon: 'error',
+      title: 'Блииин...',
+      text: 'Извините, совпадений не обнаружено!',
+    })
   }
 }
 
@@ -184,7 +175,7 @@ for (let i = 2020; i >= 1940; i -= 10) {
   selectYearRight.appendChild(option);
 }
 
-sliderYear.noUiSlider.on('update', function (values: string[], handle: number) {
+sliderYear.noUiSlider?.on('update', function (values, handle) {
   let value: string = values[handle] as string;
 
   if (handle) {
@@ -196,14 +187,14 @@ sliderYear.noUiSlider.on('update', function (values: string[], handle: number) {
   }
 });
 
-selectYeartLeft.addEventListener('change', function () {
-  sliderYear.noUiSlider.set([+this.value, null]);
-  sortYear();
-});
+// selectYeartLeft.addEventListener('change', function () {
+//   sliderYear.noUiSlider.set([+this.value, null]);
+//   sortYear();
+// });
 
-selectYearRight.addEventListener('change', function () {
-  sliderYear.noUiSlider.set([null, +this.value]);
-  sortYear();
-});
+// selectYearRight.addEventListener('change', function () {
+//   sliderYear.noUiSlider.set([null, +this.value]);
+//   sortYear();
+// });
 
 export { sliderCount, sliderYear };

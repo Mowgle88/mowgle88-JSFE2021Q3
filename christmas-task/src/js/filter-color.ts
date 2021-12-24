@@ -25,7 +25,9 @@ const isColor = {
 
 export { colorButton, isColor };
 
-function chooseСolor(color: 'white' | 'yellow' | 'red' | 'blue' | 'green') {
+type Colors = 'white' | 'yellow' | 'red' | 'blue' | 'green';
+
+function chooseСolor(color: Colors) {
   const card: NodeListOf<Element> = container.querySelectorAll('.card');
 
   if (isColor[color] === true) {

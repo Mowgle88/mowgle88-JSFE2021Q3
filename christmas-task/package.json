@@ -39,6 +39,7 @@
     "@types/sweetalert": "^2.0.4",
     "nouislider": "^15.5.0",
     "shuffle": "^0.2.5",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.3.0"
   }
 }

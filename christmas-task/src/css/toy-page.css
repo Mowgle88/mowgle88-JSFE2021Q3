@@ -521,7 +521,9 @@ h2 {
   display: none !important;
 }
 
-.swal-modal {
+
+
+.swal2-popup {
   color: #1bffff;
   background-color: rgba(31, 112, 127, .3);
   backdrop-filter: blur(6px);
@@ -530,12 +532,17 @@ h2 {
   box-shadow: 0 0 10px 0 #278d9f inset, 0 0 10px 10px #4dd2e9;
 }
 
-.swal-title {
+.swal2-title {
   color: #1bffff;
   font-size: 37px;
 }
 
-.swal-text {
+.swal2-html-container {
   font-size: 26px;
   color: #1bffff;
 }
+
+.swal2-styled.swal2-confirm {
+  background-color: #7cd1f9;
+}
+

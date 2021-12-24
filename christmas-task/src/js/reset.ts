@@ -3,7 +3,7 @@ import { colorButton, isColor } from './filter-color';
 import { shapeButton, isShape } from './filter-shape';
 import { littlebtn, mediumbtn, bigbtn, isSize } from './filter-size';
 import { favouritebtn, isFavourite } from './filter-favourite';
-import { sliderCount, sliderYear } from './range-slider';
+import { sliderC, sliderY } from './range-slider';
 
 const resetBtn: HTMLButtonElement = document.querySelector('.reset') as HTMLButtonElement;
 
@@ -62,6 +62,6 @@ resetBtn.addEventListener('click', () => {
   bigbtn.checked = false;
   favouritebtn.checked = false;
 
-  sliderCount.noUiSlider.set([1, 12]);
-  sliderYear.noUiSlider.set([1940, 2020]);
+  sliderC.set([1, 12]);
+  sliderY.set([1940, 2020]);
 });

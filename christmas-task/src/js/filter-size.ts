@@ -19,7 +19,9 @@ const isSize = {
 
 export { littlebtn, mediumbtn, bigbtn, isSize };
 
-function chooseSize(size: 'little' | 'medium' | 'big') {
+type Size = 'little' | 'medium' | 'big';
+
+function chooseSize(size: Size) {
   const card = container.querySelectorAll('.card');
 
   if (isSize[size] === true) {

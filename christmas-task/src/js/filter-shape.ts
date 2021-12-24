@@ -25,7 +25,9 @@ const isShape = {
 
 export { shapeButton, isShape };
 
-function chooseShape(shape: 'ball' | 'bell' | 'cone' | 'snowflake' | 'toy') {
+type Shapes = 'ball' | 'bell' | 'cone' | 'snowflake' | 'toy';
+
+function chooseShape(shape: Shapes) {
   const card: NodeListOf<Element> = container.querySelectorAll('.card') as NodeListOf<Element>;
 
   if (isShape[shape] === true) {
