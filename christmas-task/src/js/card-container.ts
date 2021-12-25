@@ -44,7 +44,7 @@ export function addCard(el: ITData, ind: number) {
     p.className = `${descript}`;
     if ((el[descript]) === false) {
       p.textContent = `${str} нет`;
-    } else if (el.favorite === true) {
+    } else if ((el[descript]) === true) {
       p.textContent = `${str} да`;
     } else if (`${descript}` === 'year') {
       p.textContent = `${str} ${el.year} год`;
