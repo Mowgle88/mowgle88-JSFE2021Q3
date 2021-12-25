@@ -15,7 +15,7 @@
 
 .toy-page-settings {
   position: fixed;
-  width: 500px;
+  width: 465px;
   /* height: calc(100% - 90px); */
   /* height: 860px; */
   height: 810px;
@@ -85,7 +85,7 @@
 
 .sort,
 .categories {
-  padding: 0 20px;
+  padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
