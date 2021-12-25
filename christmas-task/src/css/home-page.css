@@ -12,13 +12,6 @@
   /* flex-direction: column; */
 }
 
-.home-page-header {
-  position: relative;
-  background-color: #192F2D;
-  z-index: 10;
-  width: 100%;
-}
-
 .home-page-header-container {
   width: 100%;
   max-width: 1720px;

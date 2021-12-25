@@ -1,16 +1,18 @@
 .tree-page {
   /* display: none; */
-  display: block;
+  margin-top: 70px;
   min-width: 100%;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 140px);
   position: relative;
-  /* display: flex; */
-  /* flex-direction: row; */
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   background-color: rgba(25, 47, 45, 0.6);
 }
 
-.left-menu {
+.left-menu,
+.right-menu {
+  position: relative;
+  top: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -94,5 +96,10 @@
   transition-delay: 0.1s;
   box-shadow: 0 0 20px #1bffff, 0 0 20px #1bffff, 0 0 20px #1bffff, 0 0 20px #1bffff;
 }
+
+.right-menu{
+  right: 0;
+}
+
 
 

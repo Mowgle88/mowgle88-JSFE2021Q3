@@ -23,6 +23,16 @@ body {
   /* overflow: hidden; */
 }
 
+/* Header */
+
+.header {
+  position: fixed;
+  top: 0;
+  background-color: #192F2D;
+  z-index: 10;
+  width: 100%;
+}
+
 /* Footer */
 
 .footer {

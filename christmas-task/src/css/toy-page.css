@@ -2,6 +2,8 @@
 
 .toy-page {
   display: none;
+  position: relative;
+  top: 70px;
   min-width: 100%;
   min-height: calc(100vh - 70px);
   position: relative;
@@ -411,6 +413,7 @@
   border-radius: 20px;
   font-size: 1.3em;
   text-transform: uppercase;
+  box-shadow: 0 0 10px 0 #278d9f inset, 0 0 10px 10px #4dd2e9;
 }
 
 h2 {
