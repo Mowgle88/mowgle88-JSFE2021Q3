@@ -39,7 +39,6 @@ export function addCard(el: ITData, ind: number) {
   type Disription = 'count' | 'year' | 'shape' | 'color' | 'size' | 'favorite';
 
   function createEl(descript: Disription, str: string) {
-    console.log(data[ind]);
     const p = document.createElement('p');
     p.className = `${descript}`;
     if ((el[descript]) === false) {
