@@ -25,3 +25,5 @@ function addFavorites(el, ind) {
 for (let i = 1; i <= 20; i++) {
   addFavorites(data[i], i);
 }
+
+export { favorites, addFavorites };

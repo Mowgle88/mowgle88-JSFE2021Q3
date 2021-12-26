@@ -2,8 +2,6 @@ import data from './data';
 
 import {ITData} from './data';
 
-import Swal from 'sweetalert2'
-
 const container: HTMLDivElement  = document.querySelector('.card-container') as HTMLDivElement;
 
 const disription: string[] = ['count', 'year', 'shape', 'color', 'size', 'favorite'];
@@ -63,32 +61,3 @@ data.forEach((el, i) => addCard(el, i));
 export default container;
 
 // Добавление игрушек в избранное
-const card: NodeListOf<HTMLDivElement> = document.querySelectorAll('.card');
-const select: HTMLElement  = document.querySelector('.select span') as HTMLElement;
-let count = 0;
-
-card.forEach((el) => {
-  el.addEventListener('click', () => {
-    if (count < 20) {
-      el.classList.toggle('card-active');
-      if (el.classList.contains('card-active')) {
-        count++;
-      } else {
-        count--;
-      }
-      select.textContent = `${count}`;
-    } else {
-      if (el.classList.contains('card-active')) {
-        el.classList.toggle('card-active');
-        count--;
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Блииин...',
-          text: 'Извините, совпадений не обнаружено!',
-        })
-      }
-      select.textContent = `${count}`;
-    }
-  });
-});

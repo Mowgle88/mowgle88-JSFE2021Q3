@@ -84,26 +84,30 @@ body {
 }
 
 .select {
-  width: 48px;
+  width: 50px;
   height: 60px;
   background-image: url("../assets/svg/ball-2.svg");
-  background-size: 48px 60px;
-  background-position: left -8px;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
   transition: .3s;
+}
+
+.select-active {
+  filter: invert(28%) sepia(21%) saturate(3282%) hue-rotate(125deg) brightness(104%) contrast(106%) drop-shadow(0 0 10px #1BFFFF);
 }
   
 .select span {
   display: inline-block; 
   min-width: 40px;
   height: 40px;
-  margin-top: 10px;
-  margin-left: 3px;
+  margin-top: 18px;
+  margin-left: 5px;
   border-radius: 50%;
   text-align: center;
   line-height: 40px;
   font-size: 20px;
-  background-color: #278D9F;
+  /* background-color: #278D9F; */
 }
 
 /* Footer */
