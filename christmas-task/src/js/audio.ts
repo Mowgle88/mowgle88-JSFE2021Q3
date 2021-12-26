@@ -1,4 +1,4 @@
-const sound: Element = document.querySelector('.volume-button') as Element;
+const sound: NodeListOf<Element> = document.querySelectorAll('.volume-button') as NodeListOf<Element>;
 let isPlay: boolean = false;
 
 const audio: HTMLAudioElement = new Audio();
@@ -9,12 +9,18 @@ function playAudio(): void {
     audio.currentTime = 0;
     audio.play();
     isPlay = true;
-    sound.classList.add('volume-button-active');
+    sound.forEach((el) => {
+      el.classList.add('volume-button-active');
+    })
   } else {
     audio.pause();
     isPlay = false;
-    sound.classList.remove('volume-button-active');
+    sound.forEach((el) => {
+      el.classList.remove('volume-button-active');
+    })
   }
 }
 
-sound.addEventListener('click', playAudio);
+sound.forEach((el) => {
+  el.addEventListener('click', playAudio);
+})
