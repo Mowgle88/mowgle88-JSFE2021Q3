@@ -1,4 +1,5 @@
 import './js/data'
+import './js/navigation'
 import './js/range-slider'
 import './js/card-container'
 import './js/search'

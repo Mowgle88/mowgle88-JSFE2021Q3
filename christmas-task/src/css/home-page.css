@@ -2,12 +2,12 @@
 
 /* Header */
 .home-page {
-  display: none;
+  /* display: none; */
   /* display: block; */
   min-width: 100%;
   min-height: calc(100vh - 70px);
   position: relative;
-  /* display: flex; */
+  display: flex;
   /* flex-direction: row; */
   /* flex-direction: column; */
 }
@@ -56,6 +56,10 @@
 
 .nav-link:hover {
   color: #278D9F;
+}
+
+.nav-link-active {
+  filter: invert(28%) sepia(21%) saturate(3282%) hue-rotate(125deg) brightness(104%) contrast(106%) drop-shadow(0 0 10px #1BFFFF);
 }
 
 .header-controls {
