@@ -33,6 +33,79 @@ body {
   width: 100%;
 }
 
+.header-container {
+  width: 100%;
+  max-width: 1720px;
+  height: 70px;
+  margin: 0 auto;
+  padding: 0 50px 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.logo {
+  width: 48px;
+  height: 60px;
+  background-image: url("../assets/svg/tree.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.logo:hover {
+  filter: invert(57%) sepia(100%) saturate(329%) hue-rotate(141deg) brightness(89%) contrast(90%);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-link {
+  margin-right: 30px;
+  padding: 20px;
+  font-size: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.nav-link:hover {
+  color: #278D9F;
+}
+
+.nav-link-active {
+  filter: invert(28%) sepia(21%) saturate(3282%) hue-rotate(125deg) brightness(104%) contrast(106%) drop-shadow(0 0 10px #1BFFFF);
+}
+
+.select {
+  width: 48px;
+  height: 60px;
+  background-image: url("../assets/svg/ball-2.svg");
+  background-size: 48px 60px;
+  background-position: left -8px;
+  background-repeat: no-repeat;
+  transition: .3s;
+}
+  
+.select span {
+  display: inline-block; 
+  min-width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 3px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  background-color: #278D9F;
+}
+
 /* Footer */
 
 .footer {
@@ -73,4 +146,29 @@ body {
 
 .github-link:hover {
   color: #278D9F; 
+}
+
+/* sweetalert */
+
+.swal2-popup {
+  color: #1bffff;
+  background-color: rgba(31, 112, 127, .3);
+  backdrop-filter: blur(6px);
+  border: 3px solid #4dd2e9;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 #278d9f inset, 0 0 10px 10px #4dd2e9;
+}
+
+.swal2-title {
+  color: #1bffff;
+  font-size: 37px;
+}
+
+.swal2-html-container {
+  font-size: 26px;
+  color: #1bffff;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #7cd1f9;
 }
