@@ -115,6 +115,12 @@
   overflow: hidden;
 }
 
+.main-tree {
+  display: block;
+  width: 500px;
+  height: 714px;
+}
+
 .favorites-container,
 .decorate-container {
   display: flex;
@@ -184,4 +190,9 @@
 
 .tree-decorate-img {
   height: 105px;
+}
+
+.tree-active,
+.bg-active {
+  box-shadow: 0 0 20px #1bffff, 0 0 20px #1bffff, 0 0 20px #1bffff, 0 0 20px #1bffff;
 }
