@@ -23,6 +23,7 @@ i.forEach((n) => addTree(n));
 const tree = document.querySelectorAll('.tree');
 
 function changeTree(event) {
+  console.log(event);
   let target = event.target;
   let ind = target.getAttribute('data-tree');
 
@@ -35,7 +36,10 @@ function changeTree(event) {
     mainTree.alt = `${ind}`;
   }
 }
+// changeTree(tree[3]);
 
 treeContainer.addEventListener('click', (e) => {
   changeTree(e);
 });
+
+export { mainTree, tree };

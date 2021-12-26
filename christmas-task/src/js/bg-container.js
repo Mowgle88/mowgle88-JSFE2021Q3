@@ -38,3 +38,5 @@ function changeBg(event) {
 bgContainer.addEventListener('click', (e) => {
   changeBg(e);
 });
+
+export { mainContainer, bg };

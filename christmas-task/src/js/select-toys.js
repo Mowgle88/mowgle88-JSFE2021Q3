@@ -42,7 +42,7 @@ function addToFavorites(elem) {
   }
 }
 
-function deleteElem() {
+export function deleteElem() {
   favorites.innerHTML = '';
   const div = document.createElement('div');
   div.classList.add('container-header');

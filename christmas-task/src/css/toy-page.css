@@ -387,6 +387,7 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 }
 
 .reset,
+.reset-tree,
 .save {
   width: 45%;
   height: 40px;
@@ -402,6 +403,7 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 }
 
 .reset:hover,
+.reset-tree:hover,
 .save:hover {
   background-color: #1BFFFF;
   box-shadow: 0 0 10px #1BFFFF, 0 0 40px #1BFFFF, 0 0 80px #1BFFFF;
