@@ -23,7 +23,6 @@ i.forEach((n) => addTree(n));
 const tree = document.querySelectorAll('.tree');
 
 function changeTree(event) {
-  console.log(event);
   let target = event.target;
   let ind = target.getAttribute('data-tree');
 

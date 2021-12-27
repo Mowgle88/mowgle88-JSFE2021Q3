@@ -8,11 +8,19 @@ function addFavorites(el, ind) {
   div.classList.add('favorites-card');
   div.setAttribute(`data-num`, `${ind}`);
 
-  const img = document.createElement('img');
-  img.classList.add('favorites-card-img');
-  img.src = `./assets/toys/${el.num}.webp`;
-  img.alt = `${el.name}`;
-  div.append(img);
+  function createImg(number) {
+    const img = document.createElement('img');
+    img.classList.add('favorites-card-img');
+    img.setAttribute('draggable', 'true');
+    img.id = `${number}`;
+    img.src = `./assets/toys/${el.num}.webp`;
+    img.alt = `${el.name}`;
+    div.append(img);
+  }
+
+  for (let i = 1; i <= el.count; i++) {
+    createImg(i);
+  }
 
   const p = document.createElement('p');
   p.classList.add('favorites-count');
