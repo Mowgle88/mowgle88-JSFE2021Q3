@@ -1,6 +1,7 @@
 const nav = document.querySelector('.nav');
 const navLink = document.querySelectorAll('.nav-link');
 
+const homeBtn = document.querySelector('.button-home-page');
 const homePage = document.querySelector('.home-page');
 const toyPage = document.querySelector('.toy-page');
 const treePage = document.querySelector('.tree-page');
@@ -31,4 +32,12 @@ function changePage(event) {
 
 nav.addEventListener('click', (e) => {
   changePage(e);
+});
+
+homeBtn.addEventListener('click', () => {
+  toyPage.style.display = 'flex';
+  homePage.style.display = 'none';
+  treePage.style.display = 'none';
+  document.querySelector('.сhristmas-decorations-page').classList.add('nav-link-active');
+  document.querySelector('.logo').classList.remove('nav-link-active');
 });
