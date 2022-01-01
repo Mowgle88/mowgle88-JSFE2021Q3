@@ -1,7 +1,7 @@
 import { favorites } from './favorites-container';
 
 favorites.addEventListener('mousedown', (event) => {
-  const mainContainer = document.querySelector('.main-container');
+  const mainZone = document.querySelector('.main-container');
   let currentEl = event.target;
   let parent = event.path[1];
   let p = parent.lastChild;
@@ -10,8 +10,6 @@ favorites.addEventListener('mousedown', (event) => {
   function dragAndDrop() {
     let coordX;
     let coordY;
-    // let shiftX = event.clientX - currentEl.getBoundingClientRect().left;
-    // let shiftY = event.clientY - currentEl.getBoundingClientRect().top;
 
     currentEl.addEventListener('dragstart', (e) => {
       e.dataTransfer.setData('txt/html', 'dragstart');
@@ -25,13 +23,13 @@ favorites.addEventListener('mousedown', (event) => {
       currentEl.style.left = e.pageX - coordX + 'px';
     });
 
-    mainContainer.addEventListener('dragover', (e) => {
+    mainZone.addEventListener('dragover', (e) => {
       e.preventDefault();
     });
 
-    mainContainer.addEventListener('drop', () => {
+    mainZone.addEventListener('drop', () => {
       p.textContent = `${value - 1}`;
-      mainContainer.append(currentEl);
+      mainZone.append(currentEl);
     });
   }
   dragAndDrop();
