@@ -1,14 +1,16 @@
 import data from './data';
 
-const favorites = document.querySelector('.favorites-container');
+import {ITData} from './data';
 
-function addFavorites(el, ind) {
+const favorites: HTMLElement = document.querySelector('.favorites-container') as HTMLElement;
+
+function addFavorites(el: ITData, ind: number) {
   const div = document.createElement('div');
   div.classList.add('cell');
   div.classList.add('favorites-card');
   div.setAttribute(`data-num`, `${ind}`);
 
-  function createImg(number) {
+  function createImg(number: number) {
     const img = document.createElement('img');
     img.classList.add('favorites-card-img');
     img.setAttribute('draggable', 'true');
@@ -18,7 +20,7 @@ function addFavorites(el, ind) {
     div.append(img);
   }
 
-  for (let i = 1; i <= el.count; i++) {
+  for (let i = 1; i <= +el.count; i++) {
     createImg(i);
   }
 
@@ -31,7 +33,7 @@ function addFavorites(el, ind) {
 }
 
 for (let i = 1; i <= 20; i++) {
-  addFavorites(data[i], i);
+  addFavorites(<ITData>data[i], i);
 }
 
 export { favorites, addFavorites };

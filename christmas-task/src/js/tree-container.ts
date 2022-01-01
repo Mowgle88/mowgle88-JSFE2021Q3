@@ -1,9 +1,9 @@
-const treeContainer = document.querySelector('.tree-container');
-const mainTree = document.querySelector('.main-tree');
+const treeContainer: HTMLElement = document.querySelector('.tree-container') as HTMLElement;
+const mainTree: HTMLImageElement = document.querySelector('.main-tree') as HTMLImageElement;
 
-let i = [1, 2, 3, 4, 5, 6];
+let i: number[] = [1, 2, 3, 4, 5, 6];
 
-function addTree(ind) {
+function addTree(ind: number): void {
   const div = document.createElement('div');
   div.classList.add('cell');
   div.classList.add('tree');
@@ -20,10 +20,10 @@ i.forEach((n) => addTree(n));
 
 // Менять елочку
 
-const tree = document.querySelectorAll('.tree');
+const tree: NodeListOf<Element> = document.querySelectorAll('.tree') as NodeListOf<Element>;
 
-function changeTree(event) {
-  let target = event.target;
+function changeTree(event: MouseEvent): void {
+  let target: HTMLElement = event.target as HTMLElement;
   let ind = target.getAttribute('data-tree');
 
   if (target.classList.contains('tree')) {

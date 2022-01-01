@@ -1,9 +1,9 @@
-const bgContainer = document.querySelector('.bg-container');
-const mainContainer = document.querySelector('.main-container');
+const bgContainer: HTMLElement = document.querySelector('.bg-container') as HTMLElement;
+const mainContainer: HTMLElement = document.querySelector('.main-container') as HTMLElement;
 
-let i = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let i: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-function addBg(ind) {
+function addBg(ind: number): void {
   const div = document.createElement('div');
   div.classList.add('cell');
   div.classList.add('bg');
@@ -20,13 +20,14 @@ i.forEach((n) => addBg(n));
 
 // Менять фон
 
-const bg = document.querySelectorAll('.bg');
+const bg: NodeListOf<Element> = document.querySelectorAll('.bg') as  NodeListOf<Element>;
 
-function changeBg(event) {
-  let target = event.target;
-  let ind = target.getAttribute('data-bg');
+function changeBg(event: MouseEvent): void {
+  console.log(event);
+  let target: HTMLElement = event.target as HTMLElement;
+  let ind: string = target.getAttribute('data-bg') as string;
 
-  if (target.classList.contains('bg')) {
+  if (target.classList.contains('bg') ) {
     bg.forEach((el) => {
       el.classList.remove('bg-active');
     });

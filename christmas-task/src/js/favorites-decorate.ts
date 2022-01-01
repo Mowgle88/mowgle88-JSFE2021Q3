@@ -1,8 +1,8 @@
-const decorate = document.querySelector('.decorate-container');
+const decor: HTMLElement = document.querySelector('.decorate-container') as HTMLElement;
 
-let i = [1, 2, 3, 4, 5, 6];
+let iD: number[] = [1, 2, 3, 4, 5, 6];
 
-function addDecorate(ind) {
+function addDecor(ind: number) {
   const div = document.createElement('div');
   div.classList.add('cell');
   div.classList.add('tree-decorate');
@@ -13,9 +13,7 @@ function addDecorate(ind) {
   img.alt = `${ind}`;
   div.append(img);
 
-  decorate.append(div);
+  decor.append(div);
 }
 
-for (let j = 0; j < i.length; j++) {
-  addDecorate(i[j]);
-}
+iD.forEach((n) => addDecor(n));

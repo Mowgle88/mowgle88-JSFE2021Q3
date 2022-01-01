@@ -2,16 +2,18 @@ import Swal from 'sweetalert2';
 
 import data from './data';
 
+import {ITData} from './data';
+
 import { favorites, addFavorites } from './favorites-container';
 
-const card = document.querySelectorAll('.card');
-const select = document.querySelector('.select');
-const span = document.querySelector('.select span');
+const cards: NodeListOf<Element> = document.querySelectorAll('.card') as NodeListOf<Element>;
+const select: HTMLElement = document.querySelector('.select') as HTMLElement;
+const span: HTMLElement = document.querySelector('.select span') as HTMLElement;
 let count = 0;
-let num = [];
+let num: Array<string> = [];
 
-function addToFavorites(elem) {
-  let ind = elem.getAttribute('data-num');
+function addToFavorites(elem: Element) {
+  let ind: string = elem.getAttribute('data-num') as string;
 
   if (count < 20) {
     elem.classList.toggle('card-active');
@@ -50,12 +52,12 @@ export function deleteElem() {
   favorites.append(div);
 }
 
-card.forEach((el) => {
+cards.forEach((el) => {
   el.addEventListener('click', () => {
     addToFavorites(el);
     deleteElem();
     num.forEach((i) => {
-      addFavorites(data[i], i);
+      addFavorites(<ITData>data[+i], +i);
     });
   });
 });
