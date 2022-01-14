@@ -3,14 +3,14 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const isProduction = process.env.NODE_ENV == "production";
+// const isProduction = process.env.NODE_ENV == "production";
 
-const stylesHandler = isProduction
-  ? MiniCssExtractPlugin.loader
-  : "style-loader";
+// const stylesHandler = isProduction
+//   ? MiniCssExtractPlugin.loader
+//   : "style-loader";
 
 
 const baseConfig = {
@@ -36,14 +36,14 @@ const baseConfig = {
         test: /\.(woff(2)?|eot|ttf|otf)$/i,
         type: 'asset/resource',
       },
-      {
-        test: /\.css$/i,
-        use: [stylesHandler, "css-loader"],
-      },
       // {
       //   test: /\.css$/i,
-      //   use: ['style-loader', 'css-loader'],
+      //   use: [stylesHandler, "css-loader"],
       // },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
       // {
       //   test: /\.css$/i,
       //   use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -56,11 +56,11 @@ const baseConfig = {
   },
   plugins: [
     new ESLintPlugin(),
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    // new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'),
       filename: 'index.html',
-      title: 'Chrismas',
+      title: 'async-race',
       inject: 'body',
       favicon: './src/assets/favicon.ico',
     }),
