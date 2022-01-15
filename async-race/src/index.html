@@ -6,46 +6,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
   <nav class="nav">
-    <button class="nav-btn green-btn">To garage</button>
-    <button class="nav-btn green-btn">To winners</button>
+    <button class="btn nav-btn green-btn">To garage</button>
+    <button class="btn nav-btn green-btn">To winners</button>
   </nav>
 
-  <div class="settings">
-    <div class="create-car">
-      <input class="input-text" type="text" list="models" placeholder="Choose a model">
-      <datalist id="models">
-        <option value="Audi">
-        <option value="Alfa Romeo">
-        <option value="Alpina">
-        <option value="Aston Martin">
-        <option value="Axon">
-      </datalist>
-      <input class="input-color" type="color">
-      <button class="settings-btn blue-btn">Create</button>
+  <div class="garage-page">
+    <div class="settings">
+      <div class="create-car">
+        <input class="input-text" type="text" list="models" placeholder="Choose a model">
+        <datalist id="models">
+          <option value="Audi">
+          <option value="Alfa Romeo">
+          <option value="Alpina">
+          <option value="Aston Martin">
+          <option value="Axon">
+        </datalist>
+        <input class="input-color" type="color">
+        <button class="btn settings-btn blue-btn">Create</button>
+      </div>
+      <div class="update-car">
+        <input class="input-text" type="text" disabled>
+        <datalist id="models">
+          <option value="Audi">
+          <option value="Alfa Romeo">
+          <option value="Alpina">
+          <option value="Aston Martin">
+          <option value="Axon">
+        </datalist>
+        <input class="input-color" type="color" disabled>
+        <button class="btn settings-btn blue-btn" disabled>Update</button>
+      </div>
+      <div class="btn-container">
+        <button class="btn race-btn green-btn">Race</button>
+        <button class="btn reset-btn green-btn">Reset</button>
+        <button class="btn generate-btn blue-btn">Generate Cars</button>
+      </div>
     </div>
 
-    <div class="update-car">
-      <input class="input-text" type="text" list="models" placeholder="Choose a model">
-      <datalist id="models">
-        <option value="Audi">
-        <option value="Alfa Romeo">
-        <option value="Alpina">
-        <option value="Aston Martin">
-        <option value="Axon">
-      </datalist>
-      <input class="input-color" type="color">
-      <button class="settings-btn blue-btn">Update</button>
+    <div class="garage">
+      <h1 class="garage-title">Garage ( <span>0</span> )</h1>
+      <h3 class="garage-page-title">Page # <span>0</span></h3>
+
+      <div class="car-container">
+        <div class="car-title">
+          <button class="btn settings-btn blue-btn">Select</button>
+          <button class="btn settings-btn blue-btn">Remove</button>
+          <div class="car-brand">Tesla</div>
+        </div>
+
+        <div class="car-main">
+          <button class="btn-a">A</button>
+          <button class="btn-b">B</button>
+        </div>
+        
+        <hr>
+
+        <div class="prev-and-next">
+          <button class="btn prev-btn" disabled>Prev</button>
+          <button class="btn next-btn" disabled>Next</button>
+        </div>
+      </div>
     </div>
-      
-    <div class="btn-container">
-      <button class="race-btn green-btn">Race</button>
-      <button class="reset-btn green-btn">Reset</button>
-      <button class="generate-btn blue-btn">Generate Cars</button>
-    </div>
-    
   </div>
   
+  <div class="winners-page">
+
+  </div>
   
   
 

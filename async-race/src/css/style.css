@@ -10,15 +10,24 @@ body {
   margin: 0;
   padding: 0;
   background-color: #000;
+  color: #fff;
 }
 
 .nav {
   margin: 8px;
 }
 
-.nav-btn {
-  width: 85px;
+.btn {
+  height: 21px;
+  font-size: 0.6rem;
+  font-weight:bold;
+  text-transform: uppercase;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:active {
+  opacity: 0.8;
 }
 
 .green-btn {
@@ -27,6 +36,15 @@ body {
 
 .blue-btn {
   background: #d3e3fb;
+}
+
+.nav-btn {
+  width: 85px;
+}
+
+.garage-page {
+  display: block;
+  width: 100%;
 }
 
 .settings {
@@ -50,16 +68,71 @@ body {
 
 .settings-btn {
   width: 65px;
-  border-radius: 4px;
 }
 
 .race-btn,
 .reset-btn {
   width: 80px;
-  border-radius: 4px;
 }
 
 .generate-btn {
   width: 130px;
-  border-radius: 4px;
+}
+
+.garage {
+  margin-top: 50px;
+}
+
+h1, h2, h3 {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.car-title {
+  display: flex;
+  column-gap: 5px;
+}
+
+.car-brand {
+  margin-left: 15px;
+}
+
+.car-main {
+  margin-top: 5px;
+  height: 40px;
+}
+
+hr {
+  border-color: white;
+  border-style: dashed;
+}
+
+.car-brand {
+  color: #e6d371;
+}
+
+.btn-a,
+.btn-b {
+  width: 25px;
+  height: 25px;
+  border: 2px solid #49484a;
+  border-radius: 7px;
+  background: #000;
+  color: #49484a;
+  cursor: pointer;
+}
+
+.prev-and-next {
+  margin-top: 40px;
+}
+
+.prev-btn,
+.next-btn {
+  width: 80px;
+}
+
+.winners-page {
+  display: none;
+  width: 100%;
 }
