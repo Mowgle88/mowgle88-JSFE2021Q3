@@ -47,7 +47,8 @@ body {
   width: 100%;
 }
 
-.settings {
+.settings,
+.winners {
   margin-top: 30px;
 }
 
@@ -140,4 +141,10 @@ hr {
 .winners-page {
   display: none;
   width: 100%;
+  margin: 8px;
+}
+
+th,
+tr {
+  padding: 10px;
 }
