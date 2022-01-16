@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-
-  <nav class="nav">
-    <a href="#garage-page"><button class="btn nav-btn green-btn">To garage</button></a>
-    <a href="#winners-page"><button class="btn nav-btn green-btn">To winners</button></a>
-  </nav>
-
-  <div class="pages"></div>
-
-  <!-- <div class="garage-page">
+export const garageContent = `
     <div class="settings">
       <div class="create-car">
         <input class="input-text" type="text" list="models" placeholder="Choose a model">
@@ -73,37 +57,4 @@
 
       </div>
 
-    </div>
-  </div> -->
-  
-  <!-- <div class="winners-page">
-    <div class="winners">
-      <h1 class="winners-title">Winners ( <span>0</span> )</h1>
-      <h3 class="winners-page-title">Page # <span>0</span></h3>
-    </div>
-
-    <div class="winners-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Number</th>
-            <th>Car</th>
-            <th>Name</th>
-            <th>Wins</th>
-            <th>Best time (second)</th>
-          </tr>
-         </thead>
-         <tbody>
-
-         </tbody>
-      </table>
-    </div>
-  </div> -->
-
-  <div class="prev-and-next">
-    <button class="btn prev-btn blue-btn" disabled>Prev</button>
-    <button class="btn next-btn blue-btn" disabled>Next</button>
-  </div>
-
-</body>
-</html>
+    </div>`
