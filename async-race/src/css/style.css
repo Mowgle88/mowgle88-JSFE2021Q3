@@ -34,8 +34,16 @@ body {
   background: #e3f6b3;
 }
 
+.green-btn:hover {
+  box-shadow: 0 0 20px #e3f6b3, 0 0 20px #e3f6b3, 0 0 20px #e3f6b3, 0 0 20px #e3f6b3;
+}
+
 .blue-btn {
   background: #d3e3fb;
+}
+
+.blue-btn:hover {
+  box-shadow: 0 0 20px #d3e3fb, 0 0 20px #d3e3fb, 0 0 20px #d3e3fb, 0 0 20px #d3e3fb;
 }
 
 .nav-btn {
