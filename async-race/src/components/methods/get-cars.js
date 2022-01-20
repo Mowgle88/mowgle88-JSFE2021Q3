@@ -23,7 +23,6 @@ const addCarToContainer = (array) => {
 
 const returnCarContent = async () => {
   const cars = await getCars(1, 7);
-  console.log(cars);
   const carsContainer = addCarToContainer(cars[0]);
   return [carsContainer.join('\n'), cars[1]];
 };
