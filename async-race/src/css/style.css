@@ -144,7 +144,7 @@ h1, h2, h3 {
   bottom: 1px;
   left: 0;
   /* left: calc(100% - 90px); */
-  fill: red;
+  /* fill: red; */
   filter: drop-shadow(0 0 3px #d3e3fb);
 }
 
