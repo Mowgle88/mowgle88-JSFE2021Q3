@@ -1,7 +1,7 @@
 // import { carContainer } from '../../methods/create-car';
 
-export const garageContent = (carContainer: string, countCar: string): string => {
-  let pageNumber = 1;
+export const garageContent = (carContainer: string = '', countCar: string = '0'): string => {
+  let pageNumber = countCar === '0' ? 0 : 1;
   let numberOfPages = Math.ceil(+countCar / 7);
   return `
     <div class="settings">

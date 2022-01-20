@@ -10,13 +10,12 @@ class GaragePage extends Page {
   }
 
   render() {
-    // returnCarContent().then((resolve) => this.createPage(garageContent(resolve[0], resolve[1])));
+    this.createPage(garageContent());
     returnCarContent().then((resolve) => {
       this.createPage(garageContent(resolve[0], resolve[1]))
     }).then(() => {
       addCar();
     });
-    // this.createPage(garageContent);
     return this.container;
   }
 }
