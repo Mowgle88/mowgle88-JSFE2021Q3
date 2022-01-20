@@ -1,25 +1,21 @@
-// import { cars } from './get-cars';
-import { getCars } from './get-cars';
-import { createCarContent } from '../pages/garage-page/car-container-content';
-// import { garageContent } from '../pages/garage-page/garage-content';
+import { callApi } from './call-api';
 
-const addCarToContainer = (array) => {
-  // console.log(array);
-  // console.log(array[0]);
-  const newArr = array.map((el) => createCarContent(`${el.id}`, `${el.color}`, `${el.name}`));
-  // console.log(newArr.join('\n'));
-  return newArr;
+const createCar = async (name, color) => {
+  try {
+    const method = 'POST';
+    const url = '/garage';
+    const body = { name, color };
+    const res = await callApi(method, url, body);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-const returnCarContent = async () => {
-  const cars = await getCars(1, 7);
-  // console.log(cars[1]);
-  const carsContainer = addCarToContainer(cars[0]);
-  // const string = await carsContainer.join('\n');
-  // console.log(carsContainer.join('\n'));
-  return [carsContainer.join('\n'), cars[1]];
+export const addCar = () => {
+  const inputColor = document.querySelector('.input-color');
+  const inputName = document.querySelector('.input-text');
+  document.querySelector('.create-btn').addEventListener('click', () => {
+    createCar(inputName.value, inputColor.value);
+  });
 };
-
-export { returnCarContent };
-
-// returnCarContent().then((resolve) => garageContent(resolve));

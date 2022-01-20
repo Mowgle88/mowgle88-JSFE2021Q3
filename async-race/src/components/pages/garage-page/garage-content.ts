@@ -15,7 +15,7 @@ export const garageContent = (carContainer: string, countCar: string): string =>
           <option value="Axon">
         </datalist>
         <input class="input-color" type="color">
-        <button class="btn settings-btn blue-btn">Create</button>
+        <button class="btn settings-btn blue-btn create-btn">Create</button>
       </div>
       <div class="update-car">
         <input class="input-text" type="text" disabled>
