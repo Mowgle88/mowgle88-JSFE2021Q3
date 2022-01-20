@@ -1,13 +1,4 @@
-// import { getCars } from "../../methods/get-cars";
-
-// const param = [
-//   {idCar: 1, colorCar: '#ffffff', nameCar: 'Tesla'},
-//   {idCar: 2, colorCar: '#000000', nameCar: 'BMW'},
-//   {idCar: 3, colorCar: '#1ba4de', nameCar: 'Mercedes'},
-//   {idCar: 4, colorCar: '#d1de1b', nameCar: 'Lada'}
-// ];
-
-export const createCarContant = (idCar: string, colorCar: string, nameCar: string) => {
+export const createCarContent = (idCar: string, colorCar: string, nameCar: string) => {
   return `
           <div class="car-container">
             <div class="car-title">
@@ -27,13 +18,3 @@ export const createCarContant = (idCar: string, colorCar: string, nameCar: strin
             <hr>
           </div>`
 }
-
-// const addCarToContainer = () => {
-//   let str = '';
-//   param.forEach((el) => str += createCarContainer(`${el.idCar}`, `${el.colorCar}`, `${el.nameCar}`) + '\n');
-//   return  str;
-// }
-
-// getCars(1,7).then((obj) => console.log(obj));
-
-// export const carContainer = addCarToContainer();

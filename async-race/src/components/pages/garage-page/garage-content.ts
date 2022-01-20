@@ -1,6 +1,9 @@
-import { carContainer } from '../../methods/create-car';
+// import { carContainer } from '../../methods/create-car';
 
-export const garageContent = `
+export const garageContent = (carContainer: string, countCar: string): string => {
+  let pageNumber = 1;
+  let numberOfPages = Math.ceil(+countCar / 7);
+  return `
     <div class="settings">
       <div class="create-car">
         <input class="input-text" type="text" list="models" placeholder="Choose a model">
@@ -33,9 +36,10 @@ export const garageContent = `
       </div>
     </div>
     <div class="garage">
-      <h1 class="garage-title">Garage ( <span>0</span> )</h1>
-      <h3 class="garage-page-title">Page # <span>0</span></h3>
+      <h1 class="garage-title">Garage ( <span>${countCar}</span> )</h1>
+      <h3 class="garage-page-title">Page # <span>${pageNumber} of ${numberOfPages}</span></h3>
       <div class="cars-container">
         ${carContainer}
       </div>
     </div>`
+}

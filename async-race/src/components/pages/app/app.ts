@@ -30,7 +30,6 @@ class App {
   private enableRouteChange() {
     window.addEventListener('hashchange', () => {
       const hash = window.location.hash.slice(1);
-      console.log(window.location);
       App.renderNewPage(hash);
     });
   }

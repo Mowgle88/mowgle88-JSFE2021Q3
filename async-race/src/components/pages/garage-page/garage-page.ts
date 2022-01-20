@@ -1,5 +1,6 @@
 import Page from "../../core/templates/page";
 import { garageContent } from "./garage-content";
+import { returnCarContent } from "../../methods/create-car";
 
 class GaragePage extends Page {
 
@@ -8,7 +9,8 @@ class GaragePage extends Page {
   }
 
   render() {
-    this.createPage(garageContent);
+    returnCarContent().then((resolve) => this.createPage(garageContent(resolve[0], resolve[1])));
+    // this.createPage(garageContent);
     return this.container;
   }
 }
