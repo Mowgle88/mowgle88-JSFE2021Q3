@@ -1,6 +1,7 @@
 import { callApi } from './call-api';
+import { createCarContent } from '../pages/garage-page/car-container-content';
 
-export const getCars = async (page, limit) => {
+const getCars = async (page, limit) => {
   try {
     const method = 'GET';
     const url = `/garage?_page=${page}&_limit=${limit}`;
@@ -8,13 +9,21 @@ export const getCars = async (page, limit) => {
     const dataCars = response.data;
     const countCars = +response.headers['x-total-count'];
     // console.log([dataCars, countCars]);
-    // console.log([dataCars]);
-    // console.log([countCars]);
     return [dataCars, countCars];
   } catch (error) {
     console.log(error);
   }
 };
 
-// let cars = getCars(1, 7).then((obj) => obj);
-// console.log(cars);
+const addCarToContainer = (array) => {
+  const newArr = array.map((el) => createCarContent(`${el.id}`, `${el.color}`, `${el.name}`));
+  return newArr;
+};
+
+const returnCarContent = async () => {
+  const cars = await getCars(1, 7);
+  const carsContainer = addCarToContainer(cars[0]);
+  return [carsContainer.join('\n'), cars[1]];
+};
+
+export { returnCarContent };

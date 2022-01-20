@@ -1,6 +1,6 @@
 import Page from "../../core/templates/page";
 import { garageContent } from "./garage-content";
-import { returnCarContent } from "../../methods/create-cars";
+import { returnCarContent } from "../../methods/get-cars";
 import { addCar } from '../../methods/create-car';
 
 class GaragePage extends Page {
