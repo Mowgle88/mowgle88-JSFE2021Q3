@@ -1,6 +1,6 @@
 import { callApi } from './call-api';
 
-const getCar = async (integer) => {
+export const getCar = async (integer) => {
   try {
     const method = 'GET';
     const url = `/garage/${integer}`;
@@ -11,5 +11,3 @@ const getCar = async (integer) => {
     console.log(error);
   }
 };
-
-getCar(1);

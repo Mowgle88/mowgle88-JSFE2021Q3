@@ -8,7 +8,7 @@ class WinnersPage extends Page {
   }
 
   render() {
-    this.createPage(winnersContent);
+    this.createPage(winnersContent());
     return this.container;
   }
 }

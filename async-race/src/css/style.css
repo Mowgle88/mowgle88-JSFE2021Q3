@@ -151,8 +151,12 @@ h1, h2, h3 {
   position: absolute;
   bottom: 1px;
   left: 0;
-  /* left: calc(100% - 90px); */
-  /* fill: red; */
+  filter: drop-shadow(0 0 3px #d3e3fb);
+}
+
+.car-winner {
+  width: 45px;
+  height: 12px;
   filter: drop-shadow(0 0 3px #d3e3fb);
 }
 
@@ -187,4 +191,8 @@ hr {
 th,
 tr {
   padding: 10px;
+}
+
+th:first-child {
+  text-align: left;
 }
