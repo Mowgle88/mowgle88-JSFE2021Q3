@@ -11,8 +11,6 @@ const getWinners = async (page, limit) => {
     const response = await callApi(method, url);
     const dataWinners = response.data;
     const countWinners = +response.headers['x-total-count'];
-    // console.log(response);
-    // console.log([dataWinners, countWinners]);
     return [dataWinners, countWinners];
   } catch (error) {
     console.log(error);
@@ -20,51 +18,27 @@ const getWinners = async (page, limit) => {
   }
 };
 
-const getId = async (array) => {
-  const newArray = array.map((el) => [el.id]);
-  return newArray;
-};
-
-const getColor = async (array) => {
-  const newAr = array.map((el) => {
-    const car = getCar(el);
-    return [car.color, car.name];
-  });
-  return Promise.all(newAr);
-};
-
 const addWinnerToRow = async (array) => {
   if (array === null) return [''];
-  // const id = getId(array);
-  const newAr = array.map((el) => {
-    const car = getCar(el.id);
-    el.color = car.color;
-    el.name = car.name;
-  });
-  await Promise.all(newAr);
-  console.log(newAr);
+  const idCar = await array.map((el) => el.id);
+  await Promise.all(idCar);
 
-  const newArray = array.map((el) => {
-    // const car = getCar(el.id);
-    console.log(el.id);
-    return winnerRow(`${el.id}`, `${el.time}`, `${el.wins}`);
+  const winnersArray = await idCar.map((el) => {
+    const car = getCar(el);
+    return car;
   });
-  console.log(newArray);
+  const winArr = await Promise.all(winnersArray);
 
-  return newArray;
+  const contentArray = array.map((el, i) => {
+    return winnerRow(`${el.id}`, `${el.time}`, `${el.wins}`, `${winArr[i].color}`, `${winArr[i].name}`, `${i + 1}`);
+  });
+  return contentArray;
 };
 
-const returnCarContent = async () => {
+const returnWinnerContent = async () => {
   const winners = await getWinners(1, 7);
-  const idCar = await getId(winners[0]);
-  // console.log(idCar);
-  const n = await getColor(idCar);
-  console.log(n);
   const winnersRow = await addWinnerToRow(winners[0]);
-  console.log(winnersRow.join('\n'));
   return [winnersRow.join('\n'), winners[1]];
 };
 
-returnCarContent();
-
-export { returnCarContent };
+export { returnWinnerContent };

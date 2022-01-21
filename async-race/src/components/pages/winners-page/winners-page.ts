@@ -1,5 +1,6 @@
 import Page from "../../core/templates/page";
 import { winnersContent } from "./winners-content";
+import { returnWinnerContent } from "../../methods/get-winners";
 
 class WinnersPage extends Page {
 
@@ -9,6 +10,9 @@ class WinnersPage extends Page {
 
   render() {
     this.createPage(winnersContent());
+    returnWinnerContent().then((resolve) => {
+      this.createPage(winnersContent(resolve[0], resolve[1]))
+    });
     return this.container;
   }
 }
