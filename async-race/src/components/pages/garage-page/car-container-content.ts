@@ -2,8 +2,8 @@ export const createCarContent = (idCar: string, colorCar: string, nameCar: strin
   return `
           <div class="car-container">
             <div class="car-title">
-              <button id="select-btn-${idCar}" class="btn settings-btn blue-btn">Select</button>
-              <button id="remove-btn-${idCar}" class="btn settings-btn blue-btn">Remove</button>
+              <button id="select-btn-${idCar}" class="btn settings-btn blue-btn select-btn">Select</button>
+              <button id="remove-btn-${idCar}" class="btn settings-btn blue-btn remove-btn">Remove</button>
               <div id="car-brand-${idCar}" class="car-brand">${nameCar}</div>
             </div>
     
