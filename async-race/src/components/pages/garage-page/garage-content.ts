@@ -1,4 +1,3 @@
-// import { carContainer } from '../../methods/create-car';
 import { brandsCars } from "../../../brands-cars";
 
 const addOptions = (brands: Array<string>) => {
@@ -43,12 +42,3 @@ export const garageContent = (carContainer: string = '', countCar: string = '0')
       </div>
     </div>`
 }
-
-// const addOptions = () => {
-//   const inputCreate: HTMLInputElement = document.querySelector('.input-create-text') as HTMLInputElement;
-//   const inputUpdate: HTMLInputElement = document.querySelector('.input-update-text') as HTMLInputElement;
-
-//   let optionCreate =  inputCreate.options;
-//   s[s.length]= new Option('teo','teo',true);
-
-// }
