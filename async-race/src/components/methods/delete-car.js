@@ -16,7 +16,8 @@ export const delCar = () => {
   window.addEventListener('click', (e) => {
     const el = e.target;
     if (el.className.includes('remove-btn')) {
-      const n = el.id[el.id.length - 1];
+      const regexp = new RegExp(/\d/gm);
+      const n = el.id.match(regexp).join('');
       deleteCar(n);
     }
   });

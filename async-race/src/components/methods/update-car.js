@@ -21,7 +21,8 @@ export const updCar = () => {
   window.addEventListener('click', (e) => {
     const el = e.target;
     if (el.className.includes('select-btn')) {
-      const n = el.id[el.id.length - 1];
+      const regexp = new RegExp(/\d/gm);
+      const n = el.id.match(regexp).join('');
       inputName.removeAttribute('disabled');
       inputColor.removeAttribute('disabled');
       updateBtn.removeAttribute('disabled');
