@@ -5,6 +5,7 @@ import { addCar } from '../../methods/create-car';
 import { delCar } from "../../methods/delete-car";
 import { updCar } from "../../methods/update-car";
 import { addRandomCar } from "../../methods/create-random-cars";
+import { nextList } from "../../methods/next-and-prev-page";
 
 class GaragePage extends Page {
 
@@ -14,13 +15,14 @@ class GaragePage extends Page {
 
   render() {
     this.createPage(garageContent());
-    returnCarContent().then((resolve) => {
-      this.createPage(garageContent(resolve[0], resolve[1]))
+    returnCarContent(1).then((res) => {
+      this.createPage(garageContent(res[0], res[1], res[2]))
     }).then(() => {
       addCar();
       delCar();
       updCar();
       addRandomCar();
+      nextList();
     });
     return this.container;
   }

@@ -1,7 +1,7 @@
 import { callApi } from './call-api';
 import { createCarContent } from '../pages/garage-page/car-container-content';
 
-const getCars = async (page, limit) => {
+const getCars = async (page, limit = 7) => {
   try {
     const method = 'GET';
     const url = `/garage?_page=${page}&_limit=${limit}`;
@@ -21,10 +21,10 @@ const addCarToContainer = (array) => {
   return newArr;
 };
 
-const returnCarContent = async () => {
-  const cars = await getCars(1, 7);
+const returnCarContent = async (num) => {
+  const cars = await getCars(num);
   const carsContainer = addCarToContainer(cars[0]);
-  return [carsContainer.join('\n'), cars[1]];
+  return [carsContainer.join('\n'), cars[1], num];
 };
 
 export { returnCarContent };

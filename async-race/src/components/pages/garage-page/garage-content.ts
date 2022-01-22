@@ -7,8 +7,8 @@ const addOptions = (brands: Array<string>) => {
 
 const options = addOptions(brandsCars);
 
-export const garageContent = (carContainer: string = '', countCar: string = '0'): string => {
-  let pageNumber = countCar === '0' ? 0 : 1;
+export const garageContent = (carContainer: string = '', countCar: string = '0', numPage: number = 1): string => {
+  // let pageNumber = countCar === '0' ? 0 : 1;
   let numberOfPages = Math.ceil(+countCar / 7);
   return `
     <div class="settings">
@@ -36,7 +36,7 @@ export const garageContent = (carContainer: string = '', countCar: string = '0')
     </div>
     <div class="garage">
       <h1 class="garage-title">Garage ( <span>${countCar}</span> )</h1>
-      <h3 class="garage-page-title">Page # <span>${pageNumber} of ${numberOfPages}</span></h3>
+      <h3 class="garage-page-title">Page # <span>${numPage} of ${numberOfPages}</span></h3>
       <div class="cars-container">
         ${carContainer}
       </div>
