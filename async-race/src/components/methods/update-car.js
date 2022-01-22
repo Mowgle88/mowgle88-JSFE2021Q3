@@ -26,12 +26,14 @@ export const updCar = () => {
       inputName.removeAttribute('disabled');
       inputColor.removeAttribute('disabled');
       updateBtn.removeAttribute('disabled');
+      updateBtn.classList.add('blue-btn');
 
       updateBtn.addEventListener('click', () => {
         updateCar(n, inputName.value, inputColor.value);
         inputColor.setAttribute('disabled', '');
         updateBtn.setAttribute('disabled', '');
         inputName.setAttribute('disabled', '');
+        updateBtn.classList.remove('blue-btn');
       });
     }
   });

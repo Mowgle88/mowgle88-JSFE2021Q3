@@ -38,6 +38,10 @@ body {
   box-shadow: 0 0 20px #e3f6b3, 0 0 20px #e3f6b3, 0 0 20px #e3f6b3, 0 0 20px #e3f6b3;
 }
 
+.blue-btn-no-hover {
+  background: #d3e3fb;
+}
+
 .blue-btn {
   background: #d3e3fb;
 }

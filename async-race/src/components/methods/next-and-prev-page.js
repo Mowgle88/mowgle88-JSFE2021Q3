@@ -7,6 +7,7 @@ export const nextList = () => {
 
   if (+numberOfPages > 1) {
     nextBtn.removeAttribute('disabled');
+    nextBtn.classList.add('blue-btn');
   }
   // nextBtn.addEventListener('click', () => {
 

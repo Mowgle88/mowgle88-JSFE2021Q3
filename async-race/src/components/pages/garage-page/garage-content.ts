@@ -26,7 +26,7 @@ export const garageContent = (carContainer: string = '', countCar: string = '0',
           ${options}
         </datalist>
         <input class="input-color input-update-color" type="color" disabled>
-        <button class="btn settings-btn blue-btn update-btn" disabled>Update</button>
+        <button class="btn settings-btn blue-btn-no-hover update-btn" disabled>Update</button>
       </div>
       <div class="btn-container">
         <button class="btn race-btn green-btn">Race</button>
