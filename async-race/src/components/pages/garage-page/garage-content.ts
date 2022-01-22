@@ -6,7 +6,7 @@ export const garageContent = (carContainer: string = '', countCar: string = '0')
   return `
     <div class="settings">
       <div class="create-car">
-        <input class="input-text" type="text" list="models" placeholder="Choose a model">
+        <input class="input-text input-create-text" type="text" list="models" placeholder="Choose a model">
         <datalist id="models">
           <option value="Audi">
           <option value="Alfa Romeo">
@@ -14,11 +14,11 @@ export const garageContent = (carContainer: string = '', countCar: string = '0')
           <option value="Aston Martin">
           <option value="Axon">
         </datalist>
-        <input class="input-color" type="color">
+        <input class="input-color input-create-color" type="color">
         <button class="btn settings-btn blue-btn create-btn">Create</button>
       </div>
       <div class="update-car">
-        <input class="input-text" type="text" disabled>
+        <input class="input-text input-update-text" type="text" disabled>
         <datalist id="models">
           <option value="Audi">
           <option value="Alfa Romeo">
@@ -26,8 +26,8 @@ export const garageContent = (carContainer: string = '', countCar: string = '0')
           <option value="Aston Martin">
           <option value="Axon">
         </datalist>
-        <input class="input-color" type="color" disabled>
-        <button class="btn settings-btn blue-btn" disabled>Update</button>
+        <input class="input-color input-update-color" type="color" disabled>
+        <button class="btn settings-btn blue-btn update-btn" disabled>Update</button>
       </div>
       <div class="btn-container">
         <button class="btn race-btn green-btn">Race</button>

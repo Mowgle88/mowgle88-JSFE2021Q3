@@ -13,8 +13,8 @@ const createCar = async (name, color) => {
 };
 
 export const addCar = () => {
-  const inputColor = document.querySelector('.input-color');
-  const inputName = document.querySelector('.input-text');
+  const inputColor = document.querySelector('.input-create-color');
+  const inputName = document.querySelector('.input-create-text');
   document.querySelector('.create-btn').addEventListener('click', () => {
     createCar(inputName.value, inputColor.value);
   });

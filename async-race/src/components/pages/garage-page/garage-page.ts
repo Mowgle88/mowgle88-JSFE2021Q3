@@ -3,6 +3,7 @@ import { garageContent } from "./garage-content";
 import { returnCarContent } from "../../methods/get-cars";
 import { addCar } from '../../methods/create-car';
 import { delCar } from "../../methods/delete-car";
+import { updCar } from "../../methods/update-car";
 
 class GaragePage extends Page {
 
@@ -17,6 +18,7 @@ class GaragePage extends Page {
     }).then(() => {
       addCar();
       delCar();
+      updCar();
     });
     return this.container;
   }
