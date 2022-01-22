@@ -1,4 +1,12 @@
 // import { carContainer } from '../../methods/create-car';
+import { brandsCars } from "../../../brands-cars";
+
+const addOptions = (brands: Array<string>) => {
+  return brands.map((el) => `<option value="${el}">
+  `).join('');
+}
+
+const options = addOptions(brandsCars);
 
 export const garageContent = (carContainer: string = '', countCar: string = '0'): string => {
   let pageNumber = countCar === '0' ? 0 : 1;
@@ -6,25 +14,17 @@ export const garageContent = (carContainer: string = '', countCar: string = '0')
   return `
     <div class="settings">
       <div class="create-car">
-        <input class="input-text input-create-text" type="text" list="models" placeholder="Choose a model">
-        <datalist id="models">
-          <option value="Audi">
-          <option value="Alfa Romeo">
-          <option value="Alpina">
-          <option value="Aston Martin">
-          <option value="Axon">
+        <input class="input-text input-create-text" type="text" list="create-models" placeholder="Choose a model">
+        <datalist id="create-models">
+          ${options}
         </datalist>
         <input class="input-color input-create-color" type="color">
         <button class="btn settings-btn blue-btn create-btn">Create</button>
       </div>
       <div class="update-car">
-        <input class="input-text input-update-text" type="text" disabled>
-        <datalist id="models">
-          <option value="Audi">
-          <option value="Alfa Romeo">
-          <option value="Alpina">
-          <option value="Aston Martin">
-          <option value="Axon">
+        <input class="input-text input-update-text" type="text" list="update-models" disabled>
+        <datalist id="update-models">
+          ${options}
         </datalist>
         <input class="input-color input-update-color" type="color" disabled>
         <button class="btn settings-btn blue-btn update-btn" disabled>Update</button>
@@ -43,3 +43,12 @@ export const garageContent = (carContainer: string = '', countCar: string = '0')
       </div>
     </div>`
 }
+
+// const addOptions = () => {
+//   const inputCreate: HTMLInputElement = document.querySelector('.input-create-text') as HTMLInputElement;
+//   const inputUpdate: HTMLInputElement = document.querySelector('.input-update-text') as HTMLInputElement;
+
+//   let optionCreate =  inputCreate.options;
+//   s[s.length]= new Option('teo','teo',true);
+
+// }

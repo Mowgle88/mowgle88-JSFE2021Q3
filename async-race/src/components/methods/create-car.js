@@ -17,6 +17,7 @@ const addCar = () => {
   const inputName = document.querySelector('.input-create-text');
   document.querySelector('.create-btn').addEventListener('click', () => {
     createCar(inputName.value, inputColor.value);
+    inputName.value = '';
   });
 };
 
