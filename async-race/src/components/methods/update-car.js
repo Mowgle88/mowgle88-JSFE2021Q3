@@ -26,10 +26,12 @@ export const updCar = () => {
       const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
       const regexp = new RegExp(/\d/gm);
       const n = el.id.match(regexp).join('');
+      const carBrand = document.querySelector(`#car-brand-${n}`);
       inputName.removeAttribute('disabled');
       inputColor.removeAttribute('disabled');
       updateBtn.removeAttribute('disabled');
       updateBtn.classList.add('blue-btn');
+      carBrand.classList.add('car-brand-update');
 
       updateBtn.addEventListener('click', () => {
         updateCar(n, inputName.value, inputColor.value);
@@ -37,6 +39,7 @@ export const updCar = () => {
         updateBtn.setAttribute('disabled', '');
         inputName.setAttribute('disabled', '');
         updateBtn.classList.remove('blue-btn');
+        carBrand.classList.remove('car-brand-update');
         renderPage(number);
       });
     }
