@@ -137,9 +137,14 @@ h1, h2, h3 {
   cursor: pointer;
 }
 
-.btm-active {
+.btn-start-active {
   color: #e3f6b3;
   border: 2px solid #e3f6b3;
+}
+
+.btn-stop-active {
+  color: #f03210;
+  border: 2px solid #f03210;
 }
 
 .distance {

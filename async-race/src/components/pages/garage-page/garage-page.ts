@@ -6,6 +6,7 @@ import { delCar } from "../../methods/delete-car";
 import { updCar } from "../../methods/update-car";
 import { addRandomCar } from "../../methods/create-random-cars";
 import { nextList } from "../../methods/next-and-prev-page";
+import { startCar } from "../../methods/animation";
 
 class GaragePage extends Page {
 
@@ -23,6 +24,7 @@ class GaragePage extends Page {
       updCar();
       addRandomCar();
       nextList();
+      startCar();
     });
     return this.container;
   }
