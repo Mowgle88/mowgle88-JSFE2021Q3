@@ -1,4 +1,5 @@
 import { callApi } from './call-api';
+import { renderPage } from './page-rendering';
 
 const createCar = async (name, color) => {
   try {
@@ -17,6 +18,7 @@ const addCar = () => {
   const inputName = document.querySelector('.input-create-text');
   document.querySelector('.create-btn').addEventListener('click', () => {
     createCar(inputName.value, inputColor.value);
+    renderPage(1);
     inputName.value = '';
   });
 };

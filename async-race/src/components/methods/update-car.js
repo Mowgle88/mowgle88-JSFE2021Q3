@@ -1,4 +1,5 @@
 import { callApi } from './call-api';
+import { renderPage } from './page-rendering';
 
 const updateCar = async (integer, name, color) => {
   try {
@@ -7,7 +8,6 @@ const updateCar = async (integer, name, color) => {
     const body = { name, color };
     const response = await callApi(method, url, body);
     const dataCar = response.data;
-    console.log(dataCar);
     return dataCar;
   } catch (error) {
     console.log(error);
@@ -15,12 +15,15 @@ const updateCar = async (integer, name, color) => {
 };
 
 export const updCar = () => {
-  const inputColor = document.querySelector('.input-update-color');
-  const inputName = document.querySelector('.input-update-text');
-  const updateBtn = document.querySelector('.update-btn');
   window.addEventListener('click', (e) => {
+    const inputColor = document.querySelector('.input-update-color');
+    const inputName = document.querySelector('.input-update-text');
+    const updateBtn = document.querySelector('.update-btn');
     const el = e.target;
     if (el.className.includes('select-btn')) {
+      const garagePageTitle = document.querySelector('.garage-page-title');
+      const text = garagePageTitle.textContent;
+      const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
       const regexp = new RegExp(/\d/gm);
       const n = el.id.match(regexp).join('');
       inputName.removeAttribute('disabled');
@@ -34,6 +37,7 @@ export const updCar = () => {
         updateBtn.setAttribute('disabled', '');
         inputName.setAttribute('disabled', '');
         updateBtn.classList.remove('blue-btn');
+        renderPage(number);
       });
     }
   });
