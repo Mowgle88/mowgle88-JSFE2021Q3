@@ -14,8 +14,8 @@ const updateCar = async (integer, name, color) => {
   }
 };
 
-export const updCar = () => {
-  window.addEventListener('click', (e) => {
+export const updCar = async () => {
+  window.addEventListener('click', async (e) => {
     const inputColor = document.querySelector('.input-update-color');
     const inputName = document.querySelector('.input-update-text');
     const updateBtn = document.querySelector('.update-btn');
@@ -33,8 +33,8 @@ export const updCar = () => {
       updateBtn.classList.add('blue-btn');
       carBrand.classList.add('car-brand-update');
 
-      updateBtn.addEventListener('click', () => {
-        updateCar(n, inputName.value, inputColor.value);
+      updateBtn.addEventListener('click', async () => {
+        await updateCar(n, inputName.value, inputColor.value);
         inputColor.setAttribute('disabled', '');
         updateBtn.setAttribute('disabled', '');
         inputName.setAttribute('disabled', '');

@@ -13,19 +13,20 @@ const randomName = (brands, models) => {
   return `${brand}-${model}`;
 };
 
-export const addRandomCar = () => {
+export const addRandomCar = async () => {
   const generateBtn = document.querySelector('.generate-btn');
+  if (generateBtn) {
+    const arrayModelCar = Array(100)
+      .fill()
+      .map(() => randomName(brandsCars, modelsCars));
 
-  const arrayModelCar = Array(100)
-    .fill()
-    .map(() => randomName(brandsCars, modelsCars));
+    const arrayColorCar = Array(100)
+      .fill()
+      .map(() => randomColor());
 
-  const arrayColorCar = Array(100)
-    .fill()
-    .map(() => randomColor());
-
-  generateBtn.addEventListener('click', () => {
-    arrayModelCar.forEach((el, i) => createCar(el, arrayColorCar[i]));
-    renderPage(1);
-  });
+    generateBtn.addEventListener('click', async () => {
+      arrayModelCar.forEach((el, i) => createCar(el, arrayColorCar[i]));
+      renderPage(1);
+    });
+  }
 };

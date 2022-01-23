@@ -13,8 +13,8 @@ const deleteCar = async (integer) => {
   }
 };
 
-export const delCar = () => {
-  window.addEventListener('click', (e) => {
+export const delCar = async () => {
+  window.addEventListener('click', async (e) => {
     const el = e.target;
     if (el.className.includes('remove-btn')) {
       const garagePageTitle = document.querySelector('.garage-page-title');
@@ -22,7 +22,7 @@ export const delCar = () => {
       const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
       const regexp = new RegExp(/\d/gm);
       const n = el.id.match(regexp).join('');
-      deleteCar(n);
+      await deleteCar(n);
       renderPage(number);
     }
   });

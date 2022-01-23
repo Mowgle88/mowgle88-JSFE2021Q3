@@ -2,7 +2,7 @@ import { renderPage } from './page-rendering';
 
 let n = 1;
 
-const nextList = () => {
+const nextList = async () => {
   const nextBtn = document.querySelector('.next-btn');
   const garagePageTitle = document.querySelector('.garage-page-title');
   const prevBtn = document.querySelector('.prev-btn');
@@ -17,11 +17,11 @@ const nextList = () => {
     nextBtn.classList.add('blue-btn');
   }
 
-  nextBtn.addEventListener('click', () => {
+  nextBtn.addEventListener('click', async () => {
     prevBtn.removeAttribute('disabled');
     prevBtn.classList.add('blue-btn');
     n += 1;
-    renderPage(n);
+    await renderPage(n);
     if (n === +numberOfPages) {
       nextBtn.classList.remove('blue-btn');
       nextBtn.setAttribute('disabled', '');
@@ -29,7 +29,7 @@ const nextList = () => {
   });
 };
 
-const prevList = () => {
+const prevList = async () => {
   const nextBtn = document.querySelector('.next-btn');
   const prevBtn = document.querySelector('.prev-btn');
   const garagePageTitle = document.querySelector('.garage-page-title');
@@ -38,9 +38,9 @@ const prevList = () => {
   const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
   n = +number;
 
-  prevBtn.addEventListener('click', () => {
+  prevBtn.addEventListener('click', async () => {
     n -= 1;
-    renderPage(n);
+    await renderPage(n);
     if (n === +number) {
       nextBtn.classList.add('blue-btn');
       nextBtn.removeAttribute('disabled', '');

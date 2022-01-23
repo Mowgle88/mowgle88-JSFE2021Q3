@@ -15,7 +15,7 @@ const getCars = async (page, limit = 7) => {
   }
 };
 
-const addCarToContainer = (array) => {
+const addCarToContainer = async (array) => {
   if (array === null) return [''];
   const newArr = array.map((el) => createCarContent(`${el.id}`, `${el.color}`, `${el.name}`));
   return newArr;
@@ -23,6 +23,7 @@ const addCarToContainer = (array) => {
 
 const returnCarContent = async (num) => {
   const cars = await getCars(num);
+  if (cars[0] === null) return ['', cars[1], num];
   const carsContainer = addCarToContainer(cars[0]);
   return [carsContainer.join('\n'), cars[1], num];
 };

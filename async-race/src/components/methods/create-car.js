@@ -13,14 +13,16 @@ const createCar = async (name, color) => {
   }
 };
 
-const addCar = () => {
+const addCar = async () => {
   const inputColor = document.querySelector('.input-create-color');
   const inputName = document.querySelector('.input-create-text');
-  document.querySelector('.create-btn').addEventListener('click', () => {
-    createCar(inputName.value, inputColor.value);
-    renderPage(1);
-    inputName.value = '';
-  });
+  if (document.querySelector('.create-btn')) {
+    document.querySelector('.create-btn').addEventListener('click', async () => {
+      await createCar(inputName.value, inputColor.value);
+      renderPage(1);
+      inputName.value = '';
+    });
+  }
 };
 
 export { createCar, addCar };
