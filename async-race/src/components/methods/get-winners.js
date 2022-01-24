@@ -3,7 +3,7 @@ import { winnerRow } from '../pages/winners-page/winner-row';
 import { getCar } from './get-car';
 
 // const getWinners = async (page, limit, sort, order) => {
-const getWinners = async (page, limit) => {
+const getWinners = async (page, limit = 10) => {
   try {
     const method = 'GET';
     const url = `/winners?_page=${page}&_limit=${limit}`;
@@ -35,10 +35,16 @@ const addWinnerToRow = async (array) => {
   return contentArray;
 };
 
-const returnWinnerContent = async () => {
-  const winners = await getWinners(1, 7);
+const returnWinnerContent = async (num) => {
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+  const winners = await getWinners(num);
   const winnersRow = await addWinnerToRow(winners[0]);
-  return [winnersRow.join('\n'), winners[1]];
+  prevBtn.classList.remove('prev-btn-garage');
+  nextBtn.classList.remove('next-btn-garage');
+  prevBtn.classList.add('prev-btn-winners');
+  nextBtn.classList.add('next-btn-winners');
+  return [winnersRow.join('\n'), winners[1], num];
 };
 
 export { returnWinnerContent };

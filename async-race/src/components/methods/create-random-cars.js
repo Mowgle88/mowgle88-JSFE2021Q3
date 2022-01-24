@@ -28,7 +28,7 @@ export const addRandomCar = async () => {
   window.addEventListener('click', async (e) => {
     const elem = e.target;
     if (elem.className.includes('generate-btn')) {
-      const nextBtn = document.querySelector('.next-btn');
+      const nextBtn = document.querySelector('.next-btn-garage');
       const garagePageTitle = document.querySelector('.garage-page-title');
       const text = garagePageTitle.textContent;
       const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);

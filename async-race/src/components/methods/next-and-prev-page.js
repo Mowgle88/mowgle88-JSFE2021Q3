@@ -3,8 +3,8 @@ import { renderPage } from './page-rendering';
 let n = 1;
 
 const nextList = async () => {
-  const nextBtn = document.querySelector('.next-btn');
-  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn-garage');
+  const prevBtn = document.querySelector('.prev-btn-garage');
 
   const garageTitle = document.querySelector('.garage-title');
   const textTitle = garageTitle.textContent;
@@ -39,8 +39,8 @@ const nextList = async () => {
 };
 
 const prevList = async () => {
-  const nextBtn = document.querySelector('.next-btn');
-  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn-garage');
+  const prevBtn = document.querySelector('.prev-btn-garage');
   const garagePageTitle = document.querySelector('.garage-page-title');
   const text = garagePageTitle.textContent;
   // const numberOfPages = text.match(new RegExp(/\d*$/gm)).join('');

@@ -11,7 +11,7 @@ class WinnersPage extends Page {
   render() {
     this.createPage(winnersContent());
     returnWinnerContent().then((resolve) => {
-      this.createPage(winnersContent(resolve[0], resolve[1]))
+      this.createPage(winnersContent(resolve[0], resolve[1], resolve[2]))
     });
     return this.container;
   }

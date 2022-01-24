@@ -1,10 +1,10 @@
-export const winnersContent = (winnerRow: string = '', countWinners: string = '0') => {
-  let pageNumber = countWinners === '0' ? 0 : 1;
+export const winnersContent = (winnerRow: string = '', countWinners: string = '0', numPage: number = 1) => {
+  // let pageNumber = countWinners === '0' ? 0 : 1;
   let numberOfPages = Math.ceil(+countWinners / 7);
   return `
   <div class="winners">
     <h1 class="winners-title">Winners ( <span>${countWinners}</span> )</h1>
-    <h3 class="winners-page-title">Page # <span>${pageNumber} of ${numberOfPages}</span></h3>
+    <h3 class="winners-page-title">Page # <span>${numPage} of ${numberOfPages}</span></h3>
   </div>
 
   <div class="winners-container">

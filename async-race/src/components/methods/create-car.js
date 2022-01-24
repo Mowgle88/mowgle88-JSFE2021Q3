@@ -19,7 +19,7 @@ const addCar = async () => {
     if (el.className.includes('input-create-text')) {
       const inputColor = document.querySelector('.input-create-color');
       const inputName = document.querySelector('.input-create-text');
-      const nextBtn = document.querySelector('.next-btn');
+      const nextBtn = document.querySelector('.next-btn-garage');
       const garageTitle = document.querySelector('.garage-title');
       const textTitle = garageTitle.textContent;
       const numberCars = textTitle.match(new RegExp(/\d*/gm)).join('');

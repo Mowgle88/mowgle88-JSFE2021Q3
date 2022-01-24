@@ -17,7 +17,7 @@ export const delCar = async () => {
   window.addEventListener('click', async (e) => {
     const el = e.target;
     if (el.className.includes('remove-btn')) {
-      const nextBtn = document.querySelector('.next-btn');
+      const nextBtn = document.querySelector('.next-btn-garage');
       const garageTitle = document.querySelector('.garage-title');
       const textTitle = garageTitle.textContent;
       const numberCars = textTitle.match(new RegExp(/\d*/gm)).join('');
