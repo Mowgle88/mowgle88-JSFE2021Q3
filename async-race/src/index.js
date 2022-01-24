@@ -8,6 +8,7 @@ import './components/methods/create-random-cars';
 import './components/methods/delete-car';
 import './components/methods/update-car';
 import './components/methods/get-winners';
+import './components/methods/get-winner';
 import './components/methods/animation';
 import App from './components/pages/app/app';
 
