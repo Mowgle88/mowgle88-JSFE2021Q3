@@ -14,15 +14,31 @@ const createCar = async (name, color) => {
 };
 
 const addCar = async () => {
-  const inputColor = document.querySelector('.input-create-color');
-  const inputName = document.querySelector('.input-create-text');
-  if (document.querySelector('.create-btn')) {
-    document.querySelector('.create-btn').addEventListener('click', async () => {
-      await createCar(inputName.value, inputColor.value);
-      renderPage(1);
-      inputName.value = '';
-    });
-  }
+  window.addEventListener('click', async (e) => {
+    const el = e.target;
+    if (el.className.includes('input-create-text')) {
+      const inputColor = document.querySelector('.input-create-color');
+      const inputName = document.querySelector('.input-create-text');
+      const nextBtn = document.querySelector('.next-btn');
+      const garageTitle = document.querySelector('.garage-title');
+      const textTitle = garageTitle.textContent;
+      const numberCars = textTitle.match(new RegExp(/\d*/gm)).join('');
+
+      const garagePageTitle = document.querySelector('.garage-page-title');
+      const text = garagePageTitle.textContent;
+      const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
+
+      document.querySelector('.create-btn').addEventListener('click', async () => {
+        await createCar(inputName.value, inputColor.value);
+        renderPage(number);
+        inputName.value = '';
+        if (numberCars % 7 === 0) {
+          nextBtn.removeAttribute('disabled');
+          nextBtn.classList.add('blue-btn');
+        }
+      });
+    }
+  });
 };
 
 export { createCar, addCar };

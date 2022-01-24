@@ -6,7 +6,7 @@ const createPage = async (text) => {
 };
 
 export const renderPage = async (page) => {
-  returnCarContent(page).then((res) => {
+  await returnCarContent(page).then((res) => {
     createPage(garageContent(res[0], res[1], res[2]));
   });
 };

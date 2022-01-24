@@ -24,7 +24,7 @@ const addCarToContainer = async (array) => {
 const returnCarContent = async (num) => {
   const cars = await getCars(num);
   if (cars[0] === null) return ['', cars[1], num];
-  const carsContainer = addCarToContainer(cars[0]);
+  const carsContainer = await addCarToContainer(cars[0]);
   return [carsContainer.join('\n'), cars[1], num];
 };
 

@@ -13,20 +13,34 @@ const randomName = (brands, models) => {
   return `${brand}-${model}`;
 };
 
+const randomValue = () => {
+  const arrayModelCar = Array(100)
+    .fill()
+    .map(() => randomName(brandsCars, modelsCars));
+  const arrayColorCar = Array(100)
+    .fill()
+    .map(() => randomColor());
+  const arrayValue = arrayModelCar.map((el, i) => [el, arrayColorCar[i]]);
+  return arrayValue;
+};
+
 export const addRandomCar = async () => {
-  const generateBtn = document.querySelector('.generate-btn');
-  if (generateBtn) {
-    const arrayModelCar = Array(100)
-      .fill()
-      .map(() => randomName(brandsCars, modelsCars));
+  window.addEventListener('click', async (e) => {
+    const elem = e.target;
+    if (elem.className.includes('generate-btn')) {
+      const nextBtn = document.querySelector('.next-btn');
+      const garagePageTitle = document.querySelector('.garage-page-title');
+      const text = garagePageTitle.textContent;
+      const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
+      randomValue();
+      const value = randomValue();
 
-    const arrayColorCar = Array(100)
-      .fill()
-      .map(() => randomColor());
-
-    generateBtn.addEventListener('click', async () => {
-      arrayModelCar.forEach((el, i) => createCar(el, arrayColorCar[i]));
-      renderPage(1);
-    });
-  }
+      elem.addEventListener('click', async () => {
+        value.forEach((el) => createCar(el[0], el[1]));
+        renderPage(number);
+        nextBtn.removeAttribute('disabled');
+        nextBtn.classList.add('blue-btn');
+      });
+    }
+  });
 };
