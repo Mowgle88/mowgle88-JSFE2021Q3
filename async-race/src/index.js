@@ -10,6 +10,7 @@ import './components/methods/update-car';
 import './components/methods/get-winners';
 import './components/methods/get-winner';
 import './components/methods/create-winner';
+import './components/methods/delete-winner';
 // import './components/methods/start-stop-cars-engine';
 import './components/methods/animation';
 import App from './components/pages/app/app';
