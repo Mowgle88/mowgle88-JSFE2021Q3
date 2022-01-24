@@ -32,15 +32,14 @@ export const addRandomCar = async () => {
       const garagePageTitle = document.querySelector('.garage-page-title');
       const text = garagePageTitle.textContent;
       const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
-      randomValue();
       const value = randomValue();
 
-      elem.addEventListener('click', async () => {
-        value.forEach((el) => createCar(el[0], el[1]));
-        renderPage(number);
-        nextBtn.removeAttribute('disabled');
-        nextBtn.classList.add('blue-btn');
-      });
+      for await (const item of value) {
+        createCar(item[0], item[1]);
+      }
+      renderPage(number);
+      nextBtn.removeAttribute('disabled');
+      nextBtn.classList.add('blue-btn');
     }
   });
 };
