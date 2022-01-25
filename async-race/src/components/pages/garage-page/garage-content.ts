@@ -35,7 +35,7 @@ export const garageContent = (carContainer: string = '', countCar: string = '0',
       </div>
     </div>
     <div class="garage">
-      <h1 class="garage-title">Garage ( <span>${countCar}</span> )</h1>
+      <h1 class="page-title garage-title">Garage ( <span>${countCar}</span> )</h1>
       <h3 class="garage-page-title">Page # <span>${numPage} of ${numberOfPages}</span></h3>
       <div class="cars-container">
         ${carContainer}

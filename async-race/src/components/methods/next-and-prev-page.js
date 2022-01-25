@@ -2,19 +2,18 @@ import { renderPage } from './page-rendering';
 
 let n = 1;
 
-const nextList = async () => {
-  const nextBtn = document.querySelector('.next-btn-garage');
-  const prevBtn = document.querySelector('.prev-btn-garage');
+const nextListPage = async (page) => {
+  const nextBtn = document.querySelector(`.next-btn-${page}`);
+  const prevBtn = document.querySelector(`.prev-btn-${page}`);
 
-  const garageTitle = document.querySelector('.garage-title');
-  const textTitle = garageTitle.textContent;
-  const numberCars = textTitle.match(new RegExp(/\d*/gm)).join('');
-
-  const garagePageTitle = document.querySelector('.garage-page-title');
-  const text = garagePageTitle.textContent;
+  const quantity = document.querySelector(`.${page}-page-title`);
+  const text = quantity.textContent;
   const numberOfPages = text.match(new RegExp(/\d*$/gm)).join('');
-  const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
-  n = +number;
+  // const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
+
+  const pageName = document.querySelector(`.${page}-title`);
+  const textTitle = pageName.textContent;
+  const numberCars = textTitle.match(new RegExp(/\d*/gm)).join('');
 
   if (+numberCars / 7 > +n) {
     nextBtn.removeAttribute('disabled');
@@ -29,8 +28,6 @@ const nextList = async () => {
     prevBtn.classList.add('blue-btn');
     n += 1;
     await renderPage(n);
-    // console.log(n);
-    // console.log(+numberOfPages);
     if (n === +numberOfPages) {
       nextBtn.classList.remove('blue-btn');
       nextBtn.setAttribute('disabled', '');
@@ -38,19 +35,18 @@ const nextList = async () => {
   });
 };
 
-const prevList = async () => {
-  const nextBtn = document.querySelector('.next-btn-garage');
-  const prevBtn = document.querySelector('.prev-btn-garage');
-  const garagePageTitle = document.querySelector('.garage-page-title');
-  const text = garagePageTitle.textContent;
-  // const numberOfPages = text.match(new RegExp(/\d*$/gm)).join('');
+const prevListPage = async (page) => {
+  const nextBtn = document.querySelector(`.next-btn-${page}`);
+  const prevBtn = document.querySelector(`.prev-btn-${page}`);
+
+  const quantity = document.querySelector(`.${page}-page-title`);
+  const text = quantity.textContent;
   const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
   n = +number;
 
   prevBtn.addEventListener('click', async () => {
     n -= 1;
-    // console.log(n);
-    // console.log(+numberOfPages);
+
     await renderPage(n);
     if (n >= 1) {
       nextBtn.classList.add('blue-btn');
@@ -61,6 +57,29 @@ const prevList = async () => {
       prevBtn.setAttribute('disabled', '');
     }
   });
+};
+
+const nextList = async () => {
+  const pageTitle = document.querySelector('.page-title');
+  const textTitle = pageTitle.textContent;
+  const pageName = textTitle.match(new RegExp(/[A-Za-z]/gm)).join('');
+
+  if (pageName === 'Garage') {
+    await nextListPage('garage');
+  } else {
+    await nextListPage('winners');
+  }
+};
+
+const prevList = async () => {
+  const pageTitle = document.querySelector('.page-title');
+  const textTitle = pageTitle.textContent;
+  const pageName = textTitle.match(new RegExp(/[A-Za-z]/gm)).join('');
+  if (pageName === 'Garage') {
+    await prevListPage('garage');
+  } else {
+    await prevListPage('winners');
+  }
 };
 
 export { nextList, prevList };

@@ -6,9 +6,10 @@ export const startStopCarsEngine = async (integer, status) => {
     const method = 'PATCH';
     const url = `/engine?id=${integer}&status=${status}`;
     const res = await callApi(method, url);
-    console.log(res.data);
-    return res.data;
+    // console.log(res.data);
+    return [res, res.data];
   } catch (error) {
     console.log(error);
+    console.log(res);
   }
 };

@@ -3,7 +3,7 @@ export const winnersContent = (winnerRow: string = '', countWinners: string = '0
   let numberOfPages = Math.ceil(+countWinners / 7);
   return `
   <div class="winners">
-    <h1 class="winners-title">Winners ( <span>${countWinners}</span> )</h1>
+    <h1 class="page-title winners-title">Winners ( <span>${countWinners}</span> )</h1>
     <h3 class="winners-page-title">Page # <span>${numPage} of ${numberOfPages}</span></h3>
   </div>
 
