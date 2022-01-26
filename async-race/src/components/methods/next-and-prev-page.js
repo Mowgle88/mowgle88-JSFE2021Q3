@@ -46,7 +46,6 @@ const prevListPage = async (page) => {
 
   prevBtn.addEventListener('click', async () => {
     n -= 1;
-
     await renderPage(n);
     if (n >= 1) {
       nextBtn.classList.add('blue-btn');
@@ -59,27 +58,18 @@ const prevListPage = async (page) => {
   });
 };
 
-const nextList = async () => {
+const nextAndPrevList = async () => {
   const pageTitle = document.querySelector('.page-title');
   const textTitle = pageTitle.textContent;
   const pageName = textTitle.match(new RegExp(/[A-Za-z]/gm)).join('');
 
   if (pageName === 'Garage') {
     await nextListPage('garage');
-  } else {
-    await nextListPage('winners');
-  }
-};
-
-const prevList = async () => {
-  const pageTitle = document.querySelector('.page-title');
-  const textTitle = pageTitle.textContent;
-  const pageName = textTitle.match(new RegExp(/[A-Za-z]/gm)).join('');
-  if (pageName === 'Garage') {
     await prevListPage('garage');
   } else {
+    await nextListPage('winners');
     await prevListPage('winners');
   }
 };
 
-export { nextList, prevList };
+export { nextAndPrevList };

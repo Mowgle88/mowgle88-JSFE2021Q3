@@ -1,5 +1,22 @@
 import { startStopCarsEngine } from './start-stop-cars-engine';
 
+const addAnimation = (elem, t, d) => {
+  let start = Date.now();
+
+  function draw(el, timePassed) {
+    el.style.left = timePassed / (t / d) + 'px';
+  }
+
+  let timer = setInterval(function () {
+    let timePassed = Date.now() - start;
+    if (timePassed >= t) {
+      clearInterval(timer);
+      return;
+    }
+    draw(elem, timePassed);
+  }, 20);
+};
+
 export const startCar = async () => {
   window.addEventListener('click', async (e) => {
     const el = e.target;
@@ -19,20 +36,7 @@ export const startCar = async () => {
       startBt.classList.remove('btn-start-active');
       stopBt.classList.add('btn-stop-active');
 
-      let start = Date.now();
-
-      function draw(elem, timePassed) {
-        elem.style.left = timePassed / (time / dist) + 'px';
-      }
-
-      let timer = setInterval(function () {
-        let timePassed = Date.now() - start;
-        if (timePassed >= time) {
-          clearInterval(timer);
-          return;
-        }
-        draw(car, timePassed);
-      }, 20);
+      addAnimation(car, time, dist);
 
       // let stoped = await startStopCarsEngine(n, 'drive');
     }
@@ -56,23 +60,10 @@ export const startAllCars = async () => {
         let time = distance / velocity;
         let dist = document.querySelector('.distance').offsetWidth - 90;
 
-        let start = Date.now();
-
-        function draw(elem, timePassed) {
-          elem.style.left = timePassed / (time / dist) + 'px';
-        }
-
-        let timer = setInterval(function () {
-          let timePassed = Date.now() - start;
-          if (timePassed >= time) {
-            clearInterval(timer);
-            return;
-          }
-          draw(car, timePassed);
-        }, 20);
-
         startBt.classList.remove('btn-start-active');
         stopBt.classList.add('btn-stop-active');
+
+        addAnimation(car, time, dist);
 
         // let stoped = await startStopCarsEngine(n, 'drive');
       }

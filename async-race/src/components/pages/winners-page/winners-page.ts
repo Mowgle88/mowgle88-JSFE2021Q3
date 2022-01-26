@@ -1,7 +1,7 @@
 import Page from "../../core/templates/page";
 import { winnersContent } from "./winners-content";
 import { returnWinnerContent } from "../../methods/get-winners";
-import { nextList, prevList } from "../../methods/next-and-prev-page";
+import { nextAndPrevList } from "../../methods/next-and-prev-page";
 
 class WinnersPage extends Page {
 
@@ -14,8 +14,7 @@ class WinnersPage extends Page {
     returnWinnerContent().then((res) => {
       this.createPage(winnersContent(res[0], res[1], res[2]))
     }).then(() => {
-      nextList();
-      prevList();
+      nextAndPrevList();
     });
     return this.container;
   }
