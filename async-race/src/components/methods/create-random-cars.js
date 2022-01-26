@@ -25,21 +25,15 @@ const randomValue = () => {
 };
 
 export const addRandomCar = async () => {
-  window.addEventListener('click', async (e) => {
-    const elem = e.target;
-    if (elem.className.includes('generate-btn')) {
-      const nextBtn = document.querySelector('.next-btn-garage');
-      const garagePageTitle = document.querySelector('.garage-page-title');
-      const text = garagePageTitle.textContent;
-      const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
-      const value = randomValue();
-
-      for await (const item of value) {
-        createCar(item[0], item[1]);
-      }
-      renderPage(number);
-      nextBtn.removeAttribute('disabled');
-      nextBtn.classList.add('blue-btn');
-    }
-  });
+  const nextBtn = document.querySelector('.next-btn-garage');
+  const garagePageTitle = document.querySelector('.garage-page-title');
+  const text = garagePageTitle.textContent;
+  const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
+  const value = randomValue();
+  for await (const item of value) {
+    createCar(item[0], item[1]);
+  }
+  renderPage(number);
+  nextBtn.removeAttribute('disabled');
+  nextBtn.classList.add('blue-btn');
 };

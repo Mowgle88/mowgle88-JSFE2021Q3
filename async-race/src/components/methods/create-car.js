@@ -14,29 +14,22 @@ const createCar = async (name, color) => {
 };
 
 const addCar = async () => {
-  window.addEventListener('click', async (e) => {
-    const el = e.target;
-    if (el.className.includes('input-create-text')) {
-      const inputColor = document.querySelector('.input-create-color');
-      const inputName = document.querySelector('.input-create-text');
-      const nextBtn = document.querySelector('.next-btn-garage');
-      const garageTitle = document.querySelector('.garage-title');
-      const textTitle = garageTitle.textContent;
-      const numberCars = textTitle.match(new RegExp(/\d*/gm)).join('');
-
-      const garagePageTitle = document.querySelector('.garage-page-title');
-      const text = garagePageTitle.textContent;
-      const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
-
-      document.querySelector('.create-btn').addEventListener('click', async () => {
-        await createCar(inputName.value, inputColor.value);
-        renderPage(number);
-        inputName.value = '';
-        if (numberCars % 7 === 0) {
-          nextBtn.removeAttribute('disabled');
-          nextBtn.classList.add('blue-btn');
-        }
-      });
+  const inputColor = document.querySelector('.input-create-color');
+  const inputName = document.querySelector('.input-create-text');
+  const nextBtn = document.querySelector('.next-btn-garage');
+  const garageTitle = document.querySelector('.garage-title');
+  const textTitle = garageTitle.textContent;
+  const numberCars = textTitle.match(new RegExp(/\d*/gm)).join('');
+  const garagePageTitle = document.querySelector('.garage-page-title');
+  const text = garagePageTitle.textContent;
+  const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
+  document.querySelector('.create-btn').addEventListener('click', async () => {
+    await createCar(inputName.value, inputColor.value);
+    renderPage(number);
+    inputName.value = '';
+    if (numberCars % 7 === 0) {
+      nextBtn.removeAttribute('disabled');
+      nextBtn.classList.add('blue-btn');
     }
   });
 };

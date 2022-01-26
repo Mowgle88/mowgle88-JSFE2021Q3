@@ -19,13 +19,24 @@ class GaragePage extends Page {
     returnCarContent(1).then((res) => {
       this.createPage(garageContent(res[0], res[1], res[2]))
     }).then(() => {
-      addCar();
-      delCar();
-      updCar();
-      addRandomCar();
       nextAndPrevList();
-      startCar();
-      startAllCars();
+      window.addEventListener('click', async (e) => {
+        const el: HTMLElement = e.target as HTMLElement;
+        if (el.className.includes('input-create-text')) {
+          addCar();
+        } else if (el.className.includes('remove-btn')) {
+          delCar(el);
+        } else if (el.className.includes('select-btn')) {
+          updCar(el);
+        } else if (el.className.includes('generate-btn')) {
+          addRandomCar();
+        } else if (el.className.includes('btn-start')) {
+          startCar(el);
+        } else if (el.className.includes('race-btn')) {
+          startAllCars();
+        }
+      },
+      true);
     });
     return this.container;
   }

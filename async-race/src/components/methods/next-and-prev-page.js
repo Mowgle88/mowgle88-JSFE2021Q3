@@ -9,7 +9,7 @@ const nextListPage = async (page) => {
   const quantity = document.querySelector(`.${page}-page-title`);
   const text = quantity.textContent;
   const numberOfPages = text.match(new RegExp(/\d*$/gm)).join('');
-  // const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
+  const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
 
   const pageName = document.querySelector(`.${page}-title`);
   const textTitle = pageName.textContent;
@@ -22,6 +22,7 @@ const nextListPage = async (page) => {
     nextBtn.setAttribute('disabled', '');
     nextBtn.classList.remove('blue-btn');
   }
+  n = +number;
 
   nextBtn.addEventListener('click', async () => {
     prevBtn.removeAttribute('disabled');
@@ -42,7 +43,17 @@ const prevListPage = async (page) => {
   const quantity = document.querySelector(`.${page}-page-title`);
   const text = quantity.textContent;
   const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
+  // const numberOfPages = text.match(new RegExp(/\d*$/gm)).join('');
+
   n = +number;
+
+  if (+number !== 1) {
+    prevBtn.removeAttribute('disabled');
+    prevBtn.classList.add('blue-btn');
+  } else {
+    prevBtn.setAttribute('disabled', '');
+    prevBtn.classList.remove('blue-btn');
+  }
 
   prevBtn.addEventListener('click', async () => {
     n -= 1;
