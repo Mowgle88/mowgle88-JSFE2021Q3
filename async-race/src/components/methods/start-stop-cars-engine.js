@@ -10,6 +10,5 @@ export const startStopCarsEngine = async (integer, status) => {
     return [res, res.data];
   } catch (error) {
     console.log(error);
-    console.log(res);
   }
 };

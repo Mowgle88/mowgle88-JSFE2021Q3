@@ -1,4 +1,5 @@
 import { callApi } from './call-api';
+// import { startAllCars } from './animation';
 // import { renderPage } from './page-rendering';
 
 export const createWinner = async (id, wins, time) => {
@@ -12,3 +13,8 @@ export const createWinner = async (id, wins, time) => {
     console.log(error);
   }
 };
+
+// const addWinner = async () => {
+//   const res = await startAllCars();
+//   console.log(res);
+// };

@@ -29,8 +29,8 @@ export const garageContent = (carContainer: string = '', countCar: string = '0',
         <button class="btn settings-btn blue-btn-no-hover update-btn" disabled>Update</button>
       </div>
       <div class="btn-container">
-        <button class="btn race-btn green-btn">Race</button>
-        <button class="btn reset-btn green-btn">Reset</button>
+        <button class="btn race-btn green-btn green-btn-no-hover">Race</button>
+        <button class="btn reset-btn green-btn green-btn-no-hover">Reset</button>
         <button class="btn generate-btn blue-btn">Generate Cars</button>
       </div>
     </div>

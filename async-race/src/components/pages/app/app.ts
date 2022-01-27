@@ -5,7 +5,7 @@ import { addCar } from '../../methods/create-car';
 import { delCar } from "../../methods/delete-car";
 import { updCar } from "../../methods/update-car";
 import { addRandomCar } from "../../methods/create-random-cars";
-import { startCar, startAllCars } from "../../methods/animation";
+import { startCar, startAllCars, returnCar, returnAllCars } from "../../methods/animation";
 
 export const enum PageIds {
   GaragePage = 'garage-page',
@@ -54,6 +54,10 @@ class App {
         startCar(el);
       } else if (el.className.includes('race-btn')) {
         startAllCars();
+      } else if (el.className.includes('btn-stop')) {
+        returnCar(el);
+      } else if (el.className.includes('reset-btn')) {
+        returnAllCars();
       }
     });
   }

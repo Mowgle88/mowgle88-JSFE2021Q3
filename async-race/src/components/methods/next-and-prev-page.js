@@ -61,7 +61,7 @@ const flipPage = async (page) => {
     await flipPage(page);
     if (n >= 1) {
       nextBtn.classList.add('blue-btn');
-      nextBtn.removeAttribute('disabled', '');
+      nextBtn.removeAttribute('disabled');
     }
     if (n === 1) {
       prevBtn.classList.remove('blue-btn');
