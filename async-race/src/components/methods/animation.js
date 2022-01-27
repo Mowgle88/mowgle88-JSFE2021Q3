@@ -36,8 +36,8 @@ export const startCar = async (el) => {
 
 export const startAllCars = async () => {
   const cars = document.querySelectorAll('.car');
-  console.log(cars);
-  for await (const car of cars) {
+
+  const arrMap = Array.from(cars).map(async (car) => {
     const regexp = new RegExp(/\d/gm);
     const n = car.id.match(regexp).join('');
     const startBt = document.querySelector(`#btn-start-${n}`);
@@ -49,7 +49,8 @@ export const startAllCars = async () => {
     let dist = document.querySelector('.distance').offsetWidth - 90;
     startBt.classList.remove('btn-start-active');
     stopBt.classList.add('btn-stop-active');
-    addAnimation(car, time, dist);
-    // let stoped = await startStopCarsEngine(n, 'drive');
-  }
+    const res = addAnimation(car, time, dist);
+    return res;
+  });
+  await Promise.all(arrMap);
 };

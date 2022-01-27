@@ -36,14 +36,8 @@ const addWinnerToRow = async (array) => {
 };
 
 const returnWinnerContent = async (num) => {
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
   const winners = await getWinners(num);
   const winnersRow = await addWinnerToRow(winners[0]);
-  prevBtn.classList.remove('prev-btn-garage');
-  nextBtn.classList.remove('next-btn-garage');
-  prevBtn.classList.add('prev-btn-winners');
-  nextBtn.classList.add('next-btn-winners');
   return [winnersRow.join('\n'), winners[1], num];
 };
 

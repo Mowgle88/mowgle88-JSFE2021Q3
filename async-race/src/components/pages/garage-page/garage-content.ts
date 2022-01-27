@@ -40,5 +40,9 @@ export const garageContent = (carContainer: string = '', countCar: string = '0',
       <div class="cars-container">
         ${carContainer}
       </div>
+    </div>
+    <div class="prev-and-next">
+      <button class="btn prev-btn prev-btn-garage blue-btn-no-hover" disabled>Prev</button>
+      <button class="btn next-btn next-btn-garage blue-btn-no-hover" disabled>Next</button>
     </div>`
 }

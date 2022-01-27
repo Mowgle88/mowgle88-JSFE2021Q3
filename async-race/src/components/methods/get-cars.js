@@ -22,15 +22,9 @@ const addCarToContainer = async (array) => {
 };
 
 const returnCarContent = async (num) => {
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
   const cars = await getCars(num);
   if (cars[0] === null) return ['', cars[1], num];
   const carsContainer = await addCarToContainer(cars[0]);
-  prevBtn.classList.remove('prev-btn-winners');
-  nextBtn.classList.remove('next-btn-winners');
-  prevBtn.classList.add('prev-btn-garage');
-  nextBtn.classList.add('next-btn-garage');
   return [carsContainer.join('\n'), cars[1], num];
 };
 

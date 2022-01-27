@@ -22,5 +22,9 @@ export const winnersContent = (winnerRow: string = '', countWinners: string = '0
         ${winnerRow}
        </tbody>
     </table>
+  </div>
+  <div class="prev-and-next">
+    <button class="btn prev-btn prev-btn-winners blue-btn-no-hover" disabled>Prev</button>
+    <button class="btn next-btn next-btn-winners blue-btn-no-hover" disabled>Next</button>
   </div>`
 }

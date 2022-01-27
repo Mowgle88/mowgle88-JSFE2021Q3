@@ -1,5 +1,6 @@
 import { callApi } from './call-api';
 import { renderPage } from './page-rendering';
+import { setBtnAtrubute, flipPage } from './next-and-prev-page';
 
 const updateCar = async (integer, name, color) => {
   try {
@@ -15,7 +16,6 @@ const updateCar = async (integer, name, color) => {
 };
 
 export const updCar = async (el) => {
-  console.log(el);
   const inputColor = document.querySelector('.input-update-color');
   const inputName = document.querySelector('.input-update-text');
   const updateBtn = document.querySelector('.update-btn');
@@ -37,6 +37,8 @@ export const updCar = async (el) => {
     inputName.setAttribute('disabled', '');
     updateBtn.classList.remove('blue-btn');
     carBrand.classList.remove('car-brand-update');
-    renderPage(number);
+    await renderPage(number);
+    await setBtnAtrubute('garage');
+    await flipPage('garage');
   });
 };

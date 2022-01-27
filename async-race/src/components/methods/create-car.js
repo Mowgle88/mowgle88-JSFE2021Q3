@@ -1,5 +1,6 @@
 import { callApi } from './call-api';
 import { renderPage } from './page-rendering';
+import { setBtnAtrubute, flipPage } from './next-and-prev-page';
 
 const createCar = async (name, color) => {
   try {
@@ -25,7 +26,9 @@ const addCar = async () => {
   const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
   document.querySelector('.create-btn').addEventListener('click', async () => {
     await createCar(inputName.value, inputColor.value);
-    renderPage(number);
+    await renderPage(number);
+    await setBtnAtrubute('garage');
+    await flipPage('garage');
     inputName.value = '';
     if (numberCars % 7 === 0) {
       nextBtn.removeAttribute('disabled');

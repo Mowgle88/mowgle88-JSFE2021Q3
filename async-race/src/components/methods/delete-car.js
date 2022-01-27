@@ -1,5 +1,6 @@
 import { callApi } from './call-api';
 import { renderPage } from './page-rendering';
+import { setBtnAtrubute, flipPage } from './next-and-prev-page';
 
 const deleteCar = async (integer) => {
   try {
@@ -14,7 +15,6 @@ const deleteCar = async (integer) => {
 };
 
 export const delCar = async (el) => {
-  const nextBtn = document.querySelector('.next-btn-garage');
   const garageTitle = document.querySelector('.garage-title');
   const textTitle = garageTitle.textContent;
   const numberCars = textTitle.match(new RegExp(/\d*/gm)).join('');
@@ -24,47 +24,16 @@ export const delCar = async (el) => {
   const numberOfPages = text.match(new RegExp(/\d*$/gm)).join('');
   const regexp = new RegExp(/\d/gm);
   const n = el.id.match(regexp).join('');
+
   if ((+numberCars - 1) % 7 === 0 && +numberOfPages === +number) {
     await deleteCar(n);
-    renderPage(+number - 1);
+    await renderPage(+number - 1);
+    await setBtnAtrubute('garage');
+    await flipPage('garage');
   } else {
     await deleteCar(n);
-    renderPage(number);
-  }
-  if (+numberCars - 1 === 7) {
-    nextBtn.classList.remove('blue-btn');
-    nextBtn.setAttribute('disabled', '');
+    await renderPage(number);
+    await setBtnAtrubute('garage');
+    await flipPage('garage');
   }
 };
-
-// export const delCar = async () => {
-//   const removeBtns = document.querySelectorAll('.remove-btn');
-//   const nextBtn = document.querySelector('.next-btn-garage');
-//   const garageTitle = document.querySelector('.garage-title');
-//   const textTitle = garageTitle.textContent;
-//   const numberCars = textTitle.match(new RegExp(/\d*/gm)).join('');
-
-//   const garagePageTitle = document.querySelector('.garage-page-title');
-//   const text = garagePageTitle.textContent;
-//   const number = text.match(new RegExp(/# \d*/gm)).join('').slice(2);
-//   const numberOfPages = text.match(new RegExp(/\d*$/gm)).join('');
-
-//   for await (const el of removeBtns) {
-//     el.addEventListener('click', async () => {
-//       const regexp = new RegExp(/\d/gm);
-//       const n = el.id.match(regexp).join('');
-
-//       if ((+numberCars - 1) % 7 === 0 && +numberOfPages === +number) {
-//         await deleteCar(n);
-//         renderPage(+number - 1);
-//       } else {
-//         await deleteCar(n);
-//         renderPage(number);
-//       }
-//       if (+numberCars - 1 === 7) {
-//         nextBtn.classList.remove('blue-btn');
-//         nextBtn.setAttribute('disabled', '');
-//       }
-//     });
-//   }
-// };
