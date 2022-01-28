@@ -2,7 +2,7 @@ import { callApi } from './call-api';
 // import { startAllCars } from './animation';
 // import { renderPage } from './page-rendering';
 
-export const createWinner = async (id, wins, time) => {
+export const createWinner = async (id: number, wins: number, time: number) => {
   try {
     const method = 'POST';
     const url = '/winners';
@@ -11,6 +11,7 @@ export const createWinner = async (id, wins, time) => {
     return res;
   } catch (error) {
     console.log(error);
+    return
   }
 };
 

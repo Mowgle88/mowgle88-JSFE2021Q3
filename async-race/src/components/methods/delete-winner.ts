@@ -1,8 +1,8 @@
 import { callApi } from './call-api';
 
-export const getWinner = async (integer) => {
+export const deleteWinner = async (integer: number) => {
   try {
-    const method = 'GET';
+    const method = 'DELETE';
     const url = `/winners/${integer}`;
     const response = await callApi(method, url);
     const dataCar = response.data;

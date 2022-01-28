@@ -11,7 +11,7 @@ class WinnersPage extends Page {
 
   render() {
     this.createPage(winnersContent());
-    returnWinnerContent().then((res) => {
+    returnWinnerContent(1).then((res) => {
       this.createPage(winnersContent(res[0], res[1], res[2]))
     }).then(() => {
       flipPage('winners');

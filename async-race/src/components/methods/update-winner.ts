@@ -1,6 +1,6 @@
 import { callApi } from './call-api';
 
-export const updateWinner = async (id, wins, time) => {
+export const updateWinner = async (id: number, wins: number, time: number) => {
   try {
     const method = 'PUT';
     const url = `/winners/${id}`;

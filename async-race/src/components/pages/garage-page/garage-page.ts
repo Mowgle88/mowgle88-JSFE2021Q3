@@ -11,9 +11,9 @@ class GaragePage extends Page {
 
   render() {
     this.createPage(garageContent());
-    let n = (localStorage.getItem('garagePage') == null) ? 1 : localStorage.getItem('garagePage');
+    let n: number = (localStorage.getItem('garagePage') == null) ? 1 : +(localStorage.getItem('garagePage') as string);
     returnCarContent(n).then((res) => {
-      this.createPage(garageContent(res[0], res[1], res[2]))
+      this.createPage(garageContent((res[0]) as string, `${res[1]}`, res[2] as number))
     }).then(() => {
       flipPage('garage');
     });
